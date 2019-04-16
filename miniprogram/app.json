@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#f6f6f6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "捷旅房掌柜",
+    "navigationBarTextStyle": "black"
+  }
+}
