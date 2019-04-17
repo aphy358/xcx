@@ -1,4 +1,18 @@
 <!--index.wxml-->
 <view class="container">
 
+  <!-- banner 区域 -->
+  <swiper
+    autoplay="{{true}}"
+    interval="3000"
+    duration="300"
+    class='swiper-outer'
+  >
+    <block wx:for="{{bannerSwiper}}">
+      <swiper-item class='swiper-item'>
+        <image src="{{item.img}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+
 </view>
