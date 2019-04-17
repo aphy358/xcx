@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/checkinCheckout/checkinCheckout",
+    "pages/myCenter/myCenter",
+    "pages/myOrder/myOrder"
   ],
   "window": {
     "backgroundColor": "#f6f6f6",
@@ -20,13 +23,13 @@
         "selectedIconPath": "assets/img/tabBar/首页1.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/myOrder/myOrder",
         "text": "订单",
         "iconPath": "assets/img/tabBar/订单0.png",
         "selectedIconPath": "assets/img/tabBar/订单1.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/myCenter/myCenter",
         "text": "我的",
         "iconPath": "assets/img/tabBar/我的0.png",
         "selectedIconPath": "assets/img/tabBar/我的1.png"

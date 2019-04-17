@@ -30,17 +30,19 @@
 
     <view class='search-block-row' style='padding:20rpx 0;'>
       <text class='sbr-label'>时间</text>
-      <view style='height:100rpx;float:left;width:calc(100% - 160rpx);'>
-        <view style='height:50rpx;'>
-          <text class='sbr-date check-in'>04月17日</text>
-          <text class='sbr-date-text'>今天入住</text>
+      <navigator open-type="navigateTo" url='../../pages/checkinCheckout/checkinCheckout'>
+        <view style='height:100rpx;float:left;width:calc(100% - 160rpx);'>
+          <view style='height:50rpx;'>
+            <text class='sbr-date check-in'>04月17日</text>
+            <text class='sbr-date-text'>今天入住</text>
+          </view>
+          <view style='height:50rpx;'>
+            <text class='sbr-date check-out'>04月18日</text>
+            <text class='sbr-date-text'>明天离店</text>
+            <text class='sbr-date-text' style='margin-left: 30rpx;'>共1晚</text>
+          </view>
         </view>
-        <view style='height:50rpx;'>
-          <text class='sbr-date check-out'>04月18日</text>
-          <text class='sbr-date-text'>明天离店</text>
-          <text class='sbr-date-text' style='margin-left: 30rpx;'>共1晚</text>
-        </view>
-      </view>
+      </navigator>
       <icon class='iconfont icon-right-thin'></icon>
     </view>
 
