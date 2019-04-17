@@ -15,4 +15,56 @@
     </block>
   </swiper>
 
+  <!-- 条件搜索栏 -->
+  <view class='search-block-outer'>
+    <view class='search-block-row'>
+      <text class='sbr-label'>目的地</text>
+      <input 
+        style='font-weight:bold;font-size:36rpx;' 
+        placeholder='请选择目的地' 
+        placeholder-style='color:#D8D8DC;' 
+        value='深圳' disabled>
+      </input>
+      <icon class='iconfont icon-right-thin'></icon>
+    </view>
+
+    <view class='search-block-row' style='padding:20rpx 0;'>
+      <text class='sbr-label'>时间</text>
+      <view style='height:100rpx;float:left;width:calc(100% - 160rpx);'>
+        <view style='height:50rpx;'>
+          <text class='sbr-date check-in'>04月17日</text>
+          <text class='sbr-date-text'>今天入住</text>
+        </view>
+        <view style='height:50rpx;'>
+          <text class='sbr-date check-out'>04月18日</text>
+          <text class='sbr-date-text'>明天离店</text>
+          <text class='sbr-date-text' style='margin-left: 30rpx;'>共1晚</text>
+        </view>
+      </view>
+      <icon class='iconfont icon-right-thin'></icon>
+    </view>
+
+    <view class='search-block-row'>
+      <text class='sbr-label'>搜索</text>
+      <input 
+        placeholder='关键字/酒店/地址' 
+        placeholder-style='color:#D8D8DC;' 
+        disabled>
+      </input>
+      <icon class='iconfont icon-right-thin'></icon>
+    </view>
+
+    <view class='search-block-row'>
+      <text class='sbr-label'>价格钻级</text>
+      <input 
+        placeholder='价格不限/钻级不限' 
+        placeholder-style='color:#D8D8DC;' 
+        disabled>
+      </input>
+      <icon class='iconfont icon-right-thin'></icon>
+    </view>
+
+    <button class='sb-btn'>酒店查询</button>
+  </view>
+
 </view>
