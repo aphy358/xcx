@@ -68,7 +68,7 @@
 }
 
 .sb-btn{
-  margin: 40rpx 0 20rpx;
+  margin: 30rpx 0 20rpx;
   background: #1FC756;
   color: white;
 }
