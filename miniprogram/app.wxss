@@ -2,17 +2,11 @@
 @import "./assets/fonts/iconfont.wxss";
 
 page {
-  background: #f6f6f6;
+  background: #F0EFF5;
   font-size: 28rpx;
   color: #333;
 }
 
-.page-title{
-  font-size: 32rpx;
-  height: 88rpx;
-  line-height: 88rpx;
-  text-align: center;
-  background: #ff7625;
-  color: white;
-  padding: 0 20rpx;
+button::after{
+  border: none;
 }
