@@ -1,13 +1,12 @@
 .top-outer{
-  padding: 60rpx;
   background-image: linear-gradient(to bottom, rgba(53, 101, 132, 0.5), rgba(247, 216, 226, 0.3));
-  overflow: hidden;
+  padding: 60rpx;
 }
 
 .user-img{
   width: 100rpx;
   height: 100rpx;
-  z-index: 99;
+  border-radius:50rpx;
 }
 
 
