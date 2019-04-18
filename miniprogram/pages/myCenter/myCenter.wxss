@@ -1,12 +1,79 @@
 .top-outer{
-  background-image: linear-gradient(to bottom, rgba(53, 101, 132, 0.5), rgba(247, 216, 226, 0.3));
-  padding: 60rpx;
+  background: #F09576;
+  padding: 60rpx 40rpx;
+  overflow: hidden;
 }
 
 .user-img{
+  float: left;
   width: 100rpx;
   height: 100rpx;
-  border-radius:50rpx;
+  border-radius: 50rpx;
+  border: 4rpx solid white;
+}
+
+.user-info-wrap{
+  float: left;
+  padding-left: 30rpx;
+  width: calc(100% - 140rpx);
+}
+
+.user-info-row{
+  overflow: hidden;
+}
+
+.user-name{
+  color: white;
+  font-size: 36rpx;
+}
+
+.icon-shezhi{
+  color: white;
+  font-size: 42rpx;
+  float: right;
+}
+
+.info-badge-item{
+  position: relative;
+  float: left;
+  height: 40rpx;
+  border-radius: 23rpx;
+  background: #F0D7C8;
+  color: #9C481F;
+  margin-right: 20rpx;
+  padding: 0 6rpx;
+}
+
+.info-badge-v{
+  float: left;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #F0D7C8;
+  background: #D98970;
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  border-radius: 19rpx;
+  margin-top: 4rpx;
+}
+
+.info-badge-text{
+  float: left;
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin: 0 10rpx;
+}
+
+.info-badge-item .icon-right-thin{
+  float: left;
+  position: relative;
+  left: -6rpx;
+  font-size: 12rpx;
+  font-weight: bold;
+  height: 40rpx;
+  line-height: 40rpx;
 }
 
 

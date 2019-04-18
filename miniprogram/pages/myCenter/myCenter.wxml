@@ -1,6 +1,25 @@
 <!-- 顶部个人信息 -->
 <view class='top-outer'>
   <image class='user-img' src='{{avatarUrl}}'></image>
+  <view class='user-info-wrap'>
+    <view class='user-info-row'>
+      <text class='user-name'>微信用户</text>
+      <icon class='iconfont icon-shezhi' size='6'></icon>
+    </view>
+
+    <view class='user-info-row' style='margin-top:10rpx;'>
+      <view class='info-badge-item'>
+        <text class='info-badge-v'>V</text>
+        <text class='info-badge-text' style='font-weight:bold;'>普卡会员</text>
+        <text class='iconfont icon-right-thin'></text>
+      </view>
+
+      <view class='info-badge-item'>
+        <text class='info-badge-text' style='margin-left:18rpx;'>信用分200</text>
+        <text class='iconfont icon-right-thin'></text>
+      </view>
+    </view>
+  </view>
 </view>
 
 <view class="my-center-content">
