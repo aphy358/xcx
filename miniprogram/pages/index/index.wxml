@@ -3,7 +3,7 @@
 
   <!-- banner 区域 -->
   <swiper
-    autoplay="{{true}}"
+    autoplay="{{false}}"
     interval="3000"
     duration="300"
     class='swiper-outer'

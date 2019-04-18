@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    avatarUrl: './user-unlogin.png',
   },
 
   /**

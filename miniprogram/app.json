@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/myCenter/myCenter",
     "pages/myOrder/myOrder",
     "pages/index/index",
-    "pages/checkinCheckout/checkinCheckout",
-    "pages/myCenter/myCenter"
+    "pages/checkinCheckout/checkinCheckout"
   ],
   "window": {
     "backgroundColor": "#F0EFF5",

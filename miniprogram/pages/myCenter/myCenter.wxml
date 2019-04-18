@@ -1,2 +1,41 @@
-<!--miniprogram/pages/myCenter/myCenter.wxml-->
-<text>个人中心</text>
+<!-- 顶部个人信息 -->
+<view class='top-outer'>
+  <image class='user-img' src='{{avatarUrl}}'></image>
+</view>
+
+<view class="my-center-content">
+  <view class="cell-list">
+    <view class="per-cell">
+      <i class="iconfont icon-jibenxinxi icon-l blue"></i>
+      <span class="icon-txt">我的订单</span>
+      <i class="iconfont icon-right-thin icon-r"></i>
+    </view>
+    <view class="per-cell">
+      <i class="iconfont icon-shuoming icon-l jade-green"></i>
+      <span class="icon-txt no-border">个人信息</span>
+      <i class="iconfont icon-right-thin icon-r no-border"></i>
+    </view>
+  </view>
+  
+  <view class="cell-list">
+    <view class="per-cell">
+      <i class="iconfont icon-info icon-l blue"></i>
+      <span class="icon-txt">关于捷旅</span>
+      <i class="iconfont icon-right-thin icon-r"></i>
+    </view>
+    <view class="per-cell">
+      <i class="iconfont icon-wode icon-l green"></i>
+      <span class="icon-txt no-border">登录房掌柜</span>
+      <i class="iconfont icon-right-thin icon-r no-border"></i>
+    </view>
+  </view>
+  
+  <view class="cell-list">
+    <view class="per-cell">
+      <i class="iconfont icon-tuichu icon-l red"></i>
+      <span class="icon-txt no-border">退出登录</span>
+      <i class="iconfont icon-right-thin icon-r no-border"></i>
+    </view>
+  </view>
+
+</view>

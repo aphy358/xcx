@@ -20,17 +20,17 @@
       </view>
     </view>
 
-    <view style='padding-left:78rpx;color:#999;'>
+    <view style='padding-left:68rpx;color:#666;'>
       <view style='margin:20rpx 0;'>
         <text>特价房</text>
         <text style='float:right;color:orange;'>等待支付</text>
       </view>
-      <view style='margin:20rpx 0;'>
+      <view style='margin-top:20rpx;'>
         <text>4月18日(入住)-4月19日(离店) 1晚/1间</text>
       </view>
       <view style='margin-top:30rpx;'>
-        <button class='order-btn' style='color:white;background:#FE5E50;border:none;'>去支付</button>
-        <button class='order-btn'>取消订单</button>
+        <text class='order-btn' style='color:white;background:#FE5E50;border:none;'>去支付</text>
+        <text class='order-btn'>取消订单</text>
       </view>
     </view>
   </view>
@@ -45,12 +45,12 @@
       </view>
     </view>
 
-    <view style='padding-left:78rpx;color:#999;'>
+    <view style='padding-left:68rpx;color:#666;'>
       <view style='margin:20rpx 0;'>
         <text>特价房</text>
         <text style='float:right;color:green;'>已支付</text>
       </view>
-      <view style='margin:20rpx 0;'>
+      <view style='margin-top:20rpx;'>
         <text>4月18日(入住)-4月19日(离店) 1晚/1间</text>
       </view>
     </view>
@@ -66,35 +66,15 @@
       </view>
     </view>
 
-    <view style='padding-left:78rpx;color:#999;'>
+    <view style='padding-left:68rpx;color:#666;'>
       <view style='margin:20rpx 0;'>
         <text>特价房</text>
-        <text style='float:right;color:green;'>已支付</text>
+        <text style='float:right;color:grayed;'>已取消</text>
       </view>
-      <view style='margin:20rpx 0;'>
+      <view style='margin-top:20rpx;'>
         <text>4月18日(入住)-4月19日(离店) 1晚/1间</text>
       </view>
     </view>
   </view>
-
-  <view class='order-item'>
-    <view style='overflow:hidden;margin-top:-10rpx;'>
-      <icon class='iconfont icon-hotel'></icon>
-      <text class='hotel-name'>深圳大禹酒店</text>
-      <view class='hotel-price'>
-        <text style='font-size: 24rpx;'>￥</text>
-        <text style='font-size: 34rpx;'>99</text>
-      </view>
-    </view>
-
-    <view style='padding-left:78rpx;color:#999;'>
-      <view style='margin:20rpx 0;'>
-        <text>特价房</text>
-        <text style='float:right;color:green;'>已支付</text>
-      </view>
-      <view style='margin:20rpx 0;'>
-        <text>4月18日(入住)-4月19日(离店) 1晚/1间</text>
-      </view>
-    </view>
-  </view>
+  
 </view>

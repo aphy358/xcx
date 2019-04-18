@@ -1,1 +1,84 @@
-/* miniprogram/pages/myCenter/myCenter.wxss */
+.top-outer{
+  padding: 60rpx;
+  background-image: linear-gradient(to bottom, rgba(53, 101, 132, 0.5), rgba(247, 216, 226, 0.3));
+  overflow: hidden;
+}
+
+.user-img{
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 99;
+}
+
+
+.cell-list {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.per-cell {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  display: flex;
+}
+
+.per-cell .iconfont.icon-l {
+  padding-right: 20rpx;
+}
+
+.per-cell .iconfont.icon-r {
+  float: right;
+  font-size: 24rpx;
+  color:#ccc;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.per-cell .iconfont.icon-r.no-border {
+  border: none;
+}
+
+.icon-txt {
+  display: inline-block;
+  flex: 1;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.icon-txt.no-border {
+  border: none;
+}
+
+.hot-line {
+  background-color: transparent;
+  position: fixed;
+  bottom: 20rpx;
+  left: 0;
+  display: block;
+  width: 100%;
+  color: #747477;
+  text-align: center;
+}
+
+.my-center-content{
+  font-size: 30rpx;
+}
+
+.my-center-content .iconfont{
+  font-size: 36rpx;
+}
+
+.my-center-content .blue {
+  color: #92bddb;
+}
+
+.my-center-content .jade-green {
+  color: #818a0b;
+}
+
+.my-center-content .green {
+  color: green;
+}
+
+.my-center-content .red {
+  color: #ff0000;
+}
