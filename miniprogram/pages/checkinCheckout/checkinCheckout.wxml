@@ -23,7 +23,8 @@
 
       <view class='tr' wx:for="{{ m.weeks.length }}" wx:for-index="j" wx:for-item="week">
         <view wx:for="{{ m.weeks[j] }}" wx:for-index="k" wx:for-item="day"
-          class="td {{ day.dayClass }}"
+          class="td {{ day.dayClass }}" 
+          bindtap='clickOneDay' data-day="{{ day }}" data-m="{{ m }}"
         >
 
           <text class="{{ day.dayTextClass }}">{{ day.festText || day.today || day.day }}</text>

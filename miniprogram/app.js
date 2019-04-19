@@ -1,7 +1,9 @@
 //app.js
 import './plugins/dateFormat.js'
+import store from './plugins/store/index.js'
+import { addDays } from './plugins/util.js'
 
-App({
+App(store.createApp({
   onLaunch: function () {
     
     if (!wx.cloud) {
@@ -13,6 +15,8 @@ App({
     }
 
     this.globalData = {
+      checkin: addDays(new Date),
+      checkout: addDays(new Date, 1),
     }
   }
-})
+}))

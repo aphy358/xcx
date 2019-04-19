@@ -97,9 +97,12 @@
 }
 
 .calendar-body .table .tr .td .circle{
+  display: block;
   position: relative;
   z-index: 9;
+  overflow: hidden;
 
+  margin: auto;
   width: 56rpx;
   height: 56rpx;
   line-height: 56rpx;

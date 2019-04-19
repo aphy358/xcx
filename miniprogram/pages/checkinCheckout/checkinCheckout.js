@@ -1,28 +1,28 @@
 // miniprogram/pages/checkinCheckout.js
 import { getMonthsData } from './getMonthsData.js'
 import { formatDateTwo, addDays } from '../../plugins/util.js'
+import store from '../../plugins/store/index.js'
 
-Page({
+Page(store.createPage({
 
   /**
    * 页面的初始数据
    */
   data: {
     showMonths: [],
-    checkin: null,
-    checkout: null,
+  },
+
+  // 依赖的全局状态属性 这些状态会被绑定到data上
+  globalData: ['checkin', 'checkout'],
+
+  watch: {
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let monthData = getMonthsData()
-    this.processData(monthData)
-
-    this.setData({
-      showMonths: monthData,
-    })
+    this.init()
   },
 
   /**
@@ -74,17 +74,32 @@ Page({
 
   },
 
+  // 初始化
+  init(){
+    let monthData = getMonthsData()
+    this.processData(monthData)
+
+    this.setData({
+      showMonths: monthData,
+    })
+  },
+
 
   // 点击某一天
-  clickOneDay: function(disable, m, _day) {
-    if (disable) return false;
+  clickOneDay(event) {
+    let day = event.currentTarget.dataset.day
+    let m = event.currentTarget.dataset.m
+    
+    if (this.ifDisable(day)) return false;
 
-    let dayStr = addDays(m.year + '/' + m.month + '/' + _day.day)
+    let dayStr = addDays(m.year + '/' + m.month + '/' + day.day)
 
     if (this.data.checkout) {
       // 当入离日期都有的时候，则将当前被点击的日期设置为入住日期，同时清空离店日期
-      this.data.checkin = dayStr
-      this.data.checkout = ''
+      this.setData({
+        checkin: dayStr,
+        checkout: '',
+      })
     } else {
       // 当目前只有入住日期的时候，如果被点击的日期比入住日期小，则将被点击日期设置为入住日期；
       // 如果被点击日期大于入住日期，则将被点击日期设置为离店日期，然后跳转到上一个页面；
@@ -92,27 +107,27 @@ Page({
       let dayClicked = +new Date(formatDateTwo(dayStr))
 
       if (dayClicked <= checkin) {
-        this.data.checkin = dayStr
+        this.setData({
+          checkin: dayStr,
+        })
       } else {
-        this.data.checkout = dayStr
+        // this.data.checkout = dayStr
+        this.setData({
+          checkout: dayStr,
+        })
 
         // 将入离日期设置到 store
-        this.$store.commit(`setCommonState`, { k: 'checkin', v: this.data.checkin })
-        this.$store.commit(`setCommonState`, { k: 'checkout', v: this.data.checkout })
-
-        // 延迟返回上一个页面
-        let _this = this
-        setTimeout(function () {
-          window.historyObj.arr.pop()
-          _this.$router.go(-1)
-        }, 200)
+        store.dispatch('checkin', this.data.checkin);
+        store.dispatch('checkout', this.data.checkout);
       }
     }
+
+    this.init()
   },
 
 
   // 检查这一天是否不可点，有两三种情况不可点：1、日期小于今天（境外是小于明天） 2、当离店日期还没选的时，比入住日期大15天以上的日期  3、日期比今天大180天以上
-  ifDisable: function(day) {
+  ifDisable(day) {
     let dayStr = day.dayStr
     let minDate =
       this.getCityType == 3
@@ -142,7 +157,7 @@ Page({
 
 
   // 检查 dayStr，如果其日期值等于 getCheckin 则返回1，如等于 getCheckout 则返回2，否则返回0
-  checkDayStr: function(day) {
+  checkDayStr(day) {
     let dayStr = day.dayStr
 
     if (dayStr) {
@@ -195,4 +210,4 @@ Page({
       }
     }
   }
-})
+}))
