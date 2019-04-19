@@ -10,6 +10,7 @@ Page(store.createPage({
    */
   data: {
     showMonths: [],
+    monthData: null,
   },
 
   // 依赖的全局状态属性 这些状态会被绑定到data上
@@ -22,6 +23,7 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.monthData = getMonthsData()
     this.init()
   },
 
@@ -76,11 +78,9 @@ Page(store.createPage({
 
   // 初始化
   init(){
-    let monthData = getMonthsData()
-    this.processData(monthData)
-
+    this.processData(this.data.monthData)
     this.setData({
-      showMonths: monthData,
+      showMonths: this.data.monthData,
     })
   },
 
