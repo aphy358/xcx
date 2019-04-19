@@ -14,8 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let monthData = getMonthsData()
+
+    this.processData(monthData)
+
     this.setData({
-      showMonths: getMonthsData()
+      showMonths: monthData
     })
   },
 
@@ -151,5 +155,42 @@ Page({
     }
 
     return 0;
+  },
+
+  // 处理数据，使之适应模板
+  processData(data){
+    for (let i = 0; i < data.length; i++) {
+      const month = data[i]
+      
+      for (let j = 0; j < month.weeks.length; j++) {
+        const week = month.weeks[j]
+
+        for (let k = 0; k < week.length; k++) {
+          const day = week[k]
+          let dayClass = []
+          let dayTextClass = []
+          let dayCheckinClass = []
+
+          day.checkDayStr = this.checkDayStr(day)
+
+          if(this.ifDisable(day))         dayClass.push('disable')
+          if(day.festText)                dayClass.push('festival')
+          if(day.checkDayStr)             dayClass.push('text-white')
+          if(k % 7 == 0 || k % 7 == 6)    dayClass.push('weekend')
+
+          if(day.festText || day.today)   dayTextClass.push('small-text')
+          if(day.checkDayStr)             dayTextClass.push('circle')
+
+          if(day.checkDayStr)             dayCheckinClass.push('bg-circle')
+          if(day.checkDayStr == 1)        dayCheckinClass.push('checkin')
+          if(day.checkDayStr == 2)        dayCheckinClass.push('checkout')
+          if(day.today)                   dayCheckinClass.push('today')
+
+          day.dayClass                  = dayClass.join(' ')
+          day.dayTextClass              = dayTextClass.join(' ')
+          day.dayCheckinClass           = dayCheckinClass.join(' ')
+        }
+      }
+    }
   }
 })
