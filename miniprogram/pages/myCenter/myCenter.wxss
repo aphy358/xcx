@@ -8,7 +8,7 @@
   float: left;
   width: 100rpx;
   height: 100rpx;
-  border-radius: 50rpx;
+  border-radius: 100rpx;
   border: 4rpx solid white;
 }
 
