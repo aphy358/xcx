@@ -1,4 +1,6 @@
 //app.js
+import './plugins/dateFormat.js'
+
 App({
   onLaunch: function () {
     
@@ -10,6 +12,7 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+    }
   }
 })

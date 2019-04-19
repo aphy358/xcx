@@ -1,5 +1,6 @@
 // miniprogram/pages/checkinCheckout.js
 import { getMonthsData } from './getMonthsData.js'
+import { formatDateTwo, addDays } from '../../plugins/util.js'
 
 Page({
 
@@ -7,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showMonths: []
+    showMonths: [],
+    checkin: null,
+    checkout: null,
   },
 
   /**
@@ -15,11 +18,10 @@ Page({
    */
   onLoad: function (options) {
     let monthData = getMonthsData()
-
     this.processData(monthData)
 
     this.setData({
-      showMonths: monthData
+      showMonths: monthData,
     })
   },
 
@@ -79,24 +81,24 @@ Page({
 
     let dayStr = addDays(m.year + '/' + m.month + '/' + _day.day)
 
-    if (this.checkout) {
+    if (this.data.checkout) {
       // 当入离日期都有的时候，则将当前被点击的日期设置为入住日期，同时清空离店日期
-      this.checkin = dayStr
-      this.checkout = ''
+      this.data.checkin = dayStr
+      this.data.checkout = ''
     } else {
       // 当目前只有入住日期的时候，如果被点击的日期比入住日期小，则将被点击日期设置为入住日期；
       // 如果被点击日期大于入住日期，则将被点击日期设置为离店日期，然后跳转到上一个页面；
-      let checkin = +new Date(formatDateTwo(this.checkin))
+      let checkin = +new Date(formatDateTwo(this.data.checkin))
       let dayClicked = +new Date(formatDateTwo(dayStr))
 
       if (dayClicked <= checkin) {
-        this.checkin = dayStr
+        this.data.checkin = dayStr
       } else {
-        this.checkout = dayStr
+        this.data.checkout = dayStr
 
         // 将入离日期设置到 store
-        this.$store.commit(`setCommonState`, { k: 'checkin', v: this.checkin })
-        this.$store.commit(`setCommonState`, { k: 'checkout', v: this.checkout })
+        this.$store.commit(`setCommonState`, { k: 'checkin', v: this.data.checkin })
+        this.$store.commit(`setCommonState`, { k: 'checkout', v: this.data.checkout })
 
         // 延迟返回上一个页面
         let _this = this
@@ -123,8 +125,8 @@ Page({
 
       if (d1 < d2 || d1 - d2 > 180 * 24 * 60 * 60 * 1000) return true
 
-      if (!this.checkout) {
-        let d3 = +new Date(formatDateTwo(this.checkin))
+      if (!this.data.checkout) {
+        let d3 = +new Date(formatDateTwo(this.data.checkin || ''))
         if (d1 - d3 > 15 * 24 * 60 * 60 * 1000) {
           return true
         }
@@ -145,8 +147,8 @@ Page({
 
     if (dayStr) {
       let d1 = +new Date(formatDateTwo(dayStr))
-      let d2 = +new Date(formatDateTwo(this.checkin || ''))
-      let d3 = +new Date(formatDateTwo(this.checkout || ''))
+      let d2 = +new Date(formatDateTwo(this.data.checkin || ''))
+      let d3 = +new Date(formatDateTwo(this.data.checkout || ''))
 
       if (d1 == d2) return 1
       if (d1 == d3) return 2

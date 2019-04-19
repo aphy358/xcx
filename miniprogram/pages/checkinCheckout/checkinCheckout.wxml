@@ -23,18 +23,15 @@
 
       <view class='tr' wx:for="{{ m.weeks.length }}" wx:for-index="j" wx:for-item="week">
         <view wx:for="{{ m.weeks[j] }}" wx:for-index="k" wx:for-item="day"
-          class="td {{ ifDisable(day) ? 'disable' : '' }} {{ day.festText ? 'festival' : '' }} {{ checkDayStr(day) ? 'text-white': '' }} {{ k % 7 == 0 || k % 7 == 6 ? 'weekend' : '' }}"
+          class="td {{ day.dayClass }}"
         >
 
-          <view class="{{ day.festText || day.today ? 'small-text' : '' }}{{ checkDayStr(day) ? 'circle' : '' }}"
-          >{{ day.festText || day.today || day.day }}</view>
+          <text class="{{ day.dayTextClass }}">{{ day.festText || day.today || day.day }}</text>
 
-          <span wx:if="{{ checkDayStr(day) }}" 
-            class="{{ checkDayStr(day) == 1 ? 'checkin' : '' }} {{ checkDayStr(day) == 2 ? 'checkout' : '' }} {{ checkDayStr(day) ? 'bg-circle' : '' }} {{ day.today ? 'today' : '' }}"
-          ></span>
+          <text wx:if="{{ day.checkDayStr }}" class="{{ day.dayCheckinClass }}"></text>
 
-          <span wx:if="{{ checkDayStr(day) == 1 }}" class="checkin-text">入住</span>
-          <span wx:if="{{ checkDayStr(day) == 2 }}" class="checkout-text">离店</span>
+          <text wx:if="{{ day.checkDayStr == 1 }}" class="checkin-text">入住</text>
+          <text wx:if="{{ day.checkDayStr == 2 }}" class="checkout-text">离店</text>
 
         </view>
       </view>
