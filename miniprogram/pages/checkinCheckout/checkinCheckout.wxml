@@ -1,2 +1,44 @@
-<!--miniprogram/pages/checkinCheckout.wxml-->
-<text>日期选择</text>
+<view class="calendar-week-title">
+  <view class='table'>
+    <view class='tr'>
+      <view class='th' style='color:#1FC756;'>日</view>
+      <view class='th'>一</view>
+      <view class='th'>二</view>
+      <view class='th'>三</view>
+      <view class='th'>四</view>
+      <view class='th'>五</view>
+      <view class='th' style='color:#1FC756;'>六</view>
+    </view>
+  </view>
+</view> 
+
+
+<view class="calendar-body-wrap">
+
+  <view wx:for="{{ showMonths }}" wx:for-index="i" wx:for-item="m" class="calendar-body">
+    <view class='table'>
+      <view class='tr'>
+        <view class='th'><h5 id="first-month">{{ m.year }}年{{ m.month }}月</h5></view>
+      </view>
+
+      <view class='tr' wx:for="{{ m.weeks.length }}" wx:for-index="j" wx:for-item="week">
+        <view wx:for="{{ m.weeks[j] }}" wx:for-index="k" wx:for-item="day"
+          class="td {{ ifDisable(day) ? 'disable' : '' }} {{ day.festText ? 'festival' : '' }} {{ checkDayStr(day) ? 'text-white': '' }} {{ k % 7 == 0 || k % 7 == 6 ? 'weekend' : '' }}"
+        >
+
+          <view class="{{ day.festText || day.today ? 'small-text' : '' }}{{ checkDayStr(day) ? 'circle' : '' }}"
+          >{{ day.festText || day.today || day.day }}</view>
+
+          <span wx:if="{{ checkDayStr(day) }}" 
+            class="{{ checkDayStr(day) == 1 ? 'checkin' : '' }} {{ checkDayStr(day) == 2 ? 'checkout' : '' }} {{ checkDayStr(day) ? 'bg-circle' : '' }} {{ day.today ? 'today' : '' }}"
+          ></span>
+
+          <span wx:if="{{ checkDayStr(day) == 1 }}" class="checkin-text">入住</span>
+          <span wx:if="{{ checkDayStr(day) == 2 }}" class="checkout-text">离店</span>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
