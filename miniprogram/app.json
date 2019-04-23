@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/hotelMap/hotelMap",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
     "pages/myOrder/myOrder"
