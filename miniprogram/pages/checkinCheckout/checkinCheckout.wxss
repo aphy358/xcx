@@ -80,7 +80,7 @@
 }
 
 .calendar-body .table .tr .td.disable{
-  color: #999;
+  color: #ccc;
 }
 
 .calendar-body .table .tr .td p{
