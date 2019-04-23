@@ -56,5 +56,14 @@ Page({
 
   onLoad: function() {
   },
+
+  openMap(){
+    wx.openLocation({
+      latitude: 23.099994,
+      longitude: 113.324520,
+      scale: 14,
+      name: '腾讯微信总部'
+    })
+  }
   
 })

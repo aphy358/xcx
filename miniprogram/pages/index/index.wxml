@@ -17,7 +17,7 @@
 
   <!-- 条件搜索栏 -->
   <view class='search-block-outer'>
-    <view class='search-block-row'>
+    <view class='search-block-row' bindtap='openMap'>
       <text class='sbr-label'>目的地</text>
       <input 
         style='font-weight:bold;font-size:36rpx;' 
