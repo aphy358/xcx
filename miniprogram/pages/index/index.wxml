@@ -17,14 +17,9 @@
 
   <!-- 条件搜索栏 -->
   <view class='search-block-outer'>
-    <view class='search-block-row'>
+    <view class='search-block-row' bindtap='openMap'>
       <text class='sbr-label'>目的地</text>
-      <input 
-        style='font-weight:bold;font-size:36rpx;' 
-        placeholder='请选择目的地' 
-        placeholder-style='color:#D8D8DC;' 
-        value='深圳' disabled>
-      </input>
+      <view class='sbr-location'>深圳</view>
       <icon class='iconfont icon-right-thin'></icon>
     </view>
 
@@ -48,21 +43,13 @@
 
     <view class='search-block-row'>
       <text class='sbr-label'>搜索</text>
-      <input 
-        placeholder='关键字/酒店/地址' 
-        placeholder-style='color:#D8D8DC;' 
-        disabled>
-      </input>
+      <view class="sbr-input {{ keyword ? '' : 'pholder' }}">{{ keyword || '关键字/酒店/地址' }}</view>
       <icon class='iconfont icon-right-thin'></icon>
     </view>
 
-    <view class='search-block-row'>
+    <view class='search-block-row' bindtap='showPriceFilter'>
       <text class='sbr-label'>价格钻级</text>
-      <input 
-        placeholder='价格不限/钻级不限' 
-        placeholder-style='color:#D8D8DC;' 
-        disabled>
-      </input>
+      <view class="sbr-input {{ priceStar ? '' : 'pholder' }}">{{ priceStar || '价格不限/钻级不限' }}</view>
       <icon class='iconfont icon-right-thin'></icon>
     </view>
 
@@ -70,3 +57,7 @@
   </view>
 
 </view>
+
+
+<view wx:if="{{ showMask }}" class='price-filter-mask' catchtouchmove bindtap='hidePriceFilter'></view>
+<view class='price-filter-outer {{ toggleClass }}' catchtouchmove animation="{{ animation }}"></view>

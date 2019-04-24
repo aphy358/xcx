@@ -80,7 +80,7 @@
 }
 
 .calendar-body .table .tr .td.disable{
-  color: #999;
+  color: #ccc;
 }
 
 .calendar-body .table .tr .td p{
@@ -89,7 +89,7 @@
   height: 56rpx;
   line-height: 56rpx;
   overflow: hidden;
-  z-index: 9;
+  z-index: 8;
 }
 
 .calendar-body .table .tr .td .small-text{
@@ -99,7 +99,7 @@
 .calendar-body .table .tr .td .circle{
   display: block;
   position: relative;
-  z-index: 9;
+  z-index: 8;
   overflow: hidden;
 
   margin: auto;

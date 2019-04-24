@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/checkinCheckout/checkinCheckout",
     "pages/index/index",
+    "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
     "pages/myOrder/myOrder"
   ],
@@ -15,6 +15,7 @@
   "tabBar": {
     "color": "#666",
     "selectedColor": "#1FC756",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
