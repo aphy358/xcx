@@ -21,7 +21,10 @@ Page({
         img: 'http://image.jladmin.cn/real_1539248810488.jpg'
       },
     ],
-    toggleClass: 'hide'
+    toggleClass: 'hide',
+    showMask: false,
+    keyword: '',
+    priceStar: ''
   },
 
   onReady: function() {
@@ -34,6 +37,9 @@ Page({
   onLoad: function() {
   },
 
+  onPageScroll(e) {
+  },
+
   openMap(){
     wx.openLocation({
       latitude: 23.099994,
@@ -43,43 +49,46 @@ Page({
     })
   },
 
-  // 显示价格钻级的选择面板
+  // 显示 价格钻级的选择面板
   showPriceFilter(){
     let _this = this
 
-    if (this.data.toggleClass == 'hide'){
-      _this.setData({
-        toggleClass: '',
-      })
-      wx.hideTabBar({
-        success: function(){
-          _this.animation.translateY(-300).step()
+    _this.setData({
+      toggleClass: '',
+      showMask: true
+    })
+    wx.hideTabBar({
+      success: function () {
+        _this.animation.translateY(-300).step()
 
+        _this.setData({
+          animation: _this.animation.export()
+        })
+      }
+    })
+
+  },
+
+  // 隐藏 价格钻级的选择面板
+  hidePriceFilter(){
+    let _this = this
+
+    _this.animation.translateY(0).step()
+
+    _this.setData({
+      animation: _this.animation.export(),
+      showMask: false,
+    })
+
+    setTimeout(function () {
+      wx.showTabBar({
+        success: function () {
           _this.setData({
-            animation: _this.animation.export()
+            toggleClass: 'hide',
           })
         }
       })
-    }else{
-
-      _this.animation.translateY(0).step()
-
-      _this.setData({
-        animation: _this.animation.export()
-      })
-
-      setTimeout(function () {
-        wx.showTabBar({
-          success: function () {
-            _this.setData({
-              toggleClass: 'hide',
-            })
-          }
-        })
-      }.bind(this), 300)
-      
-    }
-
+    }.bind(this), 300)
   }
   
 })

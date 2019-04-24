@@ -1,3 +1,9 @@
+
+.container{
+  width: 100%;
+}
+
+
 /* banner 区域 */
 .swiper-outer{
   width: 100%;
@@ -35,6 +41,26 @@
 .sbr-label{
   width: 160rpx;
   color: #999;
+}
+
+.sbr-location{
+  float: left;
+  font-weight:bold;
+  font-size:36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.sbr-input{
+  float:left;
+  height:60rpx;
+  line-height:60rpx;
+  padding:20rpx 0;
+
+}
+
+.sbr-input.pholder{
+  color: #D8D8DC;
 }
 
 .search-block-row .iconfont{
@@ -78,8 +104,18 @@
 }
 
 
-.price-filter-outer{
+
+.price-filter-mask{
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000087;
+}
+
+.price-filter-outer{
+  position: fixed;
   width: 100%;
   background: red;
   height: 300px;
