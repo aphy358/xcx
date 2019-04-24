@@ -76,3 +76,16 @@
 .sb-btn:active{
   background: #1c9e46;
 }
+
+
+.price-filter-outer{
+  position: absolute;
+  width: 100%;
+  background: red;
+  height: 300px;
+  bottom: -300px;
+}
+
+.price-filter-outer.hide{
+  display: none;
+}

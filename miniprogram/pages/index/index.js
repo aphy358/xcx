@@ -20,10 +20,15 @@ Page({
         hotelId: '38900',
         img: 'http://image.jladmin.cn/real_1539248810488.jpg'
       },
-    ]
+    ],
+    toggleClass: 'hide'
   },
 
   onReady: function() {
+    this.animation = wx.createAnimation({
+      duration: 300,
+      timingFunction: 'ease',
+    })
   },
 
   onLoad: function() {
@@ -36,6 +41,45 @@ Page({
       scale: 14,
       name: '腾讯微信总部'
     })
+  },
+
+  // 显示价格钻级的选择面板
+  showPriceFilter(){
+    let _this = this
+
+    if (this.data.toggleClass == 'hide'){
+      _this.setData({
+        toggleClass: '',
+      })
+      wx.hideTabBar({
+        success: function(){
+          _this.animation.translateY(-300).step()
+
+          _this.setData({
+            animation: _this.animation.export()
+          })
+        }
+      })
+    }else{
+
+      _this.animation.translateY(0).step()
+
+      _this.setData({
+        animation: _this.animation.export()
+      })
+
+      setTimeout(function () {
+        wx.showTabBar({
+          success: function () {
+            _this.setData({
+              toggleClass: 'hide',
+            })
+          }
+        })
+      }.bind(this), 300)
+      
+    }
+
   }
   
 })
