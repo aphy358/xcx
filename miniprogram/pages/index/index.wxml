@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" catchtouchmove>
 
   <!-- banner 区域 -->
   <swiper
@@ -60,4 +60,44 @@
 
 
 <view wx:if="{{ showMask }}" class='price-filter-mask' catchtouchmove bindtap='hidePriceFilter'></view>
-<view class='price-filter-outer {{ toggleClass }}' catchtouchmove animation="{{ animation }}"></view>
+<view class='price-filter-outer {{ toggleClass }}' catchtouchmove animation="{{ animation }}">
+  <view class='pf-title'>
+    <text>价格钻级</text>
+    <icon class='iconfont icon-delete2' bindtap='hidePriceFilter'></icon>
+  </view>
+  <view class='pf-body'>
+    <view class='pfb-item'>
+      <view class='pfb-title'>价格区间 <text style='font-weight: bold;color: #333;margin-left: 20rpx;'>￥0 - 不限</text></view>
+      <view class='pfb-content'>
+        <slider bindchange="slider4change" min="50" max="200" show-value catchtouchmove />
+      </view>
+    </view>
+
+    <view class='pfb-item'>
+      <view class='pfb-title'>钻级（可多选）</view>
+      <view class='pfb-content'>
+        <view class='pfb-star-item'>经济型</view>
+        <view class='pfb-star-item'>舒适型</view>
+        <view class='pfb-star-item'>高档型</view>
+        <view class='pfb-star-item'>豪华型</view>
+        <view class='pfb-star-item active' style='float:right;margin-right: 0;'>不限</view>
+      </view>
+    </view>
+
+    <view class='pfb-item'>
+      <button
+        size='mini'
+        plain="true"
+        style='border-color: #ccc;'
+        class='pfb-btn'
+      >清空选择</button>
+
+      <button
+        size='mini'
+        type='primary'
+        class='pfb-btn'
+        style='float: right;'
+      >确定</button>
+    </view>
+  </view>
+</view>
