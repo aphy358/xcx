@@ -156,6 +156,7 @@
 
 .pfb-content{
   overflow: hidden;
+  margin: 0 20rpx;
 }
 
 .pfb-star-item{

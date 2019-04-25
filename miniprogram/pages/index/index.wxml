@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" catchtouchmove>
+<view class="container">
 
   <!-- banner 区域 -->
   <swiper
