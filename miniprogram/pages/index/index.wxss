@@ -117,11 +117,69 @@
 .price-filter-outer{
   position: fixed;
   width: 100%;
-  background: red;
+  background: white;
   height: 300px;
   bottom: -300px;
 }
 
 .price-filter-outer.hide{
   display: none;
+}
+
+.pf-title{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.pf-title .icon-delete2{
+  float:right;
+  color: #999;
+  padding: 0 20rpx;
+}
+
+.pf-body{
+  padding: 20rpx;
+}
+
+.pfb-item{
+  margin-bottom: 60rpx;
+}
+
+.pfb-title{
+  color: #999;
+  margin-bottom: 20rpx;
+  
+}
+
+.pfb-content{
+  overflow: hidden;
+  margin: 0 20rpx;
+}
+
+.pfb-star-item{
+  float: left;
+  font-size: 24rpx;
+  border: 2rpx solid #e2e2e2;
+  color: #333333;
+  width: 130rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-right: -2rpx;
+  box-sizing: border-box;
+}
+
+.pfb-star-item.active{
+  position: relative;
+  color: #179B16;
+  border-color: #179B16;
+}
+
+.pfb-btn{
+  float: left;
+  box-sizing: border-box;
+  width: calc(50% - 20rpx);
 }

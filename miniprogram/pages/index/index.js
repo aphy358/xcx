@@ -32,6 +32,15 @@ Page({
       duration: 300,
       timingFunction: 'ease',
     })
+
+
+    wx.request({
+      url: 'https://jlfzg.com/user/getAdInfoData.do',
+      data: { 'channel': 1, 'block': 1, 'pageSize': 6 },
+      success: function(res){
+        console.log(res)
+      }
+    })
   },
 
   onLoad: function() {
