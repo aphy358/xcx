@@ -205,7 +205,7 @@ function getOneDayData(sYear, sMonth, sDay, lYear, lMonth, lDay) {
 }
 
 // 获取 y 年 m+1 月的数据
-const getOneMonthData = (y, m) => {
+export const getOneMonthData = (y, m) => {
   var sDObj, lDObj, lY, lM, lD = 1,
     lL, lX = 0,
     tmp1, tmp2;
@@ -274,12 +274,13 @@ const getOneMonthData = (y, m) => {
 }
 
 // 获取七个月的数据（从当前日期算起）
-export const getMonthsData = () => {
+export const getMonthsData = (num) => {
   let resultArr = []
   let ttY = tY
   let ttM = tM
 
-  for (let i = 0; i < 7; i++) {
+  var count = num || 7
+  for (let i = 0; i < count; i++) {
     resultArr.push(getOneMonthData(ttY, ttM++))
 
     if (ttM > 11) {
