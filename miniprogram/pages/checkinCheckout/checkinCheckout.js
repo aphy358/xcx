@@ -1,5 +1,5 @@
 // miniprogram/pages/checkinCheckout.js
-import { getMonthsData } from './getMonthsData.js'
+import { getOneMonthData, getMonthsData } from './getMonthsData.js'
 import { formatDateTwo, addDays } from '../../plugins/util.js'
 import store from '../../plugins/store/index.js'
 
@@ -10,6 +10,10 @@ Page(store.createPage({
    */
   data: {
     showMonths: [],
+    monthData: null,
+    // 用自定义变量保存当前系统中的年月日
+    tY: null,
+    tM: null,
   },
 
   // 依赖的全局状态属性 这些状态会被绑定到data上
@@ -23,6 +27,7 @@ Page(store.createPage({
    */
   onLoad: function (options) {
     this.init()
+    this.processData(this.data.monthData)
   },
 
   /**
@@ -43,7 +48,9 @@ Page(store.createPage({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+  },
 
+  onPageScroll: function(){
   },
 
   /**
@@ -57,14 +64,24 @@ Page(store.createPage({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var tmpArr = this.data.showMonths
+    if(tmpArr.length < 7){
+      tmpArr.push(getOneMonthData(this.tY, this.tM++))
 
+      if (this.tM > 11) {
+        this.tY
+        this.tM = 0
+      }
+
+      this.data.monthData = tmpArr
+      this.processData(this.data.monthData)
+    }
   },
 
   /**
@@ -76,12 +93,24 @@ Page(store.createPage({
 
   // 初始化
   init(){
-    let monthData = getMonthsData()
-    this.processData(monthData)
+    if(this.tY == null){
+      var Today = new Date();
+      this.tY = Today.getFullYear();
+      this.tM = Today.getMonth();
+    }
 
-    this.setData({
-      showMonths: monthData,
-    })
+    let resultArr = []
+
+    for (let i = 0; i < 2; i++) {
+      resultArr.push(getOneMonthData(this.tY, this.tM++))
+
+      if (this.tM > 11) {
+        this.tY
+        this.tM = 0
+      }
+    }
+    
+    this.data.monthData = resultArr
   },
 
 
@@ -122,7 +151,7 @@ Page(store.createPage({
       }
     }
 
-    this.init()
+    this.processData(this.data.monthData)
   },
 
 
@@ -209,5 +238,9 @@ Page(store.createPage({
         }
       }
     }
+
+    this.setData({
+      showMonths: this.data.monthData,
+    })
   }
 }))
