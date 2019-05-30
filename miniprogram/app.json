@@ -25,7 +25,7 @@
         "selectedIconPath": "assets/img/tabBar/首页2.png"
       },
       {
-        "pagePath": "pages/myOrder/myOrder",
+        "pagePath": "pages/welfareStore/welfareStore",
         "text": "福利社",
         "iconPath": "assets/img/tabBar/福利0.png",
         "selectedIconPath": "assets/img/tabBar/福利2.png"
