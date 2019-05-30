@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
-    "pages/myOrder/myOrder"
+    "pages/myOrder/myOrder",
+    "pages/welfareStore/welfareStore"
   ],
   "window": {
     "backgroundColor": "#F0EFF5",
@@ -36,5 +37,6 @@
         "selectedIconPath": "assets/img/tabBar/我的2.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
