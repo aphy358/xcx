@@ -7,179 +7,137 @@
 /* banner 区域 */
 .swiper-outer{
   width: 100%;
-  height: 500rpx;
+  height: 420rpx;
   overflow: hidden;
 }
 
 .swiper-item image{
-  width: 100%;
-  height: 100%;
-}
-
-
-
-/* 搜索栏 */
-.search-block-outer{
-  padding: 20rpx 60rpx;
-  background: white;
-}
-
-.search-block-row{
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1rpx solid #EFEEEC;
-}
-
-.search-block-row text,
-.search-block-row input{
-  float: left;
-  height: 60rpx;
-  line-height: 60rpx;
-  padding: 20rpx 0;
-}
-
-.sbr-label{
-  width: 160rpx;
-  color: #999;
-}
-
-.sbr-location{
-  float: left;
-  font-weight:bold;
-  font-size:36rpx;
-  height: 100rpx;
-  line-height: 100rpx;
-}
-
-.sbr-input{
-  float:left;
-  height:60rpx;
-  line-height:60rpx;
-  padding:20rpx 0;
-
-}
-
-.sbr-input.pholder{
-  color: #D8D8DC;
-}
-
-.search-block-row .iconfont{
   position: absolute;
-  height: 100rpx;
-  line-height: 100rpx;
-  color: #ccc;
-  font-size: 24rpx;
-  right: 0;
-}
-
-.sbr-placeholder{
-  color: red;
-}
-
-.search-block-row text.sbr-date{
-  height: 50rpx;
-  line-height: 50rpx;
-  font-weight: bold;
-  font-size: 32rpx;
-  padding: 0;
-}
-
-.search-block-row text.sbr-date-text{
-  color: #999;
-  margin-left: 40rpx;
-  height: 50rpx;
-  line-height: 50rpx;
-  font-size: 24rpx;
-  padding: 0;
-}
-
-.sb-btn{
-  margin: 30rpx 0 20rpx;
-  background: #1FC756;
-  color: white;
-}
-
-.sb-btn:active{
-  background: #1c9e46;
-}
-
-
-
-.price-filter-mask{
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: #00000087;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.price-filter-outer{
-  position: fixed;
-  width: 100%;
+
+/* banner 下方的 tab 栏 */
+.tab-outer{
+  display: flex;
   background: white;
-  height: 300px;
-  bottom: -300px;
-}
-
-.price-filter-outer.hide{
-  display: none;
-}
-
-.pf-title{
   height: 90rpx;
   line-height: 90rpx;
-  font-size: 32rpx;
-  text-align: center;
-  border-bottom: 1rpx solid #ddd;
+  font-size: 28rpx;
+  color: #666;
+  justify-content: space-around;
 }
 
-.pf-title .icon-delete2{
-  float:right;
-  color: #999;
-  padding: 0 20rpx;
+.tab-item.active{
+  color: #111111;
+  font-weight: bold;
+  border-bottom: 3px solid;
 }
 
-.pf-body{
-  padding: 20rpx;
+
+/* 广告列表 */
+.ad-outer{
+  padding-bottom: 1rpx;
 }
 
-.pfb-item{
-  margin-bottom: 60rpx;
-}
-
-.pfb-title{
-  color: #999;
-  margin-bottom: 20rpx;
-  
-}
-
-.pfb-content{
+.ad-item{
+  margin: 30rpx 20rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 0 5px #ddd;
   overflow: hidden;
-  margin: 0 20rpx;
 }
 
-.pfb-star-item{
-  float: left;
-  font-size: 24rpx;
-  border: 2rpx solid #e2e2e2;
-  color: #333333;
-  width: 130rpx;
-  text-align: center;
-  height: 70rpx;
-  line-height: 70rpx;
-  margin-right: -2rpx;
-  box-sizing: border-box;
-}
-
-.pfb-star-item.active{
+.ad-item-img{
   position: relative;
-  color: #179B16;
-  border-color: #179B16;
+  height: 400rpx;
+  overflow: hidden;
 }
 
-.pfb-btn{
+.ad-item-img image{
+  width: 100%;
+}
+
+.ad-item-price-wrap{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60rpx;
+}
+
+.ad-item-price-wrap .mask{
+  position: absolute;
+  width: 100%;
+  height: 60rpx;
+  background: black;
+  opacity: 0.4;
+}
+
+.ad-item-price-wrap .content-wrap{
+  position: relative;
+  color: white;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+  padding-right: 10rpx;
+}
+
+.ad-item-price-wrap .content-wrap .price{
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+
+.ad-item-price-wrap .content-wrap .profit{
+  font-size: 24rpx;
+  color: #FEA816;
+}
+
+.ad-item-price-wrap .content-wrap .end-time{
+  float: right;
+  font-size: 24rpx;
+}
+
+.ad-item-bottom-wrap{
+  background: white;
+  padding: 10rpx 20rpx;
+  overflow: hidden;
+}
+
+.ad-item-bottom-wrap .icon{
   float: left;
-  box-sizing: border-box;
-  width: calc(50% - 20rpx);
+  text-align: center;
+  width: 60rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  margin-right: 20rpx;
+  color: white;
+  background: linear-gradient(to right,  #FA5098 0%,#683FB9 100%);
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+}
+
+.ad-item-bottom-wrap .name{
+  color: #111111;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.ad-item-bottom-wrap .share-btn{
+  float: right;
+  background: #2577E3;
+  color: white;
+  width: 80rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 20rpx;
+  border-radius: 4rpx;
+}
+
+.ad-item-bottom-wrap .share-btn:hover{
+  background: #0D69E2;
+  box-shadow: 0 0 5px #0D69E2;
 }

@@ -9,95 +9,47 @@
     class='swiper-outer'
   >
     <block wx:for="{{bannerSwiper}}">
-      <swiper-item class='swiper-item'>
-        <image src="{{item.img}}" />
+      <swiper-item class="swiper-item">
+        <image src="{{item.img}}" mode="widthFix" />
       </swiper-item>
     </block>
   </swiper>
 
-  <!-- 条件搜索栏 -->
-  <view class='search-block-outer'>
-    <view class='search-block-row' bindtap='openMap'>
-      <text class='sbr-label'>目的地</text>
-      <view class='sbr-location'>深圳</view>
-      <icon class='iconfont icon-right-thin'></icon>
-    </view>
+  <!-- banner 下方的 tab 栏 -->
+  <view class='tab-outer'>
+    <block wx:for="{{tabItems}}">
+      <view class="tab-item{{activeTab == item.id ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
+        {{item.text}}
+      </view>
+    </block>
+  </view>
 
-    <view class='search-block-row' style='padding:20rpx 0;'>
-      <text class='sbr-label'>时间</text>
-      <navigator open-type="navigateTo" url='../../pages/checkinCheckout/checkinCheckout'>
-        <view style='height:100rpx;float:left;width:calc(100% - 160rpx);'>
-          <view style='height:50rpx;'>
-            <text class='sbr-date check-in'>04月17日</text>
-            <text class='sbr-date-text'>今天入住</text>
-          </view>
-          <view style='height:50rpx;'>
-            <text class='sbr-date check-out'>04月18日</text>
-            <text class='sbr-date-text'>明天离店</text>
-            <text class='sbr-date-text' style='margin-left: 30rpx;'>共1晚</text>
+  <!-- 广告列表 -->
+  <view class='"ad-outer"'>
+    <block wx:for="{{adItems}}">
+      <view class="ad-item">
+        <view class='ad-item-img'>
+          <image src="{{item.img}}" mode="widthFix" />
+
+          <view class="ad-item-price-wrap">
+            <view class="mask"></view>
+            <view class="content-wrap">
+              <text class="price">￥{{item.price}}</text>
+              <text class="profit">赚{{item.profit}}</text>
+              <text class="end-time">抢购时间剩余：3天3小时33分钟</text>
+            </view>
           </view>
         </view>
-      </navigator>
-      <icon class='iconfont icon-right-thin'></icon>
-    </view>
 
-    <view class='search-block-row'>
-      <text class='sbr-label'>搜索</text>
-      <view class="sbr-input {{ keyword ? '' : 'pholder' }}">{{ keyword || '关键字/酒店/地址' }}</view>
-      <icon class='iconfont icon-right-thin'></icon>
-    </view>
+        <view class="ad-item-bottom-wrap">
+          <view>
+            <text class='icon'>热卖</text>
+            <text class='name'>{{item.name}}</text>
+          </view>
+          <text class='share-btn'>分享</text>
+        </view>
 
-    <view class='search-block-row' bindtap='showPriceFilter'>
-      <text class='sbr-label'>价格钻级</text>
-      <view class="sbr-input {{ priceStar ? '' : 'pholder' }}">{{ priceStar || '价格不限/钻级不限' }}</view>
-      <icon class='iconfont icon-right-thin'></icon>
-    </view>
-
-    <button class='sb-btn'>酒店查询</button>
-  </view>
-
-</view>
-
-
-<view wx:if="{{ showMask }}" class='price-filter-mask' catchtouchmove bindtap='hidePriceFilter'></view>
-<view class='price-filter-outer {{ toggleClass }}' catchtouchmove animation="{{ animation }}">
-  <view class='pf-title'>
-    <text>价格钻级</text>
-    <icon class='iconfont icon-delete2' bindtap='hidePriceFilter'></icon>
-  </view>
-  <view class='pf-body'>
-    <view class='pfb-item'>
-      <view class='pfb-title'>价格区间 <text style='font-weight: bold;color: #333;margin-left: 20rpx;'>￥0 - 不限</text></view>
-      <view class='pfb-content'>
-        <slider bindchange="slider4change" min="50" max="200" show-value catchtouchmove />
       </view>
-    </view>
-
-    <view class='pfb-item'>
-      <view class='pfb-title'>钻级（可多选）</view>
-      <view class='pfb-content'>
-        <view class='pfb-star-item'>经济型</view>
-        <view class='pfb-star-item'>舒适型</view>
-        <view class='pfb-star-item'>高档型</view>
-        <view class='pfb-star-item'>豪华型</view>
-        <view class='pfb-star-item active' style='float:right;margin-right: 0;'>不限</view>
-      </view>
-    </view>
-
-    <view class='pfb-item'>
-      <button
-        size='mini'
-        plain="true"
-        style='border-color: #ccc;'
-        class='pfb-btn'
-      >清空选择</button>
-
-      <button
-        size='mini'
-        type='primary'
-        class='pfb-btn'
-        style='float: right;'
-      >确定</button>
-    </view>
+    </block>
   </view>
 </view>
