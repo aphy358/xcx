@@ -1,0 +1,112 @@
+/*公共样式*/
+.clearfix{
+	zoom: 1;
+}
+
+.clearfix:after{
+	content: '';
+	clear: both;
+	display: block;
+	width: 0;
+	height: 0;
+}
+/*end*/
+
+.welfare-banner{
+	width: 100%;
+}
+
+.product-box{
+	background-color:#ffffff;
+	margin-top:-40rpx;
+	position:relative;
+	border-radius:40rpx 40rpx 0 0;
+}
+
+.product-title{
+	width: 120px;
+	margin: 0 auto;
+	height: 100rpx;
+	line-height: 100rpx;
+}
+
+.product-title.title-fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+	background-color:#ffffff;
+	text-align:center;
+	z-index: 1;
+}
+
+.title-icon{
+	width: 6rpx;
+	height: 24rpx;
+	vertical-align: middle;
+	display: inline-block;
+	background-image: linear-gradient(to bottom, #683FB9, #FA5098, #FC9B8C);
+	transform: rotate(20deg);
+	margin-left: 8rpx;
+	border-radius: 12rpx;
+}
+
+.title-txt{
+	margin: 0 12rpx 0 20rpx;
+}
+
+.product-list-box{
+	padding: 0 20rpx 30rpx;
+}
+
+.every-product{
+	width: 335rpx;
+	padding-bottom: 24rpx;
+	box-shadow:0 3px 6px rgba(0,0,0,0.08);
+	float: left;
+	margin: 0 10rpx 40rpx;
+	border-radius: 4px;
+}
+
+.product-img{
+	width: 335rpx;
+	height: 177rpx;
+}
+
+.product-name{
+	font-size: 26rpx;
+	font-weight: bold;
+	color: #253549;
+	line-height: 36rpx;
+	display: block;
+	margin: 27rpx 8rpx 0;
+}
+
+.product-money{
+	margin: 0 14rpx;
+}
+
+.product-price{
+	font-size: 24rpx;
+	color: #ff3737;
+	font-weight: bold;
+	margin-right: 6rpx;
+}
+
+.product-profit{
+	font-size: 20rpx;
+	color: #d4a95b;
+}
+
+.share-product{
+	float: right;
+	width: 80rpx;
+	height: 36rpx;
+	line-height: 36rpx;
+	background-color: #2577e3;
+	color: #ffffff;
+	font-size: 20rpx;
+	border-radius: 4rpx;
+	padding: 0;
+	margin-right: 10rpx;
+}
