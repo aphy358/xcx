@@ -15,26 +15,26 @@
   },
   "tabBar": {
     "color": "#666",
-    "selectedColor": "#1FC756",
+    "selectedColor": "#2577E3",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "assets/img/tabBar/首页0.png",
-        "selectedIconPath": "assets/img/tabBar/首页1.png"
+        "selectedIconPath": "assets/img/tabBar/首页2.png"
       },
       {
-        "pagePath": "pages/welfareStore/welfareStore",
+        "pagePath": "pages/myOrder/myOrder",
         "text": "福利社",
-        "iconPath": "assets/img/tabBar/订单0.png",
-        "selectedIconPath": "assets/img/tabBar/订单1.png"
+        "iconPath": "assets/img/tabBar/福利0.png",
+        "selectedIconPath": "assets/img/tabBar/福利2.png"
       },
       {
         "pagePath": "pages/myCenter/myCenter",
         "text": "我的",
         "iconPath": "assets/img/tabBar/我的0.png",
-        "selectedIconPath": "assets/img/tabBar/我的1.png"
+        "selectedIconPath": "assets/img/tabBar/我的2.png"
       }
     ]
   },
