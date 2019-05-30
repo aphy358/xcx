@@ -31,6 +31,15 @@
   justify-content: space-around;
 }
 
+.tab-outer.fixed{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1;
+
+}
+
 .tab-item.active{
   color: #111111;
   font-weight: bold;

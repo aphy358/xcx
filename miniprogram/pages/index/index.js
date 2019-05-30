@@ -29,6 +29,7 @@ Page({
       },
     ],
     activeTab: 0,
+    tabFixClass: '',
 
     adItems: [
       {
@@ -80,7 +81,9 @@ Page({
         profit: 69,
         endDate: '2019-06-15',
       },
-    ]
+    ],
+
+    deviceWidth: 375,
   },
 
   onReady: function() {
@@ -89,12 +92,26 @@ Page({
       timingFunction: 'ease',
     })
 
+    this.setData({
+      deviceWidth: wx.getSystemInfoSync().windowWidth
+    })
   },
 
   onLoad: function() {
   },
 
   onPageScroll(e) {
+    var scrollTop = 211 * this.data.deviceWidth / 375
+    
+    if (e.scrollTop >= scrollTop) {
+      this.setData({
+        tabFixClass: ' fixed'
+      })
+    } else {
+      this.setData({
+        tabFixClass: ''
+      })
+    }
   },
 
   switchTab(e){
