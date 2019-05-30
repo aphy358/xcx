@@ -3,13 +3,14 @@
     "pages/index/index",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
-    "pages/myOrder/myOrder"
+    "pages/myOrder/myOrder",
+    "pages/welfareStore/welfareStore"
   ],
   "window": {
     "backgroundColor": "#F0EFF5",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "捷旅房掌柜",
+    "navigationBarTitleText": "惠出发",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -24,8 +25,8 @@
         "selectedIconPath": "assets/img/tabBar/首页1.png"
       },
       {
-        "pagePath": "pages/myOrder/myOrder",
-        "text": "订单",
+        "pagePath": "pages/welfareStore/welfareStore",
+        "text": "福利社",
         "iconPath": "assets/img/tabBar/订单0.png",
         "selectedIconPath": "assets/img/tabBar/订单1.png"
       },
@@ -36,5 +37,6 @@
         "selectedIconPath": "assets/img/tabBar/我的1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
