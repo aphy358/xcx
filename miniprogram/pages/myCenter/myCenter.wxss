@@ -1,150 +1,206 @@
-.top-outer{
-  background: #F09576;
-  padding: 60rpx 40rpx;
-  overflow: hidden;
+@import "../../assets/fonts/iconfont.wxss";
+
+/*公共样式*/
+.clearfix{
+  zoom: 1;
+}
+
+.clearfix:after{
+  content: '';
+  clear: both;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+/*end*/
+
+.user-info-top{
+  height: 160rpx;
+  background-color: #fff;
+  color: #111111;
 }
 
 .user-img{
-  float: left;
   width: 100rpx;
   height: 100rpx;
-  border-radius: 100rpx;
-  border: 4rpx solid white;
-}
-
-.user-info-wrap{
   float: left;
-  padding-left: 30rpx;
-  width: calc(100% - 140rpx);
+  margin: 10rpx 20rpx 50rpx 60rpx;
 }
 
-.user-info-row{
-  overflow: hidden;
+.user-info-center{
+  float: left;
+  width: 440rpx;
+  height: 100%;
 }
 
 .user-name{
-  color: white;
-  font-size: 36rpx;
-}
-
-.icon-shezhi{
-  color: white;
-  font-size: 42rpx;
-  float: right;
-}
-
-.info-badge-item{
-  position: relative;
+  font-size: 30rpx;
+  margin: 24rpx 25rpx 10rpx 0;
   float: left;
-  height: 40rpx;
-  border-radius: 23rpx;
-  background: #F0D7C8;
-  color: #9C481F;
-  margin-right: 20rpx;
-  padding: 0 6rpx;
 }
 
-.info-badge-v{
-  float: left;
-  font-size: 24rpx;
-  font-weight: bold;
-  color: #F0D7C8;
-  background: #D98970;
-  width: 32rpx;
+.edit-user-name{
+  width: 60rpx;
   height: 32rpx;
   line-height: 32rpx;
-  text-align: center;
-  border-radius: 19rpx;
-  margin-top: 4rpx;
+  border: 1rpx solid #707070;
+  float: left;
+  font-size: 20rpx;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 30rpx;
 }
 
-.info-badge-text{
+.user-id{
+  display: block;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+
+.user-info-right{
+  float: left;
+}
+
+.jl-tel-icon{
+  display: block;
+  font-size: 40rpx;
+  margin: 16rpx 0 0 20rpx;
+}
+
+.contact-txt{
+  font-size: 18rpx;
+}
+
+.user-info-mid{
+  width: 730rpx;
+  height: 258rpx;
+  background-color: #fff;
+  margin: 10rpx auto 4rpx;
+  border-radius: 10rpx;
+  padding: 30rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.money-top{
+  display: flex;
+  height: 166rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.account-box{
+  flex: 1;
+  text-align: center;
+}
+
+.account{
+  position: relative;
+}
+
+.money-num{
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
+}
+
+.money-txt{
+  font-weight: 24rpx;
+}
+
+.cash-out{
+  width: 64rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  background-color: #2577E3;
+  color: #ffffff;
+  font-size: 20rpx;
+  padding: 0;
+  border-radius: 0;
+  position: absolute;
+  right: 0;
+  bottom: 56rpx;
+}
+
+.money-bot{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.total-money{
   float: left;
   font-size: 24rpx;
-  height: 40rpx;
-  line-height: 40rpx;
-  margin: 0 10rpx;
+  color: #333333;
 }
 
-.info-badge-item .icon-right-thin{
-  float: left;
-  position: relative;
-  left: -6rpx;
-  font-size: 12rpx;
-  font-weight: bold;
-  height: 40rpx;
-  line-height: 40rpx;
+.read-money-detail{
+  float: right;
+  color: #999999;
+  font-size: 22rpx;
 }
 
-
-.cell-list {
+.user-info-bot{
+  width: 730rpx;
+  height: 180rpx;
   background-color: #fff;
-  margin-bottom: 20rpx;
-}
-
-.per-cell {
-  height: 100rpx;
-  line-height: 100rpx;
-  padding: 0 20rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
   display: flex;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
 }
 
-.per-cell .iconfont.icon-l {
-  padding-right: 20rpx;
+.order-part{
+  flex: 1;
 }
 
-.per-cell .iconfont.icon-r {
+.order-part-icon{
+  display: block;
+  text-align: center;
+  font-size: 42rpx;
+}
+
+.order-icon-txt{
+  display: block;
+  text-align: center;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.general-user-order{
+  width: 730rpx;
+  height: 266rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 10rpx auto 0;
+  box-sizing: border-box;
+  padding: 0 50rpx;
+}
+
+.general-all{
+  height: 94rpx;
+  line-height: 94rpx;
+  position: relative;
+}
+
+.general-all-txt{
+  float: left;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.general-all-icon{
   float: right;
   font-size: 24rpx;
-  color:#ccc;
-  border-bottom: 1rpx solid #eeeeee;
+  font-weight: bold;
 }
 
-.per-cell .iconfont.icon-r.no-border {
-  border: none;
-}
-
-.icon-txt {
-  display: inline-block;
-  flex: 1;
-  border-bottom: 1rpx solid #eeeeee;
-}
-
-.icon-txt.no-border {
-  border: none;
-}
-
-.hot-line {
-  background-color: transparent;
-  position: fixed;
-  bottom: 20rpx;
-  left: 0;
-  display: block;
-  width: 100%;
-  color: #747477;
-  text-align: center;
-}
-
-.my-center-content{
-  font-size: 30rpx;
-}
-
-.my-center-content .iconfont{
-  font-size: 36rpx;
-}
-
-.my-center-content .blue {
-  color: #92bddb;
-}
-
-.my-center-content .jade-green {
-  color: #818a0b;
-}
-
-.my-center-content .green {
-  color: green;
-}
-
-.my-center-content .red {
-  color: #ff0000;
+.general-bot{
+  display: flex;
+  padding: 23rpx 0;
+  border-top: 1rpx solid #eeeeee;
 }
