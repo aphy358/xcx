@@ -4,7 +4,8 @@
   <view class='user-info-wrap'>
     <view class='user-info-row'>
       <text class='user-name'>微信用户</text>
-      <icon class='iconfont icon-shezhi' size='6'></icon>
+      <!-- <icon class='iconfont icon-shezhi' size='6'></icon> -->
+      <i class='iconfont icon-shezhi' size='6'></i>
     </view>
 
     <view class='user-info-row' style='margin-top:10rpx;'>
