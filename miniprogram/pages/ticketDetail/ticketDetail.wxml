@@ -1,0 +1,91 @@
+
+<!-- banner 区域 -->
+<swiper
+  autoplay="{{false}}"
+  interval="3000"
+  duration="300"
+  class='swiper-outer'
+>
+  <block wx:for="{{bannerSwiper}}">
+    <swiper-item class="swiper-item">
+      <image src="{{item.img}}" mode="widthFix" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="ticket-brief-outer">
+  <view>
+    <text class="icon">热卖</text>
+    <text class="name">上海迪斯尼2日1晚维也纳酒店免费接站接送 迪斯尼乐园含门票</text>
+  </view>
+  <view class="price-wrap">
+    <view style='float:right;'>
+      <text class="price">￥{{'699'}}</text>
+      <text class="profit">赚{{'36'}}</text>
+    </view>
+  </view>
+
+  <view class="ticket-brief-title">产品亮点</view>
+  <view class="ticket-lidian-outer">
+    <view class='ticket-brief-text'>1、免费接送</view>
+    <view class='ticket-brief-text'>2、园区内酒水免费</view>
+    <view class='ticket-brief-text'>3、默认当天入园，如需第二天入园需提前联系客服</view>
+  </view>
+
+  <view class="ticket-brief-title">有效时间</view>
+  <view class='ticket-brief-text'>2019-06-01 至 2019-06-02</view>
+</view>
+
+<!-- 产品详情和购买须知 -->
+<view class="ticket-info-outer">
+  <view class='ticket-info-title-one'>产品详情</view>
+  <view class='ticket-info-title-two'>【推荐理由】</view>
+  <view class='ticket-info-text'>
+    <view>1、充满迪士尼故事情节，犹如置身于童话世界，床头的魔法仙尘，为您的住宿倍增奇妙；</view>
+    <view>2、多种娱乐体验供孩子选择，轻松度过欢快亲子时光；</view>
+    <view>3、优先入园，提前游玩心仪的游乐项目；</view>
+    <view>4、在酒店大堂或卢米亚厨房，可与迪士尼朋友互动合影；</view>
+    <view>5、酒店专有的免费摆渡轮和接驳班车可以载您前往上海迪士尼乐园，快捷灵活；</view>
+    <view>上海迪士尼乐园酒店</view>
+    <view>踏入这座充满迪士尼故事情节的酒店，犹如置身于一个童话世界。</view>
+  </view>
+  <view class='ticket-info-img'>
+    <image src="http://image.jladmin.cn/real_1559205703409.png" mode="widthFix" />
+  </view>
+
+  <view class='ticket-info-title-one'>购买须知</view>
+  <view class='ticket-info-title-two'>【费用包含】</view>
+  <view class='ticket-info-text'>
+    <view>1、标准客房 住宿 1晚</view>
+    <view>2、自助早餐 3份（2大1小）</view>
+    <view>3、迪士尼酒店穿梭巴士往返酒店与乐园（每隔10至15分钟1班）</view>
+    <view>4、免费享用游泳池</view>
+    <view>5、两张成人门票，一张儿童门票</view>
+  </view>
+
+  <view class='ticket-info-title-two'>【预约说明】</view>
+  <view class='ticket-info-text'>
+    <view>1、标准客房 住宿 1晚</view>
+    <view>2、自助早餐 3份（2大1小）</view>
+    <view>3、迪士尼酒店穿梭巴士往返酒店与乐园（每隔10至15分钟1班）</view>
+    <view>4、免费享用游泳池</view>
+    <view>5、两张成人门票，一张儿童门票</view>
+  </view>
+
+  <view class='ticket-info-title-two'>【退改规则】</view>
+  <view class='ticket-info-text'>
+    <view>1、特价产品购买后可以转赠，但不得以任何理由要求退款，请谨 慎购买。如果入住日期限定不可调，请购买前先咨询是否有房。</view>
+    <view>2、超过使用有效期则自动作废，需请注意使用时间。</view>
+  </view>
+
+</view>
+
+<!-- 底部 推荐、立即购买 按钮 -->
+<view class='ticket-bottom-outer'>
+  <view class='ticket-bottom-btn'>
+    推荐<text class='profit'>赚￥66</text>
+  </view>
+  <view class='ticket-bottom-btn' style='background: #2577E3;'>
+    立即购买<text class='profit'>赚￥66</text>
+  </view>
+</view>

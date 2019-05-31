@@ -1,0 +1,135 @@
+
+/* banner 区域 */
+.swiper-outer{
+  width: 100%;
+  height: 420rpx;
+  overflow: hidden;
+}
+
+.swiper-item image{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 门票简介 */
+.ticket-brief-outer{
+  background: white;
+  padding: 35rpx;
+  overflow: hidden;
+}
+
+
+.ticket-brief-outer .icon{
+  float: left;
+  text-align: center;
+  width: 60rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  margin-right: 10rpx;
+  color: white;
+  background: linear-gradient(to right,  #FA5098 0%,#683FB9 100%);
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+}
+
+.ticket-brief-outer .name{
+  color: #111111;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.ticket-brief-outer .price-wrap{
+  overflow: hidden;
+}
+.ticket-brief-outer .price-wrap .price{
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+  color: #FF3737;
+}
+.ticket-brief-outer .price-wrap .profit{
+  font-size: 24rpx;
+  color: #D4A95B;
+}
+
+.ticket-brief-title{
+  color: #333333;
+  font-weight: bold;
+  font-size: 24rpx;
+  margin: 10rpx 0;
+}
+
+.ticket-lidian-outer{
+  padding: 20rpx;
+  border: 1rpx solid #EEEEEE;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.ticket-brief-text{
+  font-size: 24rpx;
+  color: #4C4C4C;
+}
+
+
+/* 产品详情和购买须知 */
+.ticket-info-outer{
+  padding: 0 35rpx;
+  background: white;
+  margin-top: 10rpx;
+  overflow: hidden;
+  padding-bottom: 120rpx;
+}
+
+.ticket-info-img image{
+  width: 100%;
+}
+
+.ticket-info-title-one{
+  padding: 20rpx 0;
+  color: #111111;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.ticket-info-title-two{
+  color: #4C4C4C;
+  font-size: 24rpx;
+  margin: 10rpx 0;
+}
+
+.ticket-info-text{
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 底部 推荐、立即购买 按钮 */
+.ticket-bottom-outer{
+  position: fixed;
+  width: 100%;
+  height: 98rpx;
+  bottom: 0;
+  color: white;
+}
+
+.ticket-bottom-btn{
+  float: left;
+  height: 98rpx;
+  width: 50%;
+  line-height: 98rpx;
+  background: #D4A95B;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.ticket-bottom-btn .profit{
+  font-size: 20rpx;
+  margin-left: 8rpx;
+}

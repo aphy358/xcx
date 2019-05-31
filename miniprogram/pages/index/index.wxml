@@ -16,12 +16,14 @@
   </swiper>
 
   <!-- banner 下方的 tab 栏 -->
-  <view class='tab-outer'>
-    <block wx:for="{{tabItems}}">
-      <view class="tab-item{{activeTab == item.id ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
-        {{item.text}}
-      </view>
-    </block>
+  <view class="" style='height:90rpx;'>
+    <view class="tab-outer{{tabFixClass}}">
+      <block wx:for="{{tabItems}}">
+        <view class="tab-item{{activeTab == item.id ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
+          {{item.text}}
+        </view>
+      </block>
+    </view>
   </view>
 
   <!-- 广告列表 -->
