@@ -29,7 +29,7 @@
   <!-- 广告列表 -->
   <view class='"ad-outer"'>
     <block wx:for="{{adItems}}">
-      <view class="ad-item">
+      <view class="ad-item" bindtap='gotoTicketDetail'>
         <view class='ad-item-img'>
           <image src="{{item.img}}" mode="widthFix" />
 
@@ -48,7 +48,7 @@
             <text class='icon'>热卖</text>
             <text class='name'>{{item.name}}</text>
           </view>
-          <text class='share-btn'>分享</text>
+          <text class='share-btn' catchtap='shareAd'>分享</text>
         </view>
 
       </view>
