@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/welfareStore/welfareStore",
     "pages/index/index",
     "pages/ticketDetail/ticketDetail",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
     "pages/myOrder/myOrder",
-    "pages/welfareStore/welfareStore",
     "pages/orderDetail/orderDetail"
   ],
   "window": {

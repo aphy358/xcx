@@ -11,6 +11,10 @@
 	height: 0;
 }
 /*end*/
+.banner-box{
+	height: 1000rpx;
+	overflow: hidden;
+}
 
 .welfare-banner{
 	width: 100%;
@@ -23,8 +27,12 @@
 	border-radius:40rpx 40rpx 0 0;
 }
 
+.product-title-box{
+	height: 100rpx;
+}
+
 .product-title{
-	width: 120px;
+	width: 240rpx;
 	margin: 0 auto;
 	height: 100rpx;
 	line-height: 100rpx;
