@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bannerSwiper: [
+      {
+        hotelId: '193847',
+        img: 'http://image.jladmin.cn/real_1559184376702.png'
+      },
+    ],
   },
 
   /**

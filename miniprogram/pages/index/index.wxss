@@ -120,7 +120,7 @@
   width: 60rpx;
   height: 34rpx;
   line-height: 34rpx;
-  margin-right: 20rpx;
+  margin-right: 10rpx;
   color: white;
   background: linear-gradient(to right,  #FA5098 0%,#683FB9 100%);
   margin-top: 8rpx;

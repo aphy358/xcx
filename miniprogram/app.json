@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ticketDetail/ticketDetail",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
     "pages/myOrder/myOrder",
-    "pages/welfareStore/welfareStore",
-    "pages/ticketDetail/ticketDetail"
+    "pages/welfareStore/welfareStore"
   ],
   "window": {
     "backgroundColor": "#F0EFF5",
