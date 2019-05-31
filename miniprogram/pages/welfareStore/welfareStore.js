@@ -50,19 +50,35 @@ Page({
         profit: 36
       }
     ],
-    titleClass: ''
+    titleClass: '',
+    bannerWidth: 375
   },
   
   onPageScroll(e){
-    console.log(e.scrollTop);
-    if (e.scrollTop >= 460){
+    let topHeight =  520 * this.data.bannerWidth / 375;
+    let botHeight = ((this.data.bannerWidth + 30) * 1000)/750;
+    console.log(topHeight);
+    // console.log(botHeight);
+    if (e.scrollTop >= topHeight){
       this.setData({
         titleClass: ' title-fixed'
       })
-    }else{
+    }
+    // else{
+    //   this.setData({
+    //     titleClass: ''
+    //   })
+    // }
+    if (e.scrollTop <= botHeight){
       this.setData({
         titleClass: ''
       })
     }
-  }
+  },
+  onReady: function () {
+    let width = wx.getSystemInfoSync().windowWidth;
+    this.setData({
+      bannerWidth: width
+    })
+  },
 });
