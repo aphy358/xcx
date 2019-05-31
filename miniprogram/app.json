@@ -5,7 +5,8 @@
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
     "pages/myOrder/myOrder",
-    "pages/welfareStore/welfareStore"
+    "pages/welfareStore/welfareStore",
+    "pages/orderDetail/orderDetail"
   ],
   "window": {
     "backgroundColor": "#F0EFF5",

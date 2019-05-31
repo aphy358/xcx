@@ -1,0 +1,210 @@
+@import "../../assets/fonts/iconfont.wxss";
+
+/*公共样式*/
+.clearfix{
+	zoom: 1;
+}
+
+.clearfix:after{
+	content: '';
+	clear: both;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.font-bold{
+	font-weight: bold;
+}
+
+.grey{
+	color: #717171;
+}
+/*end*/
+
+.order-status-box{
+	height: 148rpx;
+	background-color: #fff;
+	color: #111111;
+	padding: 0 60rpx 0 48rpx;
+}
+
+.status-left{
+	float: left;
+}
+
+.order-status{
+	font-size: 34rpx;
+	font-weight: bold;
+	display: block;
+	margin-top: 20rpx;
+}
+
+.remain-time{
+	font-size: 28rpx;
+	margin-top: 14rpx;
+	display: block;
+}
+
+.status-right{
+	float: right;
+}
+
+.jl-tel-icon{
+	display: block;
+	font-size: 40rpx;
+	margin: 16rpx 0 0 20rpx;
+}
+
+.contact-jl{
+	font-size: 18rpx;
+	margin-top:14rpx;
+	display:block;
+}
+
+.product-info{
+	height: 348rpx;
+	background-color: #fff;
+	margin-top: 10rpx;
+	padding: 30rpx;
+	box-sizing: border-box;
+}
+
+.info-top{
+	margin-bottom: 20rpx;
+}
+
+.product-image{
+	width: 180rpx;
+	height: 135rpx;
+	margin-right: 10rpx;
+	float: left;
+}
+
+.product-name{
+	line-height: 48rpx;
+	width: 500rpx;
+	display: inline-block;
+	float: left;
+	font-size: 28rpx;
+	color: #666666;
+	font-weight: bold;
+}
+
+.product-unit-price{
+	float: right;
+	font-size: 24rpx;
+	color: #999999;
+	padding-right: 20rpx;
+}
+
+.info-bot-line{
+	line-height: 48rpx;
+	display: block;
+	font-size: 24rpx;
+	color: #373737;
+}
+
+.info-bot-line .red{
+	color: #ff3737;
+}
+
+.book-info{
+	height: 363rpx;
+	background-color: #fff;
+	margin-top: 10rpx;
+	padding: 20rpx 30rpx;
+	box-sizing: border-box;
+}
+
+.info-title{
+	font-size: 32rpx;
+	color: #111111;
+	font-weight: bold;
+	margin-bottom: 10rpx;
+	display: block;
+}
+
+.detail-line{
+	height: 55rpx;
+	line-height: 55rpx;
+	font-size: 24rpx;
+	color: #373737;
+}
+
+.buy-tips{
+	background-color: #fff;
+	margin-top: 10rpx;
+	padding: 35rpx 30rpx 190rpx;
+}
+
+.buy-detail{
+	padding: 0 10rpx;
+}
+
+.detail-title{
+	line-height: 40rpx;
+	margin-top: 10rpx;
+	font-size: 24rpx;
+	color: #373737;
+	display: block;
+}
+
+.tips-line{
+	line-height: 40rpx;
+	color: #616161;
+	font-size: 24rpx;
+	display: block;
+}
+
+.options{
+	width: 100%;
+	height: 110rpx;
+	background-color: #fff;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	box-shadow:0 -8rpx 12rpx rgba(0,0,0,0.04);
+	text-align: right;
+	padding: 12rpx 16rpx;
+	box-sizing: border-box;
+}
+
+.options button{
+	display: inline-block;
+	border-radius: 2rpx;
+	float: right;
+}
+
+.cancel-order{
+	width: 196rpx;
+	height: 70rpx;
+	line-height: 70rpx;
+	border: 1rpx solid #e6e6e6;
+	background-color: #fff;
+	color: #999999;
+	font-size: 26rpx;
+	margin: 8rpx 12rpx;
+}
+
+.re-book{
+	width: 196rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	border: 1rpx solid #de9f46;
+	background-color: #d4a95b;
+	color: #ffffff;
+	font-size: 32rpx;
+	margin: 0 12rpx;
+}
+
+.pay-now{
+	width: 196rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	border: 1rpx solid #0d69e2;
+	background-color: #2577e3;
+	color: #ffffff;
+	font-size: 32rpx;
+	margin: 0 12rpx;
+}
