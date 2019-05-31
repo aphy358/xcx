@@ -1,0 +1,92 @@
+<view class="order-detail">
+	<view class="order-status-box">
+		<view class="status-left">
+			<text class="order-status">待付款</text>
+			<text class="remain-time">剩余付款时间：00:29:00</text>
+		</view>
+		<view class="status-right">
+			<icon class="jl-tel-icon iconfont icon-dianhua1"></icon>
+			<text class="contact-jl">联系客服</text>
+		</view>
+	</view>
+	
+	<view class="product-info">
+		<view class="info-top clearfix">
+			<image class="product-image" src="./product-image.jpg"></image>
+			<text class="product-name">上海迪士尼2日1晚维也纳酒店免费接站接送迪士尼乐园含门票</text>
+			<text class="product-unit-price">￥699.00/份</text>
+		</view>
+		<view class="info-bot">
+			<view class="info-bot-line">
+				<text class="grey">有效时间：</text>
+				2019-05-28至2019-05-29
+			</view>
+			<view class="info-bot-line">
+				<text class="grey">预订数量：</text>
+				3份
+			</view>
+			<view class="info-bot-line">
+				<text class="grey">合计：</text>
+				<text class="red">￥7266.00</text>
+			</view>
+		</view>
+	</view>
+	
+	<view class="book-info">
+		<text class="info-title">预订信息</text>
+		<view class="book-detail">
+			<view class="detail-line">
+				<text class="grey">订单编号：</text>
+				AC2661546543564246
+			</view>
+			<view class="detail-line">
+				<text class="grey">下单时间：</text>
+				2019-05-14 17：34
+			</view>
+			<view class="detail-line">
+				<text class="grey">使用人：</text>
+				李白
+			</view>
+			<view class="detail-line">
+				<text class="grey">联系电话：</text>
+				13480387262
+			</view>
+			<view class="detail-line">
+				<text class="grey">备注信息：</text>
+			</view>
+		</view>
+	</view>
+	
+	<view class="buy-tips">
+		<text class="info-title">购买须知</text>
+		<view class="buy-detail">
+			<text class="detail-title">【费用包含】</text>
+			<view class="cost-info">
+				<text class="tips-line">1、标准客房 住宿 1晚</text>
+				<text class="tips-line">2、自助早餐 3份（2大1小）</text>
+				<text class="tips-line">3、迪士尼酒店穿梭巴士往返酒店与乐园（每隔10至15分钟1班）</text>
+				<text class="tips-line">4、免费享用游泳池</text>
+				<text class="tips-line">5、两张成人门票，一张儿童门票</text>
+			</view>
+			<text class="detail-title">【使用说明】</text>
+			<view class="cost-info">
+				<text class="tips-line">1、标准客房 住宿 1晚</text>
+				<text class="tips-line">2、自助早餐 3份（2大1小）</text>
+				<text class="tips-line">3、迪士尼酒店穿梭巴士往返酒店与乐园（每隔10至15分钟1班）</text>
+				<text class="tips-line">4、免费享用游泳池</text>
+				<text class="tips-line">5、两张成人门票，一张儿童门票</text>
+			</view>
+			<text class="detail-title">【退改规则】</text>
+			<view class="cost-info">
+				<text class="tips-line">1、特价产品购买后可以转赠，但不得以任何理由要求退款，请谨慎购买。如果入住日期限定不可调，请购买前先咨询是否有房。</text>
+				<text class="tips-line">2、超过使用有效期则自动作废，请注意使用时间。</text>
+			</view>
+		</view>
+	</view>
+	
+	<view class="options clearfix">
+		<button class="pay-now">立即支付</button>
+		<button class="re-book">再次购买</button>
+		<button class="cancel-order">取消订单</button>
+	</view>
+</view>
