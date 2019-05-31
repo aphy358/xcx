@@ -10,4 +10,5 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
-AppID: wx8760d3300ed27e7d
+AppID: wx8760d3300ed27e7d （私人小程序）
+AppID: wx6ac08ec94a8fb611 （测试小程序）

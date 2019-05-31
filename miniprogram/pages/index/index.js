@@ -102,7 +102,7 @@ Page({
 
   onPageScroll(e) {
     var scrollTop = 211 * this.data.deviceWidth / 375
-    
+
     if (e.scrollTop >= scrollTop) {
       this.setData({
         tabFixClass: ' fixed'
@@ -122,5 +122,14 @@ Page({
       })
     }
   },
+
+  gotoTicketDetail(e){
+    wx.navigateTo({
+      url: '../ticketDetail/ticketDetail',
+    })
+  },
+
+  shareAd(){
+  }
 
 })
