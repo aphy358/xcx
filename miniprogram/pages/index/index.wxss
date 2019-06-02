@@ -1,8 +1,4 @@
 
-.container{
-  width: 100%;
-}
-
 
 /* banner 区域 */
 .swiper-outer{
@@ -33,7 +29,7 @@
 
 .tab-outer.fixed{
   position:fixed;
-  top:0;
+  top:128rpx;
   left:0;
   width:100%;
   z-index:1;

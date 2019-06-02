@@ -82,8 +82,6 @@ Page({
         endDate: '2019-06-15',
       },
     ],
-
-    deviceWidth: 375,
   },
 
   onReady: function() {
@@ -91,17 +89,13 @@ Page({
       duration: 300,
       timingFunction: 'ease',
     })
-
-    this.setData({
-      deviceWidth: wx.getSystemInfoSync().windowWidth
-    })
   },
 
   onLoad: function() {
   },
 
   onPageScroll(e) {
-    var scrollTop = 211 * this.data.deviceWidth / 375
+    var scrollTop = 211 * global.deviceWidth / 375
 
     if (e.scrollTop >= scrollTop) {
       this.setData({

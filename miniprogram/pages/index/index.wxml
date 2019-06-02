@@ -1,6 +1,11 @@
 <!--index.wxml-->
 <view class="container">
 
+  <view class='navbar'>
+    <i class="iconfont icon-left navbar-icon"></i>
+    惠出发
+  </view>
+
   <!-- banner 区域 -->
   <swiper
     autoplay="{{false}}"

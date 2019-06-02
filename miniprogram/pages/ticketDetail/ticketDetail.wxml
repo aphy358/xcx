@@ -1,3 +1,12 @@
+<view class="nav-back">
+  <view class="nav-back-mask"></view>
+  <i class="iconfont icon-left navbar-icon" style="color: white;"></i>
+</view>
+
+<view class='navbar' wx:if="{{showNavBar}}">
+  <i class="iconfont icon-left navbar-icon"></i>
+  商品详情
+</view>
 
 <!-- banner 区域 -->
 <swiper

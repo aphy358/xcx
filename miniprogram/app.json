@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/welfareStore/welfareStore",
     "pages/index/index",
+    "pages/welfareStore/welfareStore",
     "pages/ticketDetail/ticketDetail",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
@@ -12,6 +12,7 @@
     "backgroundColor": "#F0EFF5",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
+    "navigationStyle": "custom",
     "navigationBarTitleText": "惠出发",
     "navigationBarTextStyle": "black"
   },
