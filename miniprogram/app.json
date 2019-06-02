@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/welfareStore/welfareStore",
     "pages/ticketDetail/ticketDetail",
+    "pages/welfareStore/welfareStore",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myCenter/myCenter",
     "pages/myOrder/myOrder",

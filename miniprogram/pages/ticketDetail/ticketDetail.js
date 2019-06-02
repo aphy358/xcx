@@ -12,7 +12,7 @@ Page({
       },
     ],
 
-    showNavBar: false
+    showNavBarTitle: false
   },
 
   /**
@@ -75,11 +75,11 @@ Page({
 
     if (e.scrollTop >= scrollTop) {
       this.setData({
-        showNavBar: true
+        showNavBarTitle: true
       })
     } else {
       this.setData({
-        showNavBar: false
+        showNavBarTitle: false
       })
     }
   },
