@@ -25,6 +25,7 @@
 	margin-top:-40rpx;
 	position:relative;
 	border-radius:40rpx 40rpx 0 0;
+  overflow: hidden;
 }
 
 .product-title-box{
@@ -68,10 +69,10 @@
 .every-product{
 	width: 335rpx;
 	padding-bottom: 24rpx;
-	box-shadow:0 3px 6px rgba(0,0,0,0.08);
+	box-shadow:0 6rpx 12rpx rgba(0,0,0,0.08);
 	float: left;
 	margin: 0 10rpx 40rpx;
-	border-radius: 4px;
+	border-radius: 12rpx;
 	overflow: hidden;
 }
 

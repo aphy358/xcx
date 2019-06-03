@@ -1,6 +1,6 @@
 <view class="nav-back" wx:if="{{!showNavBarTitle}}">
   <view class="nav-back-mask" wx:if="{{hasGoBack}}"></view>
-  <i class="iconfont icon-left navbar-icon" style="color: white;" wx:if="{{hasGoBack}}" bindtap="goBackPage"></i>
+  <i class="iconfont icon-left navbar-icon" style="color: white;text-shadow: 0 2rpx 4rpx gray;" wx:if="{{hasGoBack}}" bindtap="goBackPage"></i>
 </view>
 
 <view class='navbar' wx:if="{{showNavBarTitle}}">
