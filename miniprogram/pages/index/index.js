@@ -119,7 +119,7 @@ Page({
 
   gotoTicketDetail(e){
     wx.navigateTo({
-      url: '../ticketDetail/ticketDetail',
+      url: '/pages/ticketDetail/ticketDetail',
     })
   },
 

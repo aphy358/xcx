@@ -19,19 +19,22 @@ Component({
         tabIndex: 1,
         tabIcon: "icon-home-page",
         tabText: "首页",
-        isActive: true
+        isActive: true,
+        path: "/pages/index/index"
       },
       {
         tabIndex: 2,
         tabIcon: "icon-lipin",
         tabText: "福利社",
-        isActive: false
+        isActive: false,
+        path: "/pages/welfareStore/welfareStore"
       },
       {
         tabIndex: 3,
         tabIcon: "icon-my-center",
         tabText: "我的",
-        isActive: false
+        isActive: false,
+        path: "/pages/myCenter/myCenter"
       },
     ]
   },
@@ -56,5 +59,9 @@ Component({
    */
   methods: {
 
-  }
+  },
+  pageLifetimes: {
+    show() {
+    },
+  },
 })

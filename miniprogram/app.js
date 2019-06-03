@@ -5,6 +5,9 @@ import { addDays } from './plugins/util.js'
 
 App(store.createApp({
   onLaunch: function () {
+    // 隐藏系统自带的 tabbar
+    wx.hideTabBar();
+
     global.url = 'https://sz.jltour.com'
     global.deviceWidth = wx.getSystemInfoSync().windowWidth
 
@@ -14,11 +17,6 @@ App(store.createApp({
       wx.cloud.init({
         traceUser: true,
       })
-    }
-
-    this.globalData = {
-      checkin: addDays(new Date),
-      checkout: addDays(new Date, 1),
     }
 
     wx.login({
@@ -36,5 +34,10 @@ App(store.createApp({
         }
       }
     })
+  },
+  globalData: {
+    checkin: addDays(new Date),
+    checkout: addDays(new Date, 1),
   }
+
 }))

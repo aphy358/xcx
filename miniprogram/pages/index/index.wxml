@@ -57,5 +57,5 @@
     </block>
   </view>
 
-  <tab-bar index="1"></tab-bar>
+  <tab-bar></tab-bar>
 </view>
