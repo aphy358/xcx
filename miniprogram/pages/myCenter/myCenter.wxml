@@ -1,81 +1,84 @@
-<view class='my-center'>
-  <view class="user-info-top clearfix">
-    <image class="user-img" src="{{avatarUrl}}"></image>
-    <view class="user-info-center">
-      <view class="clearfix">
-        <text class="user-name">李白</text>
-        <button class="edit-user-name">编辑</button>
+<view class="container">
+  <view class='my-center'>
+    <nav-bar hasGoBack="{{false}}">个人中心</nav-bar>
+    <view class="user-info-top clearfix">
+      <image class="user-img" src="{{avatarUrl}}"></image>
+      <view class="user-info-center">
+        <view class="clearfix">
+          <text class="user-name">李白</text>
+          <button class="edit-user-name">编辑</button>
+        </view>
+        <text class="user-id">ID:19052284</text>
       </view>
-      <text class="user-id">ID:19052284</text>
-    </view>
-    <view class="user-info-right">
-      <icon class="jl-tel-icon iconfont icon-dianhua1"></icon>
-      <text class="contact-txt">联系客服</text>
-    </view>
-  </view>
-  
-  <view class="user-info-mid" wx:if="{{isVip}}">
-    <view class="money-top">
-      <view class="un-account account-box">
-        <text class="money-num">222.0</text>
-        <text class="money-txt">未入账金额</text>
-      </view>
-      <view class="account account-box">
-        <text class="money-num">222.0</text>
-        <text class="money-txt">已入账金额</text>
-        <button class="cash-out">提现</button>
+      <view class="user-info-right">
+        <icon class="jl-tel-icon iconfont icon-dianhua1"></icon>
+        <text class="contact-txt">联系客服</text>
       </view>
     </view>
-    <view class="money-bot clearfix">
-      <text class="total-money">累计收入：<text class="font-bold">440.0</text></text>
-      <text class="read-money-detail">查看收入明细 >></text>
+    
+    <view class="user-info-mid" wx:if="{{isVip}}">
+      <view class="money-top">
+        <view class="un-account account-box">
+          <text class="money-num">222.0</text>
+          <text class="money-txt">未入账金额</text>
+        </view>
+        <view class="account account-box">
+          <text class="money-num">222.0</text>
+          <text class="money-txt">已入账金额</text>
+          <button class="cash-out">提现</button>
+        </view>
+      </view>
+      <view class="money-bot clearfix">
+        <text class="total-money">累计收入：<text class="font-bold">440.0</text></text>
+        <text class="read-money-detail">查看收入明细 >></text>
+      </view>
     </view>
-  </view>
-  
-  <view class="user-info-bot" wx:if="{{isVip}}">
-    <view class="order-part part1">
-      <icon class="order-part-icon iconfont icon-dingdan"></icon>
-      <text class="order-icon-txt">全部订单</text>
-    </view>
-    <view class="order-part part2">
-      <icon class="order-part-icon iconfont icon-dingdan"></icon>
-      <text class="order-icon-txt">待付款</text>
-    </view>
-    <view class="order-part part3">
-      <icon class="order-part-icon iconfont icon-dingdan"></icon>
-      <text class="order-icon-txt">待确认</text>
-    </view>
-    <view class="order-part part4">
-      <icon class="order-part-icon iconfont icon-dingdan"></icon>
-      <text class="order-icon-txt">已完成</text>
-    </view>
-    <view class="order-part part5">
-      <icon class="order-part-icon iconfont icon-dingdan"></icon>
-      <text class="order-icon-txt">已取消</text>
-    </view>
-  </view>
-  
-  <view class="general-user-order" wx:if="{{!isVip}}">
-    <div class="general-all clearfix">
-      <text class="general-all-txt">全部订单</text>
-      <text class="general-all-icon iconfont icon-right-thin"></text>
-    </div>
-    <view class="general-bot">
+    
+    <view class="user-info-bot" wx:if="{{isVip}}">
       <view class="order-part part1">
         <icon class="order-part-icon iconfont icon-dingdan"></icon>
-        <text class="order-icon-txt">待付款</text>
+        <text class="order-icon-txt">全部订单</text>
       </view>
       <view class="order-part part2">
         <icon class="order-part-icon iconfont icon-dingdan"></icon>
-        <text class="order-icon-txt">待确认</text>
+        <text class="order-icon-txt">待付款</text>
       </view>
       <view class="order-part part3">
         <icon class="order-part-icon iconfont icon-dingdan"></icon>
-        <text class="order-icon-txt">已完成</text>
+        <text class="order-icon-txt">待确认</text>
       </view>
       <view class="order-part part4">
         <icon class="order-part-icon iconfont icon-dingdan"></icon>
+        <text class="order-icon-txt">已完成</text>
+      </view>
+      <view class="order-part part5">
+        <icon class="order-part-icon iconfont icon-dingdan"></icon>
         <text class="order-icon-txt">已取消</text>
+      </view>
+    </view>
+    
+    <view class="general-user-order" wx:if="{{!isVip}}">
+      <div class="general-all clearfix">
+        <text class="general-all-txt">全部订单</text>
+        <text class="general-all-icon iconfont icon-right-thin"></text>
+      </div>
+      <view class="general-bot">
+        <view class="order-part part1">
+          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <text class="order-icon-txt">待付款</text>
+        </view>
+        <view class="order-part part2">
+          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <text class="order-icon-txt">待确认</text>
+        </view>
+        <view class="order-part part3">
+          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <text class="order-icon-txt">已完成</text>
+        </view>
+        <view class="order-part part4">
+          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <text class="order-icon-txt">已取消</text>
+        </view>
       </view>
     </view>
   </view>

@@ -11,6 +11,8 @@ Page({
         img: 'http://image.jladmin.cn/real_1559184376702.png'
       },
     ],
+
+    showNavBarTitle: false
   },
 
   /**
@@ -66,5 +68,19 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  onPageScroll(e) {
+    var scrollTop = 100 * global.deviceWidth / 375
+
+    if (e.scrollTop >= scrollTop) {
+      this.setData({
+        showNavBarTitle: true
+      })
+    } else {
+      this.setData({
+        showNavBarTitle: false
+      })
+    }
+  },
 })

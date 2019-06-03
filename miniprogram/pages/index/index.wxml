@@ -1,6 +1,8 @@
 <!--index.wxml-->
 <view class="container">
 
+  <nav-bar hasGoBack="{{false}}">惠出发</nav-bar>
+
   <!-- banner 区域 -->
   <swiper
     autoplay="{{false}}"

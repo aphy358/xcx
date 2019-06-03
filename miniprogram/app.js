@@ -6,6 +6,7 @@ import { addDays } from './plugins/util.js'
 App(store.createApp({
   onLaunch: function () {
     global.url = 'https://sz.jltour.com'
+    global.deviceWidth = wx.getSystemInfoSync().windowWidth
 
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')

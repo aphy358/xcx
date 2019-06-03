@@ -7,6 +7,11 @@ page {
   color: #333;
 }
 
+.container{
+  width: 100%;
+  padding-top: 128rpx;
+}
+
 button::after{
   border: none;
 }
