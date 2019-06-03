@@ -51,12 +51,12 @@ Page({
       }
     ],
     titleClass: '',
-    bannerWidth: 375
+    showNavBarTitle: false
   },
   
   onPageScroll(e){
-    let imgH =  480 * this.data.bannerWidth / 375;
-    if (e.scrollTop >= imgH){
+    let topHeight = 416 * global.deviceWidth / 375;
+    if (e.scrollTop >= topHeight){
       this.setData({
         titleClass: ' title-fixed'
       })
@@ -65,11 +65,19 @@ Page({
         titleClass: ''
       })
     }
+
+    let topHeight2 = 300 * global.deviceWidth / 375;
+    if (e.scrollTop >= topHeight2) {
+      this.setData({
+        showNavBarTitle: true
+      })
+    } else {
+      this.setData({
+        showNavBarTitle: false
+      })
+    }
+    
   },
   onReady: function () {
-    let width = wx.getSystemInfoSync().windowWidth;
-    this.setData({
-      bannerWidth: width
-    })
   },
 });

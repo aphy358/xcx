@@ -33,16 +33,18 @@
 
 .product-title{
 	width: 100%;
-	text-align: center;
 	background-color:#ffffff;
 	height: 100rpx;
 	line-height: 100rpx;
+	text-align:center;
 }
 
 .product-title.title-fixed{
 	position: fixed;
-	top: 0;
+	top: 128rpx;
 	left: 0;
+	width:100%;
+	background-color:#ffffff;
 	z-index: 1;
 }
 
