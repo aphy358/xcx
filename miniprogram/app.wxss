@@ -10,6 +10,7 @@ page {
 .container{
   width: 100%;
   padding-top: 64px;
+  padding-bottom: 48px;
 }
 
 button::after{

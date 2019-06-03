@@ -1,2 +1,43 @@
-<!--components/tabBar/tabBar.wxml-->
-<text>components/tabBar/tabBar.wxml</text>
+
+<view class="tab-bar-outer">
+  <view class="tab-bar-inner">
+    <block wx:for="{{tabList}}">
+      <view class="tab-bar-item{{item.isActive ? ' active' : ''}}">
+        <view class="tab-bar-icon">
+          <icon class="iconfont {{item.tabIcon}}"></icon>
+        </view>
+        <view class="tab-bar-text">
+          <text>{{item.tabText}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- <view class="tab-bar-item">
+      <view class="tab-bar-icon">
+        <icon class="iconfont icon-home-page"></icon>
+      </view>
+      <view class="tab-bar-text">
+        <text>首页</text>
+      </view>
+    </view>
+
+    <view class="tab-bar-item">
+      <view class="tab-bar-icon">
+        <icon class="iconfont icon-lipin"></icon>
+      </view>
+      <view class="tab-bar-text">
+        <text>福利社</text>
+      </view>
+    </view>
+
+    <view class="tab-bar-item">
+      <view class="tab-bar-icon">
+        <icon class="iconfont icon-my-center"></icon>
+      </view>
+      <view class="tab-bar-text">
+        <text>我的</text>
+      </view>
+    </view> -->
+
+  </view>
+</view>
