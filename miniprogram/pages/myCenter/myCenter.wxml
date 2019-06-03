@@ -35,7 +35,7 @@
     </view>
     
     <view class="user-info-bot" wx:if="{{isVip}}">
-      <view class="order-part part1">
+      <view class="order-part part1" bindtap='toOrderList'>
         <icon class="order-part-icon iconfont icon-dingdan"></icon>
         <text class="order-icon-txt">全部订单</text>
       </view>
