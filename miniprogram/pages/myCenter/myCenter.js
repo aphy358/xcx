@@ -6,7 +6,7 @@ Page({
    */
   data: {
     avatarUrl: './user-unlogin.png',
-    isVip: false
+    isVip: true
   },
 
   /**

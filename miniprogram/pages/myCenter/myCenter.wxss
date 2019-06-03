@@ -17,11 +17,13 @@
   font-weight: bold;
 }
 /*end*/
+.my-center{
+  color: #111111;
+}
 
 .user-info-top{
   height: 160rpx;
   background-color: #fff;
-  color: #111111;
 }
 
 .user-img{
@@ -29,6 +31,7 @@
   height: 100rpx;
   float: left;
   margin: 10rpx 20rpx 50rpx 60rpx;
+  border-radius: 50%;
 }
 
 .user-info-center{
@@ -51,7 +54,7 @@
   float: left;
   font-size: 20rpx;
   background-color: #fff;
-  border-radius: 0;
+  border-radius: 4rpx;
   padding: 0;
   margin-top: 30rpx;
 }
@@ -88,13 +91,27 @@
 
 .money-top{
   display: flex;
-  height: 166rpx;
+  height: 136rpx;
   border-bottom: 1rpx solid #f5f5f5;
 }
 
 .account-box{
   flex: 1;
   text-align: center;
+}
+
+.un-account{
+  position: relative;
+}
+
+.un-account:after{
+  content: '';
+  width: 3rpx;
+  height: 36rpx;
+  background-color: #EEEEEE;
+  position: absolute;
+  top: 60rpx;
+  right: 0;
 }
 
 .account{
@@ -123,18 +140,22 @@
   border-radius: 0;
   position: absolute;
   right: 0;
-  bottom: 56rpx;
+  bottom: 26rpx;
 }
 
 .money-bot{
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 90rpx;
+  line-height: 90rpx;
 }
 
 .total-money{
   float: left;
   font-size: 24rpx;
   color: #333333;
+}
+
+.total-money-num{
+  color: #111111;
 }
 
 .read-money-detail{
@@ -178,13 +199,15 @@
   border-radius: 10rpx;
   margin: 10rpx auto 0;
   box-sizing: border-box;
-  padding: 0 50rpx;
 }
 
 .general-all{
   height: 94rpx;
   line-height: 94rpx;
   position: relative;
+  margin: 0 50rpx;
+  width: 630rpx;
+  border-bottom: 1rpx solid #eeeeee;
 }
 
 .general-all-txt{
@@ -197,10 +220,10 @@
   float: right;
   font-size: 24rpx;
   font-weight: bold;
+  color: #666666;
 }
 
 .general-bot{
   display: flex;
   padding: 23rpx 0;
-  border-top: 1rpx solid #eeeeee;
 }

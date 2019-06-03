@@ -5,7 +5,7 @@
       <image class="user-img" src="{{avatarUrl}}"></image>
       <view class="user-info-center">
         <view class="clearfix">
-          <text class="user-name">李白</text>
+          <text class="user-name font-bold">李白</text>
           <button class="edit-user-name">编辑</button>
         </view>
         <text class="user-id">ID:19052284</text>
@@ -29,7 +29,7 @@
         </view>
       </view>
       <view class="money-bot clearfix">
-        <text class="total-money">累计收入：<text class="font-bold">440.0</text></text>
+        <text class="total-money">累计收入：<text class="font-bold total-money-num">440.0</text></text>
         <text class="read-money-detail">查看收入明细 >></text>
       </view>
     </view>
@@ -58,10 +58,10 @@
     </view>
     
     <view class="general-user-order" wx:if="{{!isVip}}">
-      <div class="general-all clearfix">
+      <view class="general-all clearfix">
         <text class="general-all-txt">全部订单</text>
         <text class="general-all-icon iconfont icon-right-thin"></text>
-      </div>
+      </view>
       <view class="general-bot">
         <view class="order-part part1">
           <icon class="order-part-icon iconfont icon-dingdan"></icon>
