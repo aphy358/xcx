@@ -32,8 +32,9 @@
 }
 
 .product-title{
-	width: 240rpx;
-	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	background-color:#ffffff;
 	height: 100rpx;
 	line-height: 100rpx;
 }
@@ -42,9 +43,6 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width:100%;
-	background-color:#ffffff;
-	text-align:center;
 	z-index: 1;
 }
 

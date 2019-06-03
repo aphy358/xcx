@@ -55,21 +55,12 @@ Page({
   },
   
   onPageScroll(e){
-    let topHeight =  520 * this.data.bannerWidth / 375;
-    let botHeight = ((this.data.bannerWidth + 30) * 1000)/750;
-    console.log(topHeight);
-    // console.log(botHeight);
-    if (e.scrollTop >= topHeight){
+    let imgH =  480 * this.data.bannerWidth / 375;
+    if (e.scrollTop >= imgH){
       this.setData({
         titleClass: ' title-fixed'
       })
-    }
-    // else{
-    //   this.setData({
-    //     titleClass: ''
-    //   })
-    // }
-    if (e.scrollTop <= botHeight){
+    }else{
       this.setData({
         titleClass: ''
       })
