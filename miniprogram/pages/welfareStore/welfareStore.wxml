@@ -1,31 +1,32 @@
+<nav-bar showNavBarTitle="{{showNavBarTitle}}" hasGoBack="{{false}}">福利社</nav-bar>
 <view class="welfare-box">
-	<view class="banner-box">
-		<image class="welfare-banner" mode="widthFix" src="/assets/img/welfareStore/welfare-banner.png"></image>
-	</view>
-	
-	<view class="product-box">
-		<view class="product-title-box">
-			<view class="product-title{{titleClass}}">
-				<icon class="title-icon"></icon>
-				<icon class="title-icon"></icon>
-				<icon class="title-icon"></icon>
-				<text class="title-txt">热销爆款</text>
-				<icon class="title-icon"></icon>
-				<icon class="title-icon"></icon>
-				<icon class="title-icon"></icon>
-			</view>
-		</view>
-		
-		<view class="product-list-box clearfix">
-			<view class="every-product" wx:for="{{productList}}" wx:key="{{index}}">
-				<image class="product-img" src="{{item.imgUrl}}"></image>
-				<text class="product-name">{{item.hotelName}}</text>
-				<view class="product-money">
-					<text class="product-price">￥{{item.price}}</text>
-					<text class="product-profit">赚{{item.profit}}</text>
-				</view>
-				<button class="share-product">分享</button>
-			</view>
-		</view>
-	</view>
+  <view class="banner-box">
+    <image class="welfare-banner" mode="widthFix" src="/assets/img/welfareStore/welfare-banner.png"></image>
+  </view>
+  
+  <view class="product-box">
+    <view class="product-title-box">
+      <view class="product-title{{titleClass}}">
+        <icon class="title-icon"></icon>
+        <icon class="title-icon"></icon>
+        <icon class="title-icon"></icon>
+        <text class="title-txt">热销爆款</text>
+        <icon class="title-icon"></icon>
+        <icon class="title-icon"></icon>
+        <icon class="title-icon"></icon>
+      </view>
+    </view>
+    
+    <view class="product-list-box clearfix">
+      <view class="every-product" wx:for="{{productList}}" wx:key="{{index}}">
+        <image class="product-img" src="{{item.imgUrl}}"></image>
+        <text class="product-name">{{item.hotelName}}</text>
+        <view class="product-money">
+          <text class="product-price">￥{{item.price}}</text>
+          <text class="product-profit">赚{{item.profit}}</text>
+        </view>
+        <button class="share-product">分享</button>
+      </view>
+    </view>
+  </view>
 </view>

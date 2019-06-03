@@ -36,15 +36,15 @@
 	margin: 0 auto;
 	height: 100rpx;
 	line-height: 100rpx;
+	text-align:center;
 }
 
 .product-title.title-fixed{
 	position: fixed;
-	top: 0;
+	top: 128rpx;
 	left: 0;
 	width:100%;
 	background-color:#ffffff;
-	text-align:center;
 	z-index: 1;
 }
 
