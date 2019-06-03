@@ -41,5 +41,8 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "nav-bar": "./components/navBar/navBar"
+  }
 }
