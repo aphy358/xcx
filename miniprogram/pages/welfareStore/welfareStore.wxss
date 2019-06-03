@@ -24,7 +24,7 @@
 	background-color:#ffffff;
 	margin-top:-40rpx;
 	position:relative;
-	border-radius:40rpx;
+	border-radius:40rpx 40rpx 0 0;
   overflow: hidden;
 }
 
