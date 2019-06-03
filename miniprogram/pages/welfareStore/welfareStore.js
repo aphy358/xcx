@@ -55,7 +55,7 @@ Page({
   },
   
   onPageScroll(e){
-    let topHeight = 480 * global.deviceWidth / 375;
+    let topHeight = 416 * global.deviceWidth / 375;
     if (e.scrollTop >= topHeight){
       this.setData({
         titleClass: ' title-fixed'
