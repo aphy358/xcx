@@ -2,8 +2,8 @@
 <view class="tab-bar-outer">
   <view class="tab-bar-inner">
     <block wx:for="{{tabList}}" wx:key="{{item.path}}">
-      <navigator url="{{item.path}}" open-type="switchTab">
-        <view class="tab-bar-item{{item.isActive ? ' active' : ''}}">
+      <!-- <navigator url="{{item.path}}" open-type="switchTab"> -->
+        <view class="tab-bar-item{{item.isActive ? ' active' : ''}}" bindtap="switchTab" data-path="{{item.path}}">
           <view class="tab-bar-icon">
             <icon class="iconfont {{item.tabIcon}}"></icon>
           </view>
@@ -11,7 +11,7 @@
             <text>{{item.tabText}}</text>
           </view>
         </view>
-      </navigator>
+      <!-- </navigator> -->
     </block>
 
     <!-- <view class="tab-bar-item">

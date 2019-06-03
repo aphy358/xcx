@@ -58,7 +58,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    switchTab(e){
+      var path = e.currentTarget.dataset.path
+      wx.switchTab({
+        url: path
+      })
+    }
   },
   pageLifetimes: {
     show() {
