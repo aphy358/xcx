@@ -94,6 +94,9 @@ Page({
   onLoad: function() {
   },
 
+  onShow: function () {
+  },
+
   onPageScroll(e) {
     var scrollTop = 211 * global.deviceWidth / 375
 

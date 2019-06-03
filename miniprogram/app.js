@@ -5,9 +5,6 @@ import { addDays } from './plugins/util.js'
 
 App(store.createApp({
   onLaunch: function () {
-    // 隐藏系统自带的 tabbar
-    wx.hideTabBar();
-
     global.url = 'https://sz.jltour.com'
     global.deviceWidth = wx.getSystemInfoSync().windowWidth
 

@@ -29,6 +29,4 @@
       </view>
     </view>
   </view>
-
-  <tab-bar index="2"></tab-bar>
 </view>

@@ -82,6 +82,4 @@
       </view>
     </view>
   </view>
-
-  <tab-bar index="3"></tab-bar>
 </view>
