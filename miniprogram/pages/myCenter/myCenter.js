@@ -44,6 +44,13 @@ Page({
   onReady: function () {
 
   },
+  
+  
+  toOrderList(e){
+    wx.navigateTo({
+      url: '../orderDetail/orderDetail',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示
