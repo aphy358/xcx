@@ -24,8 +24,10 @@
         </view>
         <view class="account account-box">
           <text class="money-num">222.0</text>
-          <text class="money-txt">已入账金额</text>
-          <button class="cash-out">提现</button>
+          <view class="clearfix">
+            <button class="cash-out fr">提现</button>
+            <text class="money-txt fr">已入账金额</text>
+          </view>
         </view>
       </view>
       <view class="money-bot clearfix">
