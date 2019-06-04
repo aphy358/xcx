@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/cancelOrder/cancelOrder",
+    "pages/myCenter/myCenter",
     "pages/welfareStore/welfareStore",
     "pages/ticketDetail/ticketDetail",
     "pages/checkinCheckout/checkinCheckout",
-    "pages/myCenter/myCenter",
     "pages/myOrder/myOrder",
     "pages/orderDetail/orderDetail"
   ],

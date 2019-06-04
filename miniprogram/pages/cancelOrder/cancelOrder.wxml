@@ -1,0 +1,8 @@
+<view class="order-detail container">
+	<nav-bar hasGoBack="{{true}}">申请取消</nav-bar>
+	<view class="tips">温馨提示：申请后，我们将尽快处理您的申请，请耐心等待。</view>
+	<view class="reason">
+		<text class="module-title">取消原因</text>
+		
+	</view>
+</view>

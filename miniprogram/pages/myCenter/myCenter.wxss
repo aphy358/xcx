@@ -16,6 +16,10 @@
 .font-bold{
   font-weight: bold;
 }
+
+.fr{
+  float: right;
+}
 /*end*/
 .my-center{
   color: #111111;
@@ -85,13 +89,15 @@
   background-color: #fff;
   margin: 10rpx auto 4rpx;
   border-radius: 10rpx;
-  padding: 30rpx 50rpx;
+  padding: 35rpx 50rpx 0;
   box-sizing: border-box;
 }
 
 .money-top{
   display: flex;
-  height: 136rpx;
+  height: 133rpx;
+  padding-bottom: 43rpx;
+  box-sizing: border-box;
   border-bottom: 1rpx solid #f5f5f5;
 }
 
@@ -110,7 +116,7 @@
   height: 36rpx;
   background-color: #EEEEEE;
   position: absolute;
-  top: 60rpx;
+  top: 45rpx;
   right: 0;
 }
 
@@ -122,7 +128,6 @@
   display: block;
   font-size: 40rpx;
   font-weight: bold;
-  margin-top: 20rpx;
 }
 
 .money-txt{
@@ -137,10 +142,9 @@
   color: #ffffff;
   font-size: 20rpx;
   padding: 0;
-  border-radius: 0;
-  position: absolute;
-  right: 0;
-  bottom: 26rpx;
+  border-radius: 4rpx;
+  margin-left: 24rpx;
+  display: inline-block;
 }
 
 .money-bot{
