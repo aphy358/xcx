@@ -56,4 +56,6 @@
       </view>
     </block>
   </view>
+
+  <!-- <tab-bar></tab-bar> -->
 </view>

@@ -94,6 +94,9 @@ Page({
   onLoad: function() {
   },
 
+  onShow: function () {
+  },
+
   onPageScroll(e) {
     var scrollTop = 211 * global.deviceWidth / 375
 
@@ -119,7 +122,7 @@ Page({
 
   gotoTicketDetail(e){
     wx.navigateTo({
-      url: '../ticketDetail/ticketDetail',
+      url: '/pages/ticketDetail/ticketDetail',
     })
   },
 

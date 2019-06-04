@@ -16,11 +16,6 @@ App(store.createApp({
       })
     }
 
-    this.globalData = {
-      checkin: addDays(new Date),
-      checkout: addDays(new Date, 1),
-    }
-
     wx.login({
       success(res){
         if (res.code) {
@@ -36,5 +31,10 @@ App(store.createApp({
         }
       }
     })
+  },
+  globalData: {
+    checkin: addDays(new Date),
+    checkout: addDays(new Date, 1),
   }
+
 }))
