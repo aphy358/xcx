@@ -5,16 +5,16 @@
 		<view class="module-box">
 			<text class="module-title">取消原因</text>
 			<view class="module-content">
-				<picker value="{{reason}}" range="{{reasonArray}}">
-					<view class="picker">行程有变</view>
+				<picker class="reason-picker" value="{{reason}}" range="{{reasonArray}}" range-key="text" bindchange="changeReason">
+					<view class="picker">{{reason}}</view>
 				</picker>
-				<text class="red">*请选择取消原因</text>
+				<text class="red reason-require">*请选择取消原因</text>
 			</view>
 		</view>
 		<view class="module-box">
 			<text class="module-title">取消说明</text>
 			<view class="module-content">
-				<textarea auto-height placeholder="请简要说明取消原因，字数不要超过200字" />
+				<textarea class="reason-info" maxlength="200" value="{{reasonInfo}}" placeholder="请简要说明取消原因，字数不要超过200字" placeholder-style="color:#999999;" />
 			</view>
 		</view>
 		<view class="module-box">
@@ -26,10 +26,20 @@
 		<view class="module-box">
 			<text class="module-title">联系信息</text>
 			<view class="module-content">
-				<view class="content-line">
-					联系人：
+				<view class="content-line clearfix">
+					<text class="line-title">联系人：</text>
+					<input type="text" class="link-name" value="{{linkName}}"/>
+				</view>
+				<view class="content-line clearfix">
+					<text class="line-title">联系电话：</text>
+					<input type="number" class="link-tel" value="{{linkTel}}"/>
 				</view>
 			</view>
 		</view>
+	</view>
+	<view class="explain">如有疑问，可点击<text class="jl-tel" bindtap="call">联系客服</text></view>
+	<view class="btn-box">
+		<button class="cancel" bindtap="cancel">取消提交</button>
+		<button class="submit" bindtap="submit">立即提交</button>
 	</view>
 </view>

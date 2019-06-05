@@ -3,9 +3,15 @@ import './plugins/dateFormat.js'
 import store from './plugins/store/index.js'
 import { addDays } from './plugins/util.js'
 
+
 App(store.createApp({
   onLaunch: function () {
-    global.url = 'https://sz.jltour.com'
+    var appId = wx.getAccountInfoSync().miniProgram.appId
+
+    global.url = appId == 'wx6ac08ec94a8fb611'
+      ? 'https://test.huichufa.jlqnb.com'
+      : 'https://huichufa.jlqnb.com'
+
     global.deviceWidth = wx.getSystemInfoSync().windowWidth
 
     if (!wx.cloud) {
@@ -21,9 +27,15 @@ App(store.createApp({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: global.url,
+            url: global.url + '/login/autoLoginWx',
             data: {
               code: res.code
+            },
+            success(res) {
+              console.log(res.data)
+            },
+            fail(res) {
+              console.log('failed')
             }
           })
         } else {

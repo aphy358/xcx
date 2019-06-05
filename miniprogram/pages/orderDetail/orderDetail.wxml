@@ -88,6 +88,24 @@
 	<view class="options clearfix">
 		<button class="pay-now">立即支付</button>
 		<button class="re-book">再次购买</button>
-		<button class="cancel-order">取消订单</button>
+		<button class="cancel-order" bindtap="cancelOrder">取消订单</button>
+	</view>
+</view>
+
+<view class="red-packet-mask" wx:if="{{showPacket}}"></view>
+<view class="red-packet" wx:if="{{showPacket}}">
+	<image class="red-packet-img" src="./red-packet.png"></image>
+	<view class="red-packet-content">
+		<text class="red-packet-title">恭喜您有机会获得</text>
+		<view class="red-packet-num">
+			<text class="red-packet-money">45.0</text>元
+		</view>
+		<text class="share-txt">快分享给好友购买解锁更多现金吧</text>
+		<button class="share-now">立即分享</button>
+		<view class="follow-box">
+			<checkbox class="follow" checked></checkbox>
+			<text class="follow-txt">关注惠出发公众号了解更多</text>
+		</view>
+		<view class="close-red-packet iconfont icon-delete2" bindtap="closePacket"></view>
 	</view>
 </view>

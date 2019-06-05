@@ -91,3 +91,13 @@
     立即购买<text class='profit'>赚￥66</text>
   </view>
 </view>
+
+
+
+<view class='canvas-mask'></view>
+<!-- canvas 绘制完成后显示的图片 -->
+<canvas class='share-img' canvas-id="share" bindtap="saveImageToPhotos" hidden='{{false}}'>
+</canvas>
+<!-- <view class='share-img'>
+  <image src='{{shareImgPath}}'></image>
+</view> -->

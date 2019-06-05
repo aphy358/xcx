@@ -1,0 +1,90 @@
+
+  <view class='ticket-order-top-bgc'></view>
+
+<view class='container'>
+
+  <nav-bar background="#2577E3" color="white">提交订单</nav-bar>
+
+
+  <view class='ticket-order-top-bg'>
+    <view class='inner'></view>
+  </view>
+
+  <view class="ticket-order-block">
+    <view style='overflow: hidden;position: relative;margin-bottom: 30rpx;'>
+      <view class='ticket-order-img'>
+        <image src="http://image.jladmin.cn/real_1559634259698.png" mode="widthFix"></image>
+      </view>
+      <view>
+        <view class='ticket-order-name'>上海迪斯尼2日1晚维也纳酒店 免费接站接送迪斯尼乐</view>
+        <view class='ticket-order-price-outer'>
+          <text class='ticket-order-price'>￥699</text>
+          <text class='ticket-order-profit'>赚￥36</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='ticket-order-info-row'>
+      <text class='ticket-order-info-label'>有效时间：</text>
+      <text>2019-05-28 至 2019-05-29</text>
+    </view>
+
+    <view class='ticket-order-info-row'>
+      <text class='ticket-order-info-label'>预订数量：</text>
+      <text>{{num}}份</text>
+    </view>
+
+    <view class='ticket-order-num-outer'>
+      <text class='icon' bindtap='addNum'>+</text>
+      <text>{{num}}</text>
+      <text class='icon' bindtap='reduceNum'>-</text>
+    </view>
+  </view>
+
+  <view class="ticket-order-block">
+    <view class='to-user-info-title'>预订信息</view>
+    <view class='to-user-info-row'>
+      <text class='to-user-info-label'>姓名</text>
+      <input class='to-user-info-input' placeholder='请输入姓名' placeholder-class="pholder"></input>
+    </view>
+    <view class='to-user-info-row'>
+      <text class='to-user-info-label'>手机号</text>
+      <input class='to-user-info-input' placeholder='请输入手机号' placeholder-class="pholder"></input>
+    </view>
+    <view class='to-user-info-row'>
+      <text class='to-user-info-label'>备注信息</text>
+      <input class='to-user-info-input' placeholder='备注信息，不多于200字' placeholder-class="pholder"></input>
+    </view>
+  </view>
+
+
+
+
+  <!-- 价格详情和遮罩层 -->
+  <view class="ticket-order-mask" wx:if="{{showPriceDetail}}" bindtap="hidePriceDetail"></view>
+  <view class='to-price-detail-outer' bindtap="hidePriceDetail" animation="{{animationData}}">
+    <text>购买数量：</text>
+    <text style='float: right;color: #373737;'>￥660.0*4份</text>
+  </view>
+
+
+
+
+
+  <!-- 底部 费用合计、立即支付 按钮 -->
+  <view class='ticket-bottom-outer'>
+    <view class='ticket-bottom-btn' catchtap='togglePriceDetail'>
+      <view class='ticket-bottom-line-one'>
+        <text class='ticket-bottom-total-text'>合计</text>
+        <text class='ticket-bottom-total-price'>￥699</text>
+      </view>
+      <view class='ticket-bottom-line-two'>
+        <text class='ticket-bottom-total-profit'>可赚￥36</text>
+      </view>
+    </view>
+    <view class='ticket-bottom-btn' style='text-align: right;'>
+      <text class='ticket-bottom-detail' catchtap='togglePriceDetail'>明细</text>
+      <text class='ticket-bottom-btn-confirm'>立即支付</text>
+    </view>
+  </view>
+</view>

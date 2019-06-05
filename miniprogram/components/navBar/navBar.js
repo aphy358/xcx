@@ -15,6 +15,18 @@ Component({
       type: Boolean,
       value: true
     },
+
+    // 字体颜色
+    color: {
+      type: String,
+      value: 'black'
+    },
+
+    // 背景颜色
+    background: {
+      type: String,
+      value: 'white'
+    },
   },
 
   /**

@@ -8,11 +8,17 @@ page {
 }
 
 .container{
+  position: relative;
   width: 100%;
+  background: #F0EFF5;
   padding-top: 64px;
   padding-bottom: 48px;
 }
 
 button::after{
   border: none;
+}
+
+.pholder{
+  color: #CCCCCC;
 }
