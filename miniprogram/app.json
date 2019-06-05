@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/cancelOrder/cancelOrder",
+    "pages/index/index",
     "pages/myCenter/myCenter",
     "pages/welfareStore/welfareStore",
     "pages/ticketDetail/ticketDetail",
