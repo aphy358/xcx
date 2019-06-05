@@ -2,7 +2,34 @@
 	<nav-bar hasGoBack="{{true}}">申请取消</nav-bar>
 	<view class="tips">温馨提示：申请后，我们将尽快处理您的申请，请耐心等待。</view>
 	<view class="reason">
-		<text class="module-title">取消原因</text>
-		
+		<view class="module-box">
+			<text class="module-title">取消原因</text>
+			<view class="module-content">
+				<picker value="{{reason}}" range="{{reasonArray}}">
+					<view class="picker">行程有变</view>
+				</picker>
+				<text class="red">*请选择取消原因</text>
+			</view>
+		</view>
+		<view class="module-box">
+			<text class="module-title">取消说明</text>
+			<view class="module-content">
+				<textarea auto-height placeholder="请简要说明取消原因，字数不要超过200字" />
+			</view>
+		</view>
+		<view class="module-box">
+			<text class="module-title">退款金额</text>
+			<view class="module-content">
+				<text class="refund-num">退款金额合计：<text class="red">￥7266.00</text></text>
+			</view>
+		</view>
+		<view class="module-box">
+			<text class="module-title">联系信息</text>
+			<view class="module-content">
+				<view class="content-line">
+					联系人：
+				</view>
+			</view>
+		</view>
 	</view>
 </view>
