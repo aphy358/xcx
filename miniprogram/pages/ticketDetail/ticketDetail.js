@@ -188,23 +188,107 @@ Page({
   makeCanvas(){
     var _this = this
 
+    var path = '/assets/img/ttt.jpg'    // 测试用的图片
+    var ctx = wx.createCanvasContext('share')
+
+    // 画最上面的 '惠出发'
+    ctx.setFillStyle("#373737");
+    ctx.setTextAlign('center')
+    ctx.font = 'normal bold 14px sans-serif'
+    ctx.fillText("惠出发", 150, 25)
+    ctx.save()
+
+    // 画景点图片，或酒店图片
+    _this.drawRoundedRect({
+      x: 15,
+      y: 40,
+      width: 270,
+      height: 150
+    }, 4, ctx)
+    ctx.clip()
+    ctx.drawImage(path, 15, 40, 270, 150)
+    ctx.restore()
+
+    // 画景点名称，或酒店名称，如果太长，则分两行画
+    var grd = ctx.createLinearGradient(15, 200, 45, 200)
+    grd.addColorStop(0, '#FA5098')
+    grd.addColorStop(1, '#683FB9')
+    ctx.setFillStyle(grd)
+    ctx.fillRect(15, 200, 30, 15)
+    ctx.setFillStyle("white");
+    ctx.setTextAlign('center')
+    ctx.font = 'normal 10px sans-serif'
+    ctx.fillText("热卖", 30, 211)
+
+    var text = '上海迪斯尼2日1晚维也纳酒店免费接站接送迪斯尼乐园含门票上海迪斯尼2日1晚上海迪斯尼2日1晚'
+    var text1 = ''
+    var text2 = ''
+    if (text.length > 18) {
+      for (var i = 18; i < text.length; i++) {
+        var metrics = ctx.measureText(text.substring(0, i))
+        if (metrics.width >= 200) {
+          i--
+          break
+        }
+      }
+      text1 = text.substring(0, i)
+      text2 = text.substring(i)
+      if (text2.length >= 15){
+        text2 = text2.substring(0, 15) + '...'
+      }
+    }else{
+      text1 = text
+    }
+
+    ctx.setFillStyle("#373737");
+    ctx.setTextAlign('left')
+    ctx.font = 'normal bold 12px sans-serif'
+    ctx.fillText(text1, 50, 212)
+    if (text2 != ''){
+      ctx.fillText(text2, 15, 232)
+    }
+
+    // 画价格
+    var price = '919'
+    ctx.setFillStyle("#FF5A3D");
+    ctx.setTextAlign('right')
+    ctx.font = 'normal bold 18px sans-serif'
+    var metrics = ctx.measureText(price)
+    ctx.fillText(price, 285, 234)
+
+    // 画 '￥'
+    ctx.setFillStyle("#FF5A3D");
+    ctx.setTextAlign('right')
+    ctx.font = 'normal bold 12px sans-serif'
+    ctx.fillText('￥', 285 - metrics.width, 234)
+    ctx.save()
+
+    // 画头像和分享人信息
+    ctx.arc(27, 258, 12, 0, 2 * Math.PI)
+    ctx.clip()
+    ctx.drawImage(path, 15, 246, 24, 24)
+    ctx.restore()
+
+    ctx.setFillStyle("#717171");
+    ctx.setTextAlign('left')
+    ctx.font = 'normal 10px sans-serif'
+    ctx.fillText("来自***的分享", 48, 263)
+
+    // 画二维码
+    ctx.drawImage(path, 15, 285, 52, 52)
+
+    ctx.setFillStyle("#373737")
+    ctx.fillText("长按识别二维码，可购买商品", 75, 315)
+
+    ctx.draw(true, setTimeout(function () {
+      _this.savePic()
+    }, 1000))
+
+
     wx.getImageInfo({
       // http://image.jladmin.cn
       src: 'https://qnb.oss-cn-shenzhen.aliyuncs.com/real_1559184376702.png',
       success: function (res) {
-        var ctx = wx.createCanvasContext('share')
-        ctx.setFillStyle("#373737");
-        ctx.setTextAlign('center')
-        ctx.font = 'normal bold 14px sans-serif'
-        ctx.fillText("惠出发", 150, 25)
-        ctx.drawImage(res.path, 20, 40, 260, 150)
-        _this.drawRoundedRect({
-          x: 20,
-          y: 40,
-          width: 260,
-          height: 150
-        }, 3, ctx)
-        ctx.draw()
 
         // _this.saveImageToPhotos()
       }
@@ -228,7 +312,7 @@ Page({
     ctx.arcTo(ptD.x, ptD.y, ptE.x, ptE.y, r);
     ctx.arcTo(ptE.x, ptE.y, ptA.x, ptA.y, r);
 
-    ctx.stroke();
+    // ctx.stroke();
   }
 
 })

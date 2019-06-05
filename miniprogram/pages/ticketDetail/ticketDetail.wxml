@@ -96,8 +96,8 @@
 
 <view class='canvas-mask'></view>
 <!-- canvas 绘制完成后显示的图片 -->
-<canvas class='share-img' canvas-id="share" bindtap="saveImageToPhotos" hidden='{{false}}'>
-</canvas>
-<!-- <view class='share-img'>
-  <image src='{{shareImgPath}}'></image>
-</view> -->
+<canvas class='share-img' canvas-id="share" bindtap="saveImageToPhotos" hidden='{{false}}'></canvas>
+<view class='share-img'>
+  <image src='{{shareImgPath}}' mode="widthFix"></image>
+  <text class='share-img-text'>长按进行分享和保存图片</text>
+</view>
