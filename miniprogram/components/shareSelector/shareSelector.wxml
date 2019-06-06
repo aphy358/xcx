@@ -1,0 +1,21 @@
+
+<view class="selector-mask{{showSelector ? '' : ' hidden'}}"></view>
+<view class="selector-outer{{showSelector ? '' : ' hidden'}}">
+  <view class="selector-inner">
+    <view class='selector-item'>
+      <view class='selector-item-icon'>
+        <text class='iconfont icon-weixin' style='font-size: 60rpx;'></text>
+      </view>
+      <view class='selector-item-text'>分享给好友</view>
+      <button class='button-mask' open-type="share"></button>
+    </view>
+
+    <view class='selector-item'>
+      <view class='selector-item-icon'>
+        <text class='iconfont icon-pengyouquan'></text>
+      </view>
+      <view class='selector-item-text'>生成海报</view>
+    </view>
+  </view>
+  <view class='selector-bottom'>取消</view>
+</view>

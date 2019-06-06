@@ -1,0 +1,65 @@
+<view class="account-detail container">
+	<nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">账户明细</nav-bar>
+	<view class="detail-list">
+		<view class="per-trade">
+			<view class="per-trade-head clearfix">
+				<image class="trade-user-img fl" src="../myCenter/user-unlogin.png"></image>
+				<text class="trade-user-name fl">来自微信号为simple-time的购买</text>
+			</view>
+			<view class="trade-head-border"></view>
+			<view class="trade-line clearfix">
+				<text class="product-name fl">上海迪士尼2日1晚维也纳酒店免费接送迪士尼乐园含门票</text>
+				<text class="product-price fr">￥699.0</text>
+			</view>
+			<view class="trade-line clearfix">
+				<text class="trade-time light-grey fl">下单时间：2019-5-19 11:02:09</text>
+				<text class="trade-status fr">待入账</text>
+			</view>
+		</view>
+		<view class="per-trade has-canceled">
+			<view class="per-trade-head clearfix">
+				<image class="trade-user-img fl" src="../myCenter/user-unlogin.png"></image>
+				<text class="trade-user-name fl">来自微信号为simple-time的购买</text>
+			</view>
+			<view class="trade-head-border"></view>
+			<view class="trade-line clearfix">
+				<text class="product-name fl">上海迪士尼2日1晚维也纳酒店免费接送迪士尼乐园含门票</text>
+				<text class="product-price fr">￥699.0</text>
+			</view>
+			<view class="trade-line clearfix">
+				<text class="trade-time light-grey fl">下单时间：2019-5-19 11:02:09</text>
+				<text class="trade-status fr">已取消</text>
+			</view>
+		</view>
+		<view class="per-trade">
+			<view class="per-trade-head clearfix">
+				<text class="cash-out">账户佣金提现</text>
+			</view>
+			<view class="trade-head-border"></view>
+			<view class="trade-line clearfix">
+				<text class="trade-time light-grey fl">申请时间：2019-5-19 11:02:09</text>
+				<text class="product-price fr">￥699.0</text>
+			</view>
+			<view class="trade-line clearfix">
+				<text class="trade-status fr">已提现</text>
+			</view>
+		</view>
+		<view class="per-trade">
+			<view class="per-trade-head clearfix">
+				<text class="cash-out">账户佣金提现</text>
+			</view>
+			<view class="trade-head-border"></view>
+			<view class="trade-line clearfix">
+				<text class="trade-time light-grey fl">申请时间：2019-5-19 11:02:09</text>
+				<text class="product-price red fr">￥699.0</text>
+			</view>
+			<view class="trade-line clearfix">
+				<view class="fl clearfix">
+					<text class="fl">失败原因：提现金额出现异常</text>
+					<view class="link-jl blue fl" bindtap="linkJl">点击联系客服</view>
+				</view>
+				<text class="trade-status red fr"><text class="iconfont icon-ziyuan6 cash-out-failed-icon"></text>提现失败</text>
+			</view>
+		</view>
+	</view>
+</view>

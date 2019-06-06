@@ -1,0 +1,137 @@
+/*公共样式*/
+.clearfix{
+	zoom: 1;
+}
+
+.clearfix:after{
+	content: '';
+	clear: both;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.font-bold{
+	font-weight: bold;
+}
+
+.grey{
+	color: #717171;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.light-grey{
+	color: #CCCCCC;
+}
+
+.red{
+	color: #de242f;
+}
+
+.blue{
+	color: #2577E3;
+}
+/*end*/
+
+.per-trade{
+	background-color: #fff;
+	margin-top: 10rpx;
+	padding: 0 30rpx 20rpx;
+}
+
+.has-canceled text{
+	color: #CCCCCC;
+}
+
+.has-canceled image{
+	opacity: 0.5;
+}
+
+.per-trade-head{
+	height: 80rpx;
+	line-height: 80rpx;
+	overflow: hidden;
+	display: flex;
+	position: relative;
+}
+
+.trade-head-border{
+	width: 642rpx;
+	height: 1rpx;
+	background-color: #EEEEEE;
+	margin: 0 0 12rpx 30rpx;
+}
+
+.trade-user-img{
+	width: 48rpx;
+	height: 48rpx;
+	border-radius: 50%;
+	margin: 16rpx 0;
+}
+
+.trade-user-name{
+	flex: 1;
+	color: #373737;
+	font-size: 20rpx;
+	margin-left: 16rpx;
+	display: inline-block;
+	height: 80rpx;
+	line-height: 80rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+
+.cash-out{
+	font-size: 26rpx;
+	font-weight: bold;
+	color: #373737;
+}
+
+.trade-line{
+	height: 60rpx;
+	line-height: 60rpx;
+	color: #373737;
+	font-size: 20rpx;
+}
+
+.product-name{
+	font-size: 26rpx;
+	font-weight: bold;
+	width: 300rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+
+.product-price{
+	color: #333333;
+	font-size: 32rpx;
+	font-weight: bold;
+}
+
+.product-price.red{
+	color: #de242f;
+}
+
+.link-jl{
+
+}
+
+.trade-status{
+	font-size: 20rpx;
+}
+
+.cash-out-failed-icon{
+	font-size: 18rpx;
+	margin-right: 5rpx;
+}

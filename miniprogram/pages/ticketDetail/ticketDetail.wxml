@@ -84,20 +84,12 @@
 
 <!-- 底部 推荐、立即购买 按钮 -->
 <view class='ticket-bottom-outer'>
-  <view class='ticket-bottom-btn'>
+  <view class='ticket-bottom-btn' bindtap='showCanvasImg'>
     推荐<text class='profit'>赚￥66</text>
   </view>
-  <view class='ticket-bottom-btn' style='background: #2577E3;'>
+  <view class='ticket-bottom-btn' style='background: #2577E3;' bindtap='gotoPlaceOrder'>
     立即购买<text class='profit'>赚￥66</text>
   </view>
 </view>
 
-
-
-<view class='canvas-mask'></view>
-<!-- canvas 绘制完成后显示的图片 -->
-<canvas class='share-img' canvas-id="share" bindtap="saveImageToPhotos" hidden='{{false}}'></canvas>
-<view class='share-img'>
-  <image src='{{shareImgPath}}' mode="widthFix"></image>
-  <text class='share-img-text'>长按进行分享和保存图片</text>
-</view>
+<share-img showCanvasImg="{{showCanvasImg}}" bind:hideImage="hideCanvasImg"></share-img>

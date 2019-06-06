@@ -6,6 +6,10 @@ import { addDays } from './plugins/util.js'
 
 App(store.createApp({
   onLaunch: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+
     var appId = wx.getAccountInfoSync().miniProgram.appId
 
     global.url = appId == 'wx6ac08ec94a8fb611'
@@ -26,18 +30,18 @@ App(store.createApp({
       success(res){
         if (res.code) {
           //发起网络请求
-          wx.request({
-            url: global.url + '/login/autoLoginWx',
-            data: {
-              code: res.code
-            },
-            success(res) {
-              console.log(res.data)
-            },
-            fail(res) {
-              console.log('failed')
-            }
-          })
+          // wx.request({
+          //   url: global.url + '/login/autoLoginWx',
+          //   data: {
+          //     code: res.code
+          //   },
+          //   success(res) {
+          //     console.log(res.data)
+          //   },
+          //   fail(res) {
+          //     console.log('failed')
+          //   }
+          // })
         } else {
           console.log('登录失败！' + res.errMsg)
         }

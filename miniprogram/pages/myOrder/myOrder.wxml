@@ -1,63 +1,32 @@
-<!-- 顶部导航栏 -->
-<view class='top-bar-outer'>
-  <text class='active'>全部订单</text>
-  <text>待付款</text>
-  <text>待出行</text>
-  <text>待点评</text>
-  <icon class='iconfont icon-search'></icon>
-</view>
-
-
-<!-- 订单列表 -->
-<view class='order-list'>
-  <view class='order-item'>
-    <view style='overflow:hidden;margin-top:-10rpx;'>
-      <icon class='iconfont icon-hotel'></icon>
-      <text class='hotel-name'>深圳阳光酒店（原深圳大禹酒店）</text>
-      <view class='hotel-price'>
-        <text style='font-size: 24rpx;'>￥</text>
-        <text style='font-size: 34rpx;'>198</text>
-      </view>
-    </view>
-
-    <view style='padding-left:68rpx;color:#666;'>
-      <view style='margin:20rpx 0;'>
-        <text>特价房</text>
-        <text style='float:right;color:orange;'>等待支付</text>
-      </view>
-      <view style='margin-top:20rpx;'>
-        <text>4月18日(入住) - 4月19日(离店)</text>
-      </view>
-      <view style='margin-top:20rpx;'>
-        <text>1晚/1间</text>
-      </view>
-      <view style='margin-top:30rpx;'>
-        <text class='order-btn' style='color:white;background:#FE5E50;border:none;'>去支付</text>
-        <text class='order-btn'>取消订单</text>
-      </view>
-    </view>
+<view class="my-order container">
+  <nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">全部订单</nav-bar>
+  
+  <!-- 顶部导航栏 -->
+  <view class='top-bar-outer'>
+    <text wx:for="{{tabList}}" wx:key="{{index}}" class="{{item.id === tabActive ? 'active' : ''}}" bindtap="changeTab" data-id="{{index}}">{{item.text}}</text>
   </view>
-
-  <view class='order-item'>
-    <view style='overflow:hidden;margin-top:-10rpx;'>
-      <icon class='iconfont icon-hotel'></icon>
-      <text class='hotel-name'>深圳大禹酒店</text>
-      <view class='hotel-price'>
-        <text style='font-size: 24rpx;'>￥</text>
-        <text style='font-size: 34rpx;'>99</text>
+  
+  <view class="order-list">
+    <view class="per-order" wx:for="{{orderList}}" wx:key="{{index}}">
+      <view class="per-order-head clearfix">
+        <text class="fl">订单编号：</text>
+        <text class="order-code fl">{{item.orderCode}}</text>
+        <text class="order-status fr">{{item.status}}</text>
       </view>
-    </view>
-
-    <view style='padding-left:68rpx;color:#666;'>
-      <view style='margin:20rpx 0;'>
-        <text>特价房</text>
-        <text style='float:right;color:green;'>已支付</text>
+      <view class="info-top clearfix">
+        <image class="product-image" src="{{item.imgUrl}}"></image>
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-unit-price">￥{{item.price}}/份</text>
       </view>
-      <view style='margin-top:20rpx;'>
-        <text>4月18日(入住) - 4月19日(离店)</text>
-      </view>
-      <view style='margin-top:20rpx;'>
-        <text>1晚/1间</text>
+      <view class="info-bot">
+        <view class="info-bot-line">有效时间：{{item.beginDate}}至{{item.endDate}}</view>
+        <view class="info-bot-line">
+          应付金额：
+          <text class="order-total">￥{{item.totalPrice}}</text>
+        </view>
+        <view class="info-bot-line clearfix">
+          <button class="pay-now fr">立即支付</button>
+        </view>
       </view>
     </view>
   </view>

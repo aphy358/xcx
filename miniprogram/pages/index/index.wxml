@@ -3,6 +3,8 @@
 
   <nav-bar hasGoBack="{{false}}">惠出发</nav-bar>
 
+  <text class='iconfont icon-ziyuan5'></text>
+
   <!-- banner 区域 -->
   <swiper
     autoplay="{{false}}"
@@ -57,5 +59,5 @@
     </block>
   </view>
 
-  <!-- <tab-bar></tab-bar> -->
+  <share-selector></share-selector>
 </view>

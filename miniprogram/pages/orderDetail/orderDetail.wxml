@@ -13,7 +13,7 @@
 	
 	<view class="product-info">
 		<view class="info-top clearfix">
-			<image class="product-image" src="./product-image.jpg"></image>
+			<image class="product-image" src="http://image.jladmin.cn/real_1529379798959.jpg"></image>
 			<text class="product-name">上海迪士尼2日1晚维也纳酒店免费接站接送迪士尼乐园含门票</text>
 			<text class="product-unit-price">￥699.00/份</text>
 		</view>

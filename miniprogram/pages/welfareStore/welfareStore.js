@@ -55,16 +55,16 @@ Page({
   },
   
   onPageScroll(e){
-    let topHeight = 416 * global.deviceWidth / 375;
-    if (e.scrollTop >= topHeight){
-      this.setData({
-        titleClass: ' title-fixed'
-      })
-    }else{
-      this.setData({
-        titleClass: ''
-      })
-    }
+    // let topHeight = 416 * global.deviceWidth / 375;
+    // if (e.scrollTop >= topHeight){
+    //   this.setData({
+    //     titleClass: ' title-fixed'
+    //   })
+    // }else{
+    //   this.setData({
+    //     titleClass: ''
+    //   })
+    // }
 
     let topHeight2 = 300 * global.deviceWidth / 375;
     if (e.scrollTop >= topHeight2) {

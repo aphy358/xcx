@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/ticketDetail/ticketDetail",
-    "pages/placeOrder/placeOrder",
     "pages/index/index",
-    "pages/cancelOrder/cancelOrder",
+    "pages/ticketDetail/ticketDetail",
     "pages/myCenter/myCenter",
+    "pages/placeOrder/placeOrder",
+    "pages/cancelOrder/cancelOrder",
     "pages/welfareStore/welfareStore",
     "pages/checkinCheckout/checkinCheckout",
     "pages/myOrder/myOrder",
-    "pages/orderDetail/orderDetail"
+    "pages/orderDetail/orderDetail",
+    "pages/accountDetail/accountDetail"
   ],
   "window": {
     "backgroundColor": "#F0EFF5",
@@ -19,32 +20,34 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#666",
+    "color": "#bbb",
     "selectedColor": "#2577E3",
-    "borderStyle": "white",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "assets/img/tabBar/首页0.png",
-        "selectedIconPath": "assets/img/tabBar/首页2.png"
+        "iconPath": "assets/img/tabBar/首页00.png",
+        "selectedIconPath": "assets/img/tabBar/首页11.png"
       },
       {
         "pagePath": "pages/welfareStore/welfareStore",
         "text": "福利社",
-        "iconPath": "assets/img/tabBar/福利0.png",
-        "selectedIconPath": "assets/img/tabBar/福利2.png"
+        "iconPath": "assets/img/tabBar/福利00.png",
+        "selectedIconPath": "assets/img/tabBar/福利11.png"
       },
       {
         "pagePath": "pages/myCenter/myCenter",
         "text": "我的",
-        "iconPath": "assets/img/tabBar/我的0.png",
-        "selectedIconPath": "assets/img/tabBar/我的2.png"
+        "iconPath": "assets/img/tabBar/我的00.png",
+        "selectedIconPath": "assets/img/tabBar/我的11.png"
       }
     ]
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "nav-bar": "./components/navBar/navBar"
+    "nav-bar": "./components/navBar/navBar",
+    "share-img": "./components/shareImg/shareImg",
+    "share-selector": "./components/shareSelector/shareSelector"
   }
 }

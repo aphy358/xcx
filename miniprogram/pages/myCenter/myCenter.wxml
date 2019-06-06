@@ -11,7 +11,7 @@
         <text class="user-id">ID:19052284</text>
       </view>
       <view class="user-info-right">
-        <icon class="jl-tel-icon iconfont icon-dianhua1"></icon>
+        <icon class="jl-tel-icon iconfont icon-ziyuan5"></icon>
         <text class="contact-txt">联系客服</text>
       </view>
     </view>
@@ -38,23 +38,23 @@
     
     <view class="user-info-bot" wx:if="{{isVip}}">
       <view class="order-part part1" bindtap='toOrderList'>
-        <icon class="order-part-icon iconfont icon-dingdan"></icon>
+        <icon class="order-part-icon iconfont icon-ziyuan3"></icon>
         <text class="order-icon-txt">全部订单</text>
       </view>
       <view class="order-part part2">
-        <icon class="order-part-icon iconfont icon-dingdan"></icon>
+        <icon class="order-part-icon iconfont icon-ziyuan4"></icon>
         <text class="order-icon-txt">待付款</text>
       </view>
       <view class="order-part part3">
-        <icon class="order-part-icon iconfont icon-dingdan"></icon>
+        <icon class="order-part-icon iconfont icon-ziyuan1"></icon>
         <text class="order-icon-txt">待确认</text>
       </view>
       <view class="order-part part4">
-        <icon class="order-part-icon iconfont icon-dingdan"></icon>
+        <icon class="order-part-icon iconfont icon-ziyuan2"></icon>
         <text class="order-icon-txt">已完成</text>
       </view>
       <view class="order-part part5">
-        <icon class="order-part-icon iconfont icon-dingdan"></icon>
+        <icon class="order-part-icon iconfont icon-ziyuan"></icon>
         <text class="order-icon-txt">已取消</text>
       </view>
     </view>
@@ -66,19 +66,19 @@
       </view>
       <view class="general-bot">
         <view class="order-part part1">
-          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <icon class="order-part-icon iconfont icon-ziyuan4"></icon>
           <text class="order-icon-txt">待付款</text>
         </view>
         <view class="order-part part2">
-          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <icon class="order-part-icon iconfont icon-ziyuan1"></icon>
           <text class="order-icon-txt">待确认</text>
         </view>
         <view class="order-part part3">
-          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <icon class="order-part-icon iconfont icon-ziyuan2"></icon>
           <text class="order-icon-txt">已完成</text>
         </view>
         <view class="order-part part4">
-          <icon class="order-part-icon iconfont icon-dingdan"></icon>
+          <icon class="order-part-icon iconfont icon-ziyuan4"></icon>
           <text class="order-icon-txt">已取消</text>
         </view>
       </view>

@@ -1,83 +1,136 @@
+/*公共样式*/
+.clearfix{
+  zoom: 1;
+}
+
+.clearfix:after{
+  content: '';
+  clear: both;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.grey{
+  color: #717171;
+}
+
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+/*end*/
+.my-order{
+  padding-bottom: 43rpx;
+}
+
 .top-bar-outer{
   position: fixed;
-  top: 0;
+  top: 64px;
   display: flex;
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
   background: white;
   padding: 0 40rpx;
+  height: 96rpx;
 }
 
 .top-bar-outer text{
-  font-size: 30rpx;
-  line-height: 80rpx;
+  font-size: 26rpx;
+  line-height: 96rpx;
 }
 
 .top-bar-outer text.active{
-  color: #1FC756;
-  border-bottom: 4rpx solid #1FC756;
+  font-size: 30rpx;
+  color: #111111;
+  font-weight: bold;
+  border-bottom: 6rpx solid #111111;
 }
-
-.top-bar-outer .iconfont{
-  line-height: 80rpx;
-  font-size: 36rpx;
-}
-
-
 
 .order-list{
-  margin-top: 104rpx;
-  padding-bottom: 100rpx;
+  padding: 96rpx 30rpx 0;
 }
 
-.order-item{
-  background: white;
-  margin: 20rpx;
-  padding: 40rpx 30rpx;
-  border-radius: 10rpx;
-  overflow: hidden;
+.per-order{
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 34rpx 24rpx 46rpx;
 }
 
-.order-item .hotel-name{
+.per-order-head{
+  color: #717171;
+  font-size: 26rpx;
+}
+
+.order-code{
+  color: #373737;
+}
+
+.order-status{
+  color: #111111;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.info-top{
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.product-image{
+  width: 180rpx;
+  height: 135rpx;
+  margin-right: 10rpx;
   float: left;
-  height: 60rpx;
-  line-height: 66rpx;
+}
+
+.product-name{
+  line-height: 48rpx;
+  width: 452rpx;
+  display: inline-block;
+  float: left;
+  font-size: 28rpx;
+  color: #666666;
+  font-weight: bold;
+}
+
+.product-unit-price{
+  float: right;
+  font-size: 24rpx;
+  color: #999999;
+  padding-right: 20rpx;
+}
+
+.info-bot-line{
+  line-height: 60rpx;
+  display: block;
+  font-size: 24rpx;
+  color: #717171;
+}
+
+.order-total{
+  color: #373737;
   font-size: 32rpx;
   font-weight: bold;
-  max-width: 400rpx;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.order-item .hotel-price{
-  height: 60rpx;
-  line-height: 66rpx;
+.pay-now{
+  width: 144rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  border: 1 rpx solid #0d69e2;
+  background-color: #2577E3;
+  color: #ffffff;
+  font-size: 24rpx;
   font-weight: bold;
-  float:right;
-  color:#FE5E50;
-}
-
-.order-item .order-btn{
-  float: right;
-  width: 180rpx;
-  height: 56rpx;
-  line-height: 56rpx;
-  font-size: 28rpx;
-  margin-left: 20rpx;
-  text-align: center;
-  border-radius: 30rpx;
-  border: 2rpx solid #ddd;
-  box-sizing: border-box;
-  background: white;
-}
-
-.icon-hotel{
-  float: left;
-  color: #1FC756;
-  font-size: 36rpx;
-  width: 48rpx;
-  text-align: center;
-  margin-right: 20rpx;
+  padding: 0;
+  border-radius: 4rpx;
 }
