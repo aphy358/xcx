@@ -2,7 +2,7 @@
 <!-- canvas 绘制完成后显示的图片 -->
 <canvas class='share-img' canvas-id="share" hidden='{{true}}'></canvas>
 <view class="canvas-mask{{showCanvasImg ? '' : ' hidden'}}"></view>
-<view class="share-img{{showCanvasImg ? '' : ' hidden'}}">
+<view class="share-img{{showCanvasImg ? '' : ' hidden'}}" animation="{{animationData}}">
   <image src='{{shareImgPath}}' mode="widthFix" bindlongtap='saveImageToPhotos'></image>
   <text class='share-img-text'>长按进行分享和保存图片</text>
   <text class='iconfont icon-delete2 share-img-icon' bindtap='hideCanvasImg'></text>

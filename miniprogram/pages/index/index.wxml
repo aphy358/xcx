@@ -65,5 +65,5 @@
     bind:hideSelector="hideSelector"
     bind:showSImg="showSImg">
   </share-selector>
-  <share-img wx:if="{{showShareImg}}" bind:hideImage="hideImage"></share-img>
+  <share-img showCanvasImg="{{showShareImg}}" bind:hideImage="hideImage"></share-img>
 </view>

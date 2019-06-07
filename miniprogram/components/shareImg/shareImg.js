@@ -11,7 +11,20 @@ Component({
     // true 表示显示 canvas，false 表示不显示
     showCanvasImg: {
       type: Boolean,
-      value: true
+      value: false,
+      observer(newVal, oldVal, changePath) {
+        if (newVal) {
+          this.animation.top('50%').step()
+          this.setData({
+            animationData: this.animation.export()
+          })
+        } else {
+          this.animation.top('-50%').step()
+          this.setData({
+            animationData: this.animation.export()
+          })
+        }
+      }
     },
     
   },
@@ -20,12 +33,17 @@ Component({
    * 组件的初始数据
    */
   data: {
-    shareImgPath: ''
+    shareImgPath: '',
+    animationData: {}
   },
 
   lifetimes: {
     attached: function () {
       this.makeCanvas()
+      this.animation = wx.createAnimation({
+        duration: 300,
+        timingFunction: 'ease',
+      })
     },
     detached: function () {
     },
