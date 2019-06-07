@@ -18,15 +18,24 @@
     </view>
     
     <view class="product-list-box clearfix">
-      <view class="every-product" wx:for="{{productList}}" wx:key="{{index}}">
+      <view class="every-product" wx:for="{{productList}}" wx:key="{{index}}" bindtap='gotoTicketDetail'>
         <image class="product-img" src="{{item.imgUrl}}"></image>
         <text class="product-name">{{item.hotelName}}</text>
         <view class="product-money">
           <text class="product-price">￥{{item.price}}</text>
           <text class="product-profit">赚{{item.profit}}</text>
         </view>
-        <button class="share-product">分享</button>
+        <button class="share-product" catchtap='showShare'>分享</button>
       </view>
     </view>
   </view>
 </view>
+
+
+<!-- 分享、转发 -->
+<share-selector 
+  showSelector="{{showShareSelector}}" 
+  bind:hideSelector="hideSelector"
+  bind:showSImg="showSImg">
+</share-selector>
+<share-img showCanvasImg="{{showShareImg}}" bind:hideImage="hideImage"></share-img>
