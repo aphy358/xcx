@@ -59,6 +59,7 @@
     </block>
   </view>
 
+  <!-- 分享、转发 -->
   <share-selector 
     showSelector="{{showShareSelector}}" 
     bind:hideSelector="hideSelector"

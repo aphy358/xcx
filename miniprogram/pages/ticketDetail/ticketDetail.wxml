@@ -84,7 +84,7 @@
 
 <!-- 底部 推荐、立即购买 按钮 -->
 <view class='ticket-bottom-outer'>
-  <view class='ticket-bottom-btn' bindtap='showCanvasImg'>
+  <view class='ticket-bottom-btn' bindtap='showShare'>
     推荐<text class='profit'>赚￥66</text>
   </view>
   <view class='ticket-bottom-btn' style='background: #2577E3;' bindtap='gotoPlaceOrder'>
@@ -92,4 +92,11 @@
   </view>
 </view>
 
-<share-img showCanvasImg="{{showCanvasImg}}" bind:hideImage="hideCanvasImg"></share-img>
+
+<!-- 分享、转发 -->
+<share-selector 
+  showSelector="{{showShareSelector}}" 
+  bind:hideSelector="hideSelector"
+  bind:showSImg="showSImg">
+</share-selector>
+<share-img wx:if="{{showShareImg}}" bind:hideImage="hideImage"></share-img>

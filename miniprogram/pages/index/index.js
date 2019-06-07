@@ -130,36 +130,36 @@ Page({
   },
 
   // 显示分享方式的选择底部弹窗
-  showShare(){
+  showShare() {
     wx.hideTabBar()
     this.setData({
       showShareSelector: true
     })
   },
-
-  hideSelector(){
+  // 隐藏分享方式的选择底部弹窗
+  hideSelector() {
     this.setData({
       showShareSelector: false
     })
 
-    setTimeout(function(){
+    setTimeout(function () {
       wx.showTabBar()
     }, 300)
   },
-
-  showSImg(){
+  // 显示生成的海报
+  showSImg() {
     this.setData({
       showShareImg: true,
       showShareSelector: false
     })
     wx.hideTabBar()
   },
-
-  hideImage(){
+  // 隐藏海报
+  hideImage() {
     this.setData({
       showShareImg: false
     })
     wx.showTabBar()
-  }
+  },
 
 })

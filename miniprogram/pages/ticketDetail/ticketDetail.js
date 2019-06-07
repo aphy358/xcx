@@ -14,10 +14,10 @@ Page({
 
     showNavBarTitle: false,
 
-    showCanvasImg: false,
+    showShareSelector: false,
+    showShareImg: false,
 
     shareImgPath: '',
-
     canvasUrl: ''
   },
 
@@ -91,20 +91,38 @@ Page({
   },
 
 
-  showCanvasImg(){
+  // 显示分享方式的选择底部弹窗
+  showShare() {
+    wx.hideTabBar()
     this.setData({
-      showCanvasImg: true
+      showShareSelector: true
     })
   },
-
-
-  // 隐藏 canvas 图片
-  hideCanvasImg(){
+  // 隐藏分享方式的选择底部弹窗
+  hideSelector() {
     this.setData({
-      showCanvasImg: false
+      showShareSelector: false
     })
-  },
 
+    setTimeout(function () {
+      wx.showTabBar()
+    }, 300)
+  },
+  // 显示生成的海报
+  showSImg() {
+    this.setData({
+      showShareImg: true,
+      showShareSelector: false
+    })
+    wx.hideTabBar()
+  },
+  // 隐藏海报
+  hideImage() {
+    this.setData({
+      showShareImg: false
+    })
+    wx.showTabBar()
+  },
 
   // 进入到订单填写页
   gotoPlaceOrder(){
