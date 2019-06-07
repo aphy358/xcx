@@ -92,7 +92,6 @@ Page({
 
   // 显示分享方式的选择底部弹窗
   showShare() {
-    wx.hideTabBar()
     this.setData({
       showShareSelector: true
     })
@@ -102,10 +101,6 @@ Page({
     this.setData({
       showShareSelector: false
     })
-
-    setTimeout(function () {
-      wx.showTabBar()
-    }, 300)
   },
 
   // 进入到订单填写页

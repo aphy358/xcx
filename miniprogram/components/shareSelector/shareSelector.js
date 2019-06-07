@@ -10,8 +10,12 @@ Component({
       value: false,
       observer(newVal, oldVal, changePath) {
         if (newVal){
+          wx.hideTabBar()
           this.ashowSelector()
         }else{
+          setTimeout(function () {
+            wx.showTabBar()
+          }, 300)
           this.ahideSelector()
         }
       }
