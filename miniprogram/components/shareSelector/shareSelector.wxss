@@ -11,7 +11,7 @@
   z-index: 9999;
 }
 
-.hidden{
+.selector-mask.hidden{
   display: none;
 }
 
@@ -21,7 +21,14 @@
   width: 100%;
   left: 0;
   background: white;
+  height: 414rpx;
+  overflow: hidden;
   z-index: 9999;
+}
+
+.selector-outer.hidden{
+  /* visibility: hidden; */
+  bottom: -420rpx;
 }
 
 .selector-inner{

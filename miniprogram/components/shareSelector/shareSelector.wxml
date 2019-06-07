@@ -1,6 +1,6 @@
 
-<view class="selector-mask{{showSelector ? '' : ' hidden'}}"></view>
-<view class="selector-outer{{showSelector ? '' : ' hidden'}}">
+<view class="selector-mask{{showSelector ? '' : ' hidden'}}" bindtap='hideSelector'></view>
+<view class="selector-outer{{showSelector ? '' : ' hidden'}}" animation="{{animationData}}">
   <view class="selector-inner">
     <view class='selector-item'>
       <view class='selector-item-icon'>
@@ -10,12 +10,12 @@
       <button class='button-mask' open-type="share"></button>
     </view>
 
-    <view class='selector-item'>
+    <view class='selector-item' bindtap="showSImg">
       <view class='selector-item-icon'>
         <text class='iconfont icon-pengyouquan'></text>
       </view>
       <view class='selector-item-text'>生成海报</view>
     </view>
   </view>
-  <view class='selector-bottom'>取消</view>
+  <view class='selector-bottom' bindtap='hideSelector'>取消</view>
 </view>

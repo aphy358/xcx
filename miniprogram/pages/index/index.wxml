@@ -52,12 +52,17 @@
             <text class='icon'>热卖</text>
             <text class='name'>{{item.name}}</text>
           </view>
-          <text class='share-btn' catchtap='shareAd'>分享</text>
+          <text class='share-btn' catchtap='showShare'>分享</text>
         </view>
 
       </view>
     </block>
   </view>
 
-  <share-selector></share-selector>
+  <share-selector 
+    showSelector="{{showShareSelector}}" 
+    bind:hideSelector="hideSelector"
+    bind:showSImg="showSImg">
+  </share-selector>
+  <share-img wx:if="{{showShareImg}}" bind:hideImage="hideImage"></share-img>
 </view>

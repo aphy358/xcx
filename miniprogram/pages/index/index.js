@@ -82,6 +82,9 @@ Page({
         endDate: '2019-06-15',
       },
     ],
+
+    showShareSelector: false,
+    showShareImg: false
   },
 
   onReady: function() {
@@ -126,7 +129,37 @@ Page({
     })
   },
 
-  shareAd(){
+  // 显示分享方式的选择底部弹窗
+  showShare(){
+    wx.hideTabBar()
+    this.setData({
+      showShareSelector: true
+    })
+  },
+
+  hideSelector(){
+    this.setData({
+      showShareSelector: false
+    })
+
+    setTimeout(function(){
+      wx.showTabBar()
+    }, 300)
+  },
+
+  showSImg(){
+    this.setData({
+      showShareImg: true,
+      showShareSelector: false
+    })
+    wx.hideTabBar()
+  },
+
+  hideImage(){
+    this.setData({
+      showShareImg: false
+    })
+    wx.showTabBar()
   }
 
 })
