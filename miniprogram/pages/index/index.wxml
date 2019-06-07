@@ -62,8 +62,6 @@
   <!-- 分享、转发 -->
   <share-selector 
     showSelector="{{showShareSelector}}" 
-    bind:hideSelector="hideSelector"
-    bind:showSImg="showSImg">
+    bind:hideSelector="hideSelector">
   </share-selector>
-  <share-img showCanvasImg="{{showShareImg}}" bind:hideImage="hideImage"></share-img>
 </view>

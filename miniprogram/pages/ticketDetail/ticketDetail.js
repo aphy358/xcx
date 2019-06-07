@@ -15,7 +15,6 @@ Page({
     showNavBarTitle: false,
 
     showShareSelector: false,
-    showShareImg: false,
 
     shareImgPath: '',
     canvasUrl: ''
@@ -107,21 +106,6 @@ Page({
     setTimeout(function () {
       wx.showTabBar()
     }, 300)
-  },
-  // 显示生成的海报
-  showSImg() {
-    this.setData({
-      showShareImg: true,
-      showShareSelector: false
-    })
-    wx.hideTabBar()
-  },
-  // 隐藏海报
-  hideImage() {
-    this.setData({
-      showShareImg: false
-    })
-    wx.showTabBar()
   },
 
   // 进入到订单填写页

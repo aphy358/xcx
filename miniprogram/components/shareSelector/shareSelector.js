@@ -10,15 +10,9 @@ Component({
       value: false,
       observer(newVal, oldVal, changePath) {
         if (newVal){
-          this.animation.bottom('0').step()
-          this.setData({
-            animationData: this.animation.export()
-          })
+          this.ashowSelector()
         }else{
-          this.animation.bottom('-414rpx').step()
-          this.setData({
-            animationData: this.animation.export()
-          })
+          this.ahideSelector()
         }
       }
     },
@@ -28,7 +22,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    animationData: {}
+    animationData: {},
+    showShareImg: false
   },
 
   observers: {
@@ -54,11 +49,41 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    ashowSelector(){
+      this.animation.bottom('0').step()
+      this.setData({
+        animationData: this.animation.export()
+      })
+    },
+
+    ahideSelector(){
+      this.animation.bottom('-414rpx').step()
+      this.setData({
+        animationData: this.animation.export()
+      })
+    },
+
     hideSelector(){
       this.triggerEvent('hideSelector')
     },
-    showSImg(){
-      this.triggerEvent('showSImg')
-    }
+    
+    // 显示生成的海报
+    showSImg() {
+      this.setData({
+        showShareImg: true,
+      })
+      this.ahideSelector()
+      wx.hideTabBar()
+    },
+    // 隐藏海报
+    hideImage() {
+      this.setData({
+        showShareImg: false
+      })
+      this.hideSelector()
+      setTimeout(function(){
+        wx.showTabBar()
+      }, 200)
+    },
   }
 })

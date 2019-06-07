@@ -84,7 +84,6 @@ Page({
     ],
 
     showShareSelector: false,
-    showShareImg: false
   },
 
   onReady: function() {
@@ -145,21 +144,6 @@ Page({
     setTimeout(function () {
       wx.showTabBar()
     }, 300)
-  },
-  // 显示生成的海报
-  showSImg() {
-    this.setData({
-      showShareImg: true,
-      showShareSelector: false
-    })
-    wx.hideTabBar()
-  },
-  // 隐藏海报
-  hideImage() {
-    this.setData({
-      showShareImg: false
-    })
-    wx.showTabBar()
   },
 
 })
