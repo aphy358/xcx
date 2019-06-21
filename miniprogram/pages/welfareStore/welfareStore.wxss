@@ -69,7 +69,7 @@
 
 .every-product{
 	width: 335rpx;
-	padding-bottom: 24rpx;
+	padding-bottom: 20rpx;
 	box-shadow:0 6rpx 12rpx rgba(0,0,0,0.08);
 	float: left;
 	margin: 0 10rpx 40rpx;
@@ -79,7 +79,7 @@
 
 .product-img{
 	width: 335rpx;
-	height: 177rpx;
+	height: 187rpx;
 }
 
 .product-name{
@@ -88,7 +88,7 @@
 	color: #253549;
 	line-height: 36rpx;
 	display: block;
-	margin: 10rpx 8rpx 0;
+	margin: 0 8rpx 0;
 }
 
 .product-money{
