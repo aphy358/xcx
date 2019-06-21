@@ -1,0 +1,22 @@
+.no-more{
+  position: relative;
+	display: flex;
+  justify-content: space-around;
+	text-align: center;
+	color: #CCCCCC;
+	height: 100rpx;
+	line-height: 100rpx;
+	margin-top: 10rpx;
+}
+
+.no-more-line{
+  float: left;
+  width: 180rpx;
+  margin-top: 50rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.no-more-text{
+  float: left;
+  width: 180rpx;
+}

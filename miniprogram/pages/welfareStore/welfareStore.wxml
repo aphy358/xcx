@@ -1,8 +1,10 @@
 <nav-bar showNavBarTitle="{{showNavBarTitle}}" hasGoBack="{{false}}">福利社</nav-bar>
 <view class="welfare-box">
   <view class="banner-box">
-    <image class="welfare-banner" mode="widthFix" src="/assets/img/welfareStore/welfare-banner.png"></image>
+    <image class="welfare-banner" mode="widthFix" src="https://qnb.oss-cn-shenzhen.aliyuncs.com/real_1560930491917.jpg"></image>
   </view>
+
+  <official-account class="official-account"></official-account>
   
   <view class="product-box">
     <view class="product-title-box">
@@ -17,23 +19,31 @@
       </view>
     </view>
     
-    <view class="product-list-box clearfix">
-      <view class="every-product" wx:for="{{productList}}" wx:key="{{index}}" bindtap='gotoTicketDetail'>
-        <image class="product-img" src="{{item.imgUrl}}"></image>
-        <text class="product-name">{{item.hotelName}}</text>
+    <view class="product-list-box clearfix" wx:if="productList.length > 0">
+      <view class="every-product" wx:for="{{productList}}" wx:key="{{index}}" bindtap='gotoTicketDetail' data-info="{{item}}">
+        <image class="product-img" src="{{item.hcfGoodsInfo.goodsImgArr[0]}}"></image>
+        <text class="product-name">{{item.hcfGoodsInfo.goodsName}}</text>
         <view class="product-money">
-          <text class="product-price">￥{{item.price}}</text>
-          <text class="product-profit">赚{{item.profit}}</text>
+          <text class="product-price">￥{{item.goodsPrice}}</text>
+          <text class="product-profit" wx:if="{{item.commissionPrice && userData.hcfUser.type == 1}}">赚{{item.commissionPrice}}</text>
         </view>
-        <button class="share-product" catchtap='showShare'>分享</button>
+        <button wx:if="{{userData.hcfUser.type == 1}}" class="share-product" catchtap='showShare' data-info="{{item}}">分享</button>
       </view>
     </view>
+
+    <no-product wx:if="{{productList.length < 1}}">暂无热销爆款产品~</no-product>
+
   </view>
 </view>
+
+
+<no-more wx:if="{{productList.length > 0 && pageNum >= pageTotal && !loading}}"></no-more>
 
 
 <!-- 分享、转发 -->
 <share-selector 
   showSelector="{{showShareSelector}}" 
-  bind:hideSelector="hideSelector">
+  productInfo="{{productInfo}}"
+  bind:hideSelector="hideSelector"
+>
 </share-selector>

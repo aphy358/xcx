@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/rePay/rePay",
+    "pages/authorize/authorize",
+    "pages/editUser/editUser",
+    "pages/cashOut/cashOut",
     "pages/ticketDetail/ticketDetail",
     "pages/myCenter/myCenter",
     "pages/placeOrder/placeOrder",
@@ -48,6 +52,10 @@
   "usingComponents": {
     "nav-bar": "./components/navBar/navBar",
     "share-img": "./components/shareImg/shareImg",
-    "share-selector": "./components/shareSelector/shareSelector"
+    "share-selector": "./components/shareSelector/shareSelector",
+    "pay-canceled-selector": "./components/payCanceledSelector/payCanceledSelector",
+    "no-product": "./components/noProduct/noProduct",
+    "my-loading": "./components/myLoading/myLoading",
+    "no-more": "./components/noMore/noMore"
   }
 }

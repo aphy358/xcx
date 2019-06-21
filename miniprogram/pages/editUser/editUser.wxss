@@ -1,0 +1,111 @@
+@import "../../assets/fonts/iconfont.wxss";
+
+/*公共样式*/
+.clearfix{
+	zoom: 1;
+}
+
+.clearfix:after{
+	content: '';
+	clear: both;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.font-bold{
+	font-weight: bold;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+/*end*/
+.edit-user{
+	transition: .5s;
+}
+
+.item-box{
+	background-color: #fff;
+	height: 110rpx;
+	line-height: 110rpx;
+	margin-top: 10rpx;
+	padding: 0 30rpx;
+	position: relative;
+}
+
+.box-title{
+	font-size: 28rpx;
+	color: #333333;
+}
+
+.item-input{
+	height: 110rpx;
+	background-color: transparent;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+
+.box-info{
+	font-size: 24rpx;
+	color: #999999;
+	margin-right: 20rpx;
+}
+
+.box-icon{
+	color: #999999;
+	font-size: 26rpx;
+	font-weight: bold;
+}
+
+.modal-mask{
+	background-color: #000000;
+	opacity: 0.5;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+}
+
+.user-name-modal{
+	background-color: #ffffff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1001;
+	width: 100%;
+	height: 110rpx;
+	padding-bottom: 100%;
+}
+
+.input-box{
+	display: flex;
+	background-color: #fff;
+}
+
+.user-name-input{
+	width: 100%;
+	height: 110rpx;
+	background-color: #fff;
+	flex: 1;
+	padding: 0 30rpx;
+}
+
+.save{
+	height: 78rpx;
+	line-height: 78rpx;
+	font-size: 24rpx;
+	padding: 0 30rpx;
+	color: #ffffff;
+	border: 1rpx solid #0d69e2;
+	background-color: #2577E3;
+	margin: 15rpx 10rpx;
+}

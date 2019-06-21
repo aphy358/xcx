@@ -1,0 +1,5 @@
+
+<view class='no-product-outer'>
+  <image src="{{showImg}}" class='image'></image>
+  <view class='no-product-text'><slot></slot></view>
+</view>

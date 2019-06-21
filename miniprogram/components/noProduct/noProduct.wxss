@@ -1,0 +1,20 @@
+
+
+.no-product-outer{
+
+}
+
+.no-product-outer .image{
+  display: block;
+  margin: auto;
+}
+
+.no-product-text{
+  text-align: center;
+  font-size: 26rpx;
+  color: #2577E3;
+  font-weight: bold;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: -60rpx;
+}

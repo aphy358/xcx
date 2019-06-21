@@ -1,0 +1,61 @@
+
+
+.authorize{
+  background: white;
+  height: 100%;
+  overflow: hidden;
+}
+
+.auth-top-outer{
+  position: relative;
+  height: 160rpx;
+  margin: 180rpx 0 300rpx;
+}
+
+.auth-top-icon{
+  height: 160rpx;
+  text-align: center;
+  width: 160rpx;
+  background: #74CE36;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.icon-weixin{
+  position: relative;
+  top: 24rpx;
+  font-size: 106rpx;
+  color: white;
+}
+
+.authorize-app-name{
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.auth-text{
+  color: #999;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.auth-btn-outer{
+  margin: 30rpx 30rpx 300rpx;
+  overflow: hidden;
+}
+
+.auth-btn{
+  background: #2577E3;
+  color: white;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.auth-btn.auth-back{
+  background: white;
+  color: #999;
+  border: 1rpx solid #ddd;
+}

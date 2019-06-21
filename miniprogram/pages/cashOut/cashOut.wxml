@@ -1,0 +1,40 @@
+<view class="cash-out container">
+	<nav-bar hasGoBack="{{true}}">个人中心</nav-bar>
+	<view class="cash-out-top">
+		<view class="can-cash-out">
+			<text>可提现</text>
+			<text class="cash-out-num">￥{{canCash}}</text>
+		</view>
+		<button class="cash-out-now" bindtap="cashOut">立即提现</button>
+	</view>
+	<view class="cash-out-tips">
+		<text class="cash-out-tips-title">【提现说明】</text>
+		<text>1、提交申请后，请在【个人中心】-【明细】中查看，预计收入将在3个工作日内到账</text>
+		<text>2、请在【微信】-【我】-【钱包】-【零钱】-【收支明细】中查询收入到账情况</text>
+		<text>3、通过微信交易需要您完善微信的个人资料，如未认证，收入将无法到账，可到【个人中心】-【编辑】进行完善</text>
+	</view>
+	
+	<view class="user-info-modal" hidden="{{popupHidden}}">
+		<view class="modal-mask"></view>
+		<view class="info-box">
+			<text class="box-title">完善信息</text>
+			<view class="info-line clearfix">
+				<text class="line-title fl">姓名</text>
+				<input class="line-input fl" type="text" value="{{name}}" bindinput="inputName" placeholder="请输入姓名"/>
+				<text class="line-icon iconfont icon-dagou fl green" wx:if="{{showNameIcon && isNameCorrect}}"></text>
+				<text class="line-icon iconfont icon-shanchu fl red" wx:if="{{showNameIcon && !isNameCorrect}}"></text>
+			</view>
+			<view class="info-line clearfix">
+				<text class="line-title fl">手机号</text>
+				<input class="line-input fl" type="text" value="{{phone}}" bindinput="inputPhone" placeholder="请输入手机号"/>
+				<text class="line-icon iconfont icon-dagou fl green" wx:if="{{showPhoneIcon && isPhoneCorrect}}"></text>
+				<text class="line-icon iconfont icon-shanchu fl red" wx:if="{{showPhoneIcon && !isPhoneCorrect}}"></text>
+			</view>
+			<text class="info-tips">温馨提示：该信息用于资金提现，若填写有误将无法到账</text>
+			<view class="btn-box clearfix">
+				<button class="cancel fl" bindtap="cancelWrite">取消</button>
+				<button class="yes fl" bindtap="saveInfo">确定</button>
+			</view>
+		</view>
+	</view>
+</view>

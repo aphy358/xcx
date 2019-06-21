@@ -1,0 +1,33 @@
+<view class="edit-user container">
+	<nav-bar hasGoBack="{{true}}">个人中心</nav-bar>
+	<view class="item-box" bindtap="editUserName">
+		<text class="box-title fl">姓名</text>
+		<view class="box-right fr clearfix">
+			<text class="box-info fl">{{name}}</text>
+			<text class="fl box-icon iconfont icon-right-thin"></text>
+		</view>
+	</view>
+	<view class="item-box" bindtap="editTel">
+		<text class="box-title fl">手机号</text>
+		<view class="box-right fr clearfix">
+			<text class="box-info fl">{{phone}}</text>
+			<text class="fl box-icon iconfont icon-right-thin"></text>
+		</view>
+	</view>
+</view>
+
+<view class="modal-mask" hidden="{{maskHidden}}" bindtap="closeModal"></view>
+<view class="user-name-modal" hidden="{{nameHidden}}" style="{{nameHeight}}">
+	<view class="input-box">
+		<input class="user-name-input" type="text" placeholder="请输入姓名" bindfocus="nameFocus" bindinput="inputName" focus="{{focus}}" value="{{name}}"/>
+		<button class="save" bindtap="saveName">完成</button>
+	</view>
+</view>
+<view class="user-name-modal" hidden="{{telHidden}}" style="{{telHeight}}">
+	<view class="input-box">
+		<input class="user-name-input" type="number" placeholder="请输入手机号" bindfocus="telFocus" bindinput="inputPhone" focus="{{focus}}" value="{{phone}}"/>
+		<button class="save" bindtap="savePhone">完成</button>
+	</view>
+</view>
+
+<my-loading wx:if="{{loadingHidden}}"></my-loading>

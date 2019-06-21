@@ -20,6 +20,12 @@ Component({
         }
       }
     },
+
+    // 商品信息
+    productInfo: {
+      type: Object,
+      value: {},
+    },
   },
 
   /**

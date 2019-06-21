@@ -20,4 +20,9 @@
   <view class='selector-bottom' bindtap='hideSelector'>取消</view>
 </view>
 
-<share-img showCanvasImg="{{showShareImg}}" bind:hideImage="hideImage"></share-img>
+<share-img 
+  showCanvasImg="{{showShareImg}}" 
+  productInfo="{{productInfo}}"
+  bind:hideImage="hideImage"  
+>
+</share-img>

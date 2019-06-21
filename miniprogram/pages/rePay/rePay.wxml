@@ -1,0 +1,28 @@
+<view class="re-pay container">
+	<nav-bar hasGoBack="{{true}}">提交订单</nav-bar>
+	<view class="re-pay-top">
+		<view class="need-pay">
+			<text class="need-pay-title">继续支付</text>
+			<text class="need-pay-txt">温馨提示：订单将在{{minutes}}分{{seconds}}秒后自动取消，请尽快完成支付！</text>
+		</view>
+		<button class="pay-now{{(minutes <= 0 && seconds <= 0) ? ' disabled' : ''}}" bindtap="payNow">前往支付￥{{totalFee}}</button>
+	</view>
+	<view class="pay-info">
+		<text class="pay-info-title">订单详情</text>
+		<text class="pay-info-txt"><text class="grey">商品名称：</text>{{goodsInfo.goodsName}}</text>
+		<text class="pay-info-txt"><text class="grey">订单号：</text>{{orderInfo.orderCode}}</text>
+		<text class="pay-info-txt"><text class="grey">有效时间：</text>{{beginDate}}至{{endDate}}</text>
+		<text class="pay-info-txt"><text class="grey">预订数量：</text>￥{{orderInfo.salePrice}}*{{orderInfo.amount}}份</text>
+	</view>
+	<view class="btn-box clearfix">
+		<button class="re-book fr" bindtap='reBook'>重新下单</button>
+		<button class="read-order fr" bindtap="readDetail">查看订单</button>
+	</view>
+</view>
+
+<!-- 支付失败后的选择弹框 -->
+<pay-canceled-selector
+  wx:if="{{showPayCancelSelector}}"
+  bind:showOrderDetail="showOrderDetail"
+  bind:rePay="rePay">
+</pay-canceled-selector>

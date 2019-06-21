@@ -8,11 +8,14 @@
 }
 
 .swiper-item image{
-  position: absolute;
+  /* position: absolute;
   width: 100%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -49,8 +52,8 @@
 }
 
 .ad-item{
-  margin: 30rpx 20rpx;
-  border-radius: 4rpx;
+  margin: 30rpx 20rpx 0;
+  border-radius: 12rpx;
   box-shadow: 0 0 5px #ddd;
   overflow: hidden;
 }
@@ -63,6 +66,37 @@
 
 .ad-item-img image{
   width: 100%;
+  height: 100%;
+}
+
+.sold-out-outer{
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 190rpx;
+  height: 190rpx;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.sold-out-mask{
+  height: 100%;
+  background: black;
+  opacity: 0.5;
+}
+
+.sold-out-text{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 190rpx;
+  line-height: 190rpx;
+  text-align: center;
+  color: white;
+  font-size: 34rpx;
+  font-weight: bold;
 }
 
 .ad-item-price-wrap{
@@ -106,27 +140,28 @@
 
 .ad-item-bottom-wrap{
   background: white;
-  padding: 10rpx 20rpx;
+  padding: 15rpx 20rpx 20rpx;
   overflow: hidden;
 }
 
 .ad-item-bottom-wrap .icon{
   float: left;
   text-align: center;
-  width: 60rpx;
+  /* width: 60rpx; */
+  padding: 0 10rpx;
   height: 34rpx;
   line-height: 34rpx;
   margin-right: 10rpx;
   color: white;
   background: linear-gradient(to right,  #FA5098 0%,#683FB9 100%);
-  margin-top: 8rpx;
+  margin-top: 4rpx;
   font-size: 20rpx;
   font-weight: bold;
 }
 
 .ad-item-bottom-wrap .name{
   color: #111111;
-  font-size: 34rpx;
+  font-size: 30rpx;
   font-weight: bold;
 }
 

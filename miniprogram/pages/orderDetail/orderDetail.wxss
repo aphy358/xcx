@@ -13,12 +13,12 @@
 	height: 0;
 }
 
-.font-bold{
-	font-weight: bold;
+.fl{
+	float: left;
 }
 
-.grey{
-	color: #717171;
+.fr{
+	float: right;
 }
 /*end*/
 
@@ -54,6 +54,7 @@
 	display: block;
 	font-size: 40rpx;
 	margin: 16rpx 0 0 20rpx;
+	color: #111111;
 }
 
 .contact-jl{
@@ -79,16 +80,23 @@
 	height: 135rpx;
 	margin-right: 10rpx;
 	float: left;
+	border-radius: 4rpx;
 }
 
 .product-name{
+	height: 98rpx;
 	line-height: 48rpx;
 	width: 500rpx;
-	display: inline-block;
 	float: left;
 	font-size: 28rpx;
 	color: #666666;
 	font-weight: bold;
+	overflow: hidden;
+	word-break: break-all;
+	-webkit-line-clamp: 2;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
 }
 
 .product-unit-price{
@@ -135,7 +143,7 @@
 .buy-tips{
 	background-color: #fff;
 	margin-top: 10rpx;
-	padding: 35rpx 30rpx 190rpx;
+	padding: 0 30rpx 190rpx;
 }
 
 .buy-detail{
@@ -172,11 +180,27 @@
 
 .options button{
 	display: inline-block;
-	border-radius: 2rpx;
+	border-radius: 4rpx;
 	float: right;
+	width: 196rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	color: #ffffff;
+	font-size: 32rpx;
+	margin: 0 12rpx;
 }
 
-.cancel-order{
+.options button.golden-btn{
+	border: 1rpx solid #de9f46;
+	background-color: #d4a95b;
+}
+
+.options button.blue-btn{
+	border: 1rpx solid #0d69e2;
+	background-color: #2577e3;
+}
+
+.options .cancel-order{
 	width: 196rpx;
 	height: 70rpx;
 	line-height: 70rpx;
@@ -185,28 +209,6 @@
 	color: #999999;
 	font-size: 26rpx;
 	margin: 8rpx 12rpx;
-}
-
-.re-book{
-	width: 196rpx;
-	height: 84rpx;
-	line-height: 84rpx;
-	border: 1rpx solid #de9f46;
-	background-color: #d4a95b;
-	color: #ffffff;
-	font-size: 32rpx;
-	margin: 0 12rpx;
-}
-
-.pay-now{
-	width: 196rpx;
-	height: 84rpx;
-	line-height: 84rpx;
-	border: 1rpx solid #0d69e2;
-	background-color: #2577e3;
-	color: #ffffff;
-	font-size: 32rpx;
-	margin: 0 12rpx;
 }
 
 .red-packet-mask{
@@ -230,61 +232,82 @@
 }
 
 .red-packet-img{
-	width: 662rpx;
-	height: 943rpx;
+	width: 225px;
+	height: 291px;
 	position: absolute;
-	top: 200rpx;
+	top: 350rpx;
 	left: 50%;
-	margin-left: -331rpx;
+	margin-left: -112px;
 }
 
 .red-packet-content{
-	width: 450rpx;
-	height: 670rpx;
+	width: 225px;
+	height: 335px;
 	position: absolute;
-	top: 440rpx;
+	top: 350rpx;
 	left: 50%;
-	margin-left: -225rpx;
+	margin-left: -112px;
 }
 
 .red-packet-title{
 	display: block;
-	font-size: 36rpx;
+	font-size: 18px;
 	text-align: center;
 	color: #de242f;
 	font-weight: bold;
-	margin: 30rpx 0 36rpx;
+	margin: 60px 0 13px;
 }
 
 .red-packet-num{
 	text-align: center;
 	color: #de242f;
-	font-size: 34rpx;
+	font-size: 17px;
 	font-weight: bold;
+	padding: 0 15px;
 }
 
 .red-packet-money{
-	font-size: 100rpx;
+	font-size: 50px;
 }
 
 .share-txt{
-	font-size: 24rpx;
+	font-size: 12px;
 	color: #fffaee;
 	display: block;
 	text-align: center;
-	margin: 70rpx 0 20rpx;
+	margin: 40px 0 15px;
+	padding: 0 15px;
+}
+
+.btn-box{
+	display: flex;
+	justify-content: space-around;
+	padding: 0 25px;
+}
+
+.read-detail{
+	width: 70px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #de2427;
+	border: 1rpx solid #fffaee;
+	font-size: 12px;
+	color: #fffaee;
+	padding: 0;
+	border-radius: 2px;
+	margin-right: 36px;
 }
 
 .share-now{
-	width: 140rpx;
-	height: 50rpx;
-	line-height: 50rpx;
+	width: 70px;
+	height: 25px;
+	line-height: 25px;
 	background-color: #fffaee;
 	border: 1rpx solid #de242f;
-	font-size: 24rpx;
+	font-size: 12px;
 	color: #de242f;
 	padding: 0;
-	border-radius: 4rpx;
+	border-radius: 2px;
 }
 
 .follow-box{
@@ -302,15 +325,36 @@
 }
 
 .close-red-packet{
-	font-size: 44rpx;
+	font-size: 22px;
 	font-weight: bold;
 	color: #ffffff;
 	background-color: #707070;
 	opacity: 0.7;
-	width: 90rpx;
-	height: 90rpx;
-	line-height: 90rpx;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
 	text-align: center;
 	border-radius: 50%;
-	margin: 70rpx auto 0;
+	margin: 35px auto 0;
+}
+
+
+
+.ticket-info-title-one{
+  padding: 20rpx 0;
+  color: #111111;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.ticket-info-title-two{
+  color: #4C4C4C;
+  font-size: 24rpx;
+  margin: 10rpx 0;
+}
+
+.ticket-info-text{
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
 }

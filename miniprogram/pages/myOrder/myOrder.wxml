@@ -3,31 +3,36 @@
   
   <!-- 顶部导航栏 -->
   <view class='top-bar-outer'>
-    <text wx:for="{{tabList}}" wx:key="{{index}}" class="{{item.id === tabActive ? 'active' : ''}}" bindtap="changeTab" data-id="{{index}}">{{item.text}}</text>
+    <text wx:for="{{tabList}}" wx:key="{{index}}" class="{{item.id === tabActive ? 'active' : ''}}" bindtap="changeTab" data-id="{{item.id}}">{{item.text}}</text>
   </view>
   
   <view class="order-list">
-    <view class="per-order" wx:for="{{orderList}}" wx:key="{{index}}">
+    <view class="per-order" wx:for="{{orderList}}" wx:key="{{index}}" bindtap="orderDetail" data-id="{{item.orderId}}">
       <view class="per-order-head clearfix">
         <text class="fl">订单编号：</text>
         <text class="order-code fl">{{item.orderCode}}</text>
-        <text class="order-status fr">{{item.status}}</text>
+        <text class="order-status fr">{{['待付款', '待使用', '已确认', '已完成', '已取消'][item.status]}}</text>
       </view>
       <view class="info-top clearfix">
         <image class="product-image" src="{{item.imgUrl}}"></image>
         <text class="product-name">{{item.name}}</text>
-        <text class="product-unit-price">￥{{item.price}}/份</text>
+        <text class="product-unit-price">￥{{item.price}}*{{item.amount}}份</text>
       </view>
       <view class="info-bot">
-        <view class="info-bot-line">有效时间：{{item.beginDate}}至{{item.endDate}}</view>
+        <view class="info-bot-line" wx:if="{{item.status === 0 || item.status === 1 || item.status === 4}}">有效时间：{{item.beginDate}}至{{item.endDate}}</view>
+        <view class="info-bot-line" wx:if="{{item.status === 2 || item.status === 3}}">使用时间：{{item.beginDate}}至{{item.endDate}}</view>
         <view class="info-bot-line">
-          应付金额：
+          {{['应付金额','实付金额','实付金额','实付金额','订单金额'][item.status]}}：
           <text class="order-total">￥{{item.totalPrice}}</text>
         </view>
-        <view class="info-bot-line clearfix">
-          <button class="pay-now fr">立即支付</button>
+        <view class="info-bot-line clearfix" wx:if="{{item.status === '待付款'}}">
+          <button class="pay-now fr" catchtap="payNow" data-id="{{item.orderId}}">立即支付</button>
         </view>
       </view>
     </view>
+
+    <no-product wx:if="{{orderList.length < 1}}" showImg='/assets/img/no_result.png'>暂无相应订单记录</no-product>
+    
+    <no-more wx:if="{{(pageNum >= pageTotal) && (orderList.length >= 1) && !loading}}"></no-more>
   </view>
 </view>

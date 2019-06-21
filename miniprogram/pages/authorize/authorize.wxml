@@ -1,0 +1,29 @@
+<view class="container">
+  <view class='authorize'>
+    <nav-bar hasGoBack="{{false}}">授权登录</nav-bar>
+
+    <view class='auth-top-outer'>
+      <view class='auth-top-icon'>
+        <text class='iconfont icon-weixin'></text>
+      </view>
+
+      <view class='authorize-app-name'>惠出发</view>
+    </view>
+
+    <view class='auth-text'>
+      <text>授权登录后，可以更好的体验惠出发应用</text>
+    </view>
+
+    <view class='auth-btn-outer'>
+      <button  
+        class='auth-btn' 
+        open-type="getUserInfo" 
+        lang="zh_CN" 
+        bindgetuserinfo="onGotUserInfo">授权登录</button>
+
+      <button  
+        class='auth-btn auth-back' 
+        bindtap="gotoIndex">返回首页</button>
+    </view>
+  </view>
+</view>

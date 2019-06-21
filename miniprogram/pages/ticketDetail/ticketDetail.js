@@ -1,78 +1,72 @@
-// miniprogram/pages/ticketDetail/ticketDetail.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+import store from '../../plugins/store/index.js'
+import { checkOuthorize, processProductInfo, runAfterCondition, queryString } from '../../plugins/util.js'
+
+Page(store.createPage({
   data: {
-    bannerSwiper: [
-      {
-        hotelId: '193847',
-        img: 'http://image.jladmin.cn/real_1559184376702.png'
-      },
-    ],
-
     showNavBarTitle: false,
 
     showShareSelector: false,
 
-    shareImgPath: '',
-    canvasUrl: ''
+    commissionUserId: '',
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  globalData: ['userData', 'isLogin', 'curProductInfo'],
+
+  watch: {
+    isLogin(newVal) {
+    }
+  },
+
   onLoad: function (options) {
+    if (options.scene){
+      var scene = decodeURIComponent(options.scene)
+      var goodsId = queryString('goodsId', scene)
+      var commissionUserId = queryString('commissionUserId', scene)
 
+      this.queryProductInfo(goodsId)
+      this.data.commissionUserId = commissionUserId
+      this.setData({
+        commissionUserId: commissionUserId || ''
+      })
+    }else{
+      this.queryProductInfo(options.goodsId)
+      this.data.commissionUserId = options.commissionUserId
+      this.setData({
+        commissionUserId: options.commissionUserId || ''
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function (res) {
+    return {
+      title: "",
+      path: 'pages/ticketDetail/ticketDetail?goodsId=' + this.data.curProductInfo.hcfGoodsInfo.goodsId + '&commissionUserId=' + this.data.userData.hcfUser.userId
+    }
   },
 
   onPageScroll(e) {
@@ -89,9 +83,26 @@ Page({
     }
   },
 
+  // 查询商品详情
+  queryProductInfo(goodsId){
+    global.request2({
+      url: '/goods/goodsDetail',
+      data: {
+        goodsId: goodsId
+      },
+      success(res){
+        if (res.data.returnCode == 1){
+          processProductInfo(res.data.data)
+          store.dispatch('curProductInfo', res.data.data)
+        }
+      }
+    })
+  },
 
   // 显示分享方式的选择底部弹窗
   showShare() {
+    if (!runAfterCondition(this, 'showShare', 'userData')) return
+    
     this.setData({
       showShareSelector: true
     })
@@ -105,9 +116,17 @@ Page({
 
   // 进入到订单填写页
   gotoPlaceOrder(){
+    var hcfGoodsStock = this.data.curProductInfo.hcfGoodsStock
+    if (hcfGoodsStock.stock <= hcfGoodsStock.sellStock){
+      return wx.showToast({
+        title: '库存不够',
+        icon: 'none',
+        duration: 2000
+      })
+    }
     wx.navigateTo({
-      url: '/pages/placeOrder/placeOrder',
+      url: '/pages/placeOrder/placeOrder?commissionUserId=' + this.data.commissionUserId,
     })
   }
 
-})
+}))

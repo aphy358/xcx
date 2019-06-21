@@ -40,6 +40,43 @@
 }
 /*end*/
 
+.top-bar-outer{
+	position: fixed;
+	top: 64px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	box-sizing: border-box;
+	background: white;
+	padding: 0 40rpx;
+	height: 96rpx;
+	color: #717171;
+	font-weight: bold;
+	z-index: 99;
+}
+
+.item-box{
+	flex: 1;
+	text-align: center;
+}
+
+.item-box text{
+	font-size: 26rpx;
+	display: inline-block;
+	line-height: 96rpx;
+}
+
+.item-box.active text{
+	font-size: 30rpx;
+	color: #111111;
+	font-weight: bold;
+	border-bottom: 6rpx solid #111111;
+}
+
+.detail-list{
+	padding-top: 96rpx;
+}
+
 .per-trade{
 	background-color: #fff;
 	margin-top: 10rpx;

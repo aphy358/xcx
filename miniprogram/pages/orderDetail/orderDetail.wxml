@@ -2,33 +2,38 @@
 	<nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">订单详情</nav-bar>
 	<view class="order-status-box">
 		<view class="status-left">
-			<text class="order-status">待付款</text>
-			<text class="remain-time">剩余付款时间：00:29:00</text>
+			<text class="order-status">{{['待付款', '待使用', '已确认', '已完成', '已取消'][orderInfo.status]}}</text>
+			<text class="remain-time" wx:if="{{orderInfo.status === 0}}">剩余付款时间：{{hour}}:{{minutes}}:{{seconds}}</text>
 		</view>
-		<view class="status-right">
-			<icon class="jl-tel-icon iconfont icon-dianhua1"></icon>
+		<view class="status-right" bindtap="call">
+			<icon class="jl-tel-icon iconfont icon-ziyuan9"></icon>
 			<text class="contact-jl">联系客服</text>
 		</view>
 	</view>
 	
 	<view class="product-info">
 		<view class="info-top clearfix">
-			<image class="product-image" src="http://image.jladmin.cn/real_1529379798959.jpg"></image>
-			<text class="product-name">上海迪士尼2日1晚维也纳酒店免费接站接送迪士尼乐园含门票</text>
-			<text class="product-unit-price">￥699.00/份</text>
+			<image class="product-image" src="{{productInfo.hcfGoodsInfo.goodsImgArr[0]}}"></image>
+			<text class="product-name">{{productInfo.hcfGoodsInfo.goodsName}}</text>
+			<text class="product-unit-price">￥{{orderInfo.salePrice}}/份</text>
 		</view>
 		<view class="info-bot">
-			<view class="info-bot-line">
+			<view class="info-bot-line"
+			      wx:if="{{orderInfo.status === 0 || orderInfo.status === 1 || orderInfo.status === 4}}">
 				<text class="grey">有效时间：</text>
-				2019-05-28至2019-05-29
+				{{beginDate}}至{{endDate}}
+			</view>
+			<view class="info-bot-line" wx:if="{{orderInfo.status === 2 || orderInfo.status === 3}}">
+				<text class="grey">使用时间：</text>
+				{{beginDate}}至{{endDate}}
 			</view>
 			<view class="info-bot-line">
 				<text class="grey">预订数量：</text>
-				3份
+				{{orderInfo.amount}}份
 			</view>
 			<view class="info-bot-line">
 				<text class="grey">合计：</text>
-				<text class="red">￥7266.00</text>
+				<text class="red">￥{{orderInfo.salePriceAll}}</text>
 			</view>
 		</view>
 	</view>
@@ -38,57 +43,77 @@
 		<view class="book-detail">
 			<view class="detail-line">
 				<text class="grey">订单编号：</text>
-				AC2661546543564246
+				{{orderInfo.orderCode}}
 			</view>
 			<view class="detail-line">
 				<text class="grey">下单时间：</text>
-				2019-05-14 17：34
+				{{orderInfo.createTime}}
 			</view>
 			<view class="detail-line">
 				<text class="grey">使用人：</text>
-				李白
+				{{orderInfo.usePerson}}
 			</view>
 			<view class="detail-line">
 				<text class="grey">联系电话：</text>
-				13480387262
+				{{orderInfo.tel}}
 			</view>
-			<view class="detail-line">
+			<view class="detail-line" wx:if="{{orderInfo.customRemark}}">
 				<text class="grey">备注信息：</text>
+				{{orderInfo.customRemark}}
 			</view>
 		</view>
 	</view>
 	
 	<view class="buy-tips">
-		<text class="info-title">购买须知</text>
-		<view class="buy-detail">
-			<text class="detail-title">【费用包含】</text>
-			<view class="cost-info">
-				<text class="tips-line">1、标准客房 住宿 1晚</text>
-				<text class="tips-line">2、自助早餐 3份（2大1小）</text>
-				<text class="tips-line">3、迪士尼酒店穿梭巴士往返酒店与乐园（每隔10至15分钟1班）</text>
-				<text class="tips-line">4、免费享用游泳池</text>
-				<text class="tips-line">5、两张成人门票，一张儿童门票</text>
+		<view class='ticket-info-title-one'>购买须知</view>
+		<block wx:if="{{productInfo.hcfActivityInfo.costIncludes.length > 0}}">
+			<view class='ticket-info-title-two'>【费用包含】</view>
+			<view class='ticket-info-text'>
+				<block wx:for="{{productInfo.hcfActivityInfo.costIncludes}}" wx:key="{{index}}">
+					<view>{{item}}</view>
+				</block>
 			</view>
-			<text class="detail-title">【使用说明】</text>
-			<view class="cost-info">
-				<text class="tips-line">1、标准客房 住宿 1晚</text>
-				<text class="tips-line">2、自助早餐 3份（2大1小）</text>
-				<text class="tips-line">3、迪士尼酒店穿梭巴士往返酒店与乐园（每隔10至15分钟1班）</text>
-				<text class="tips-line">4、免费享用游泳池</text>
-				<text class="tips-line">5、两张成人门票，一张儿童门票</text>
+		</block>
+		
+		<block wx:if="{{productInfo.hcfActivityInfo.bookingDes.length > 0}}">
+			<view class='ticket-info-title-two'>【使用说明】</view>
+			<view class='ticket-info-text'>
+				<block wx:for="{{productInfo.hcfActivityInfo.bookingDes}}" wx:key="{{index}}">
+					<view>{{item}}</view>
+				</block>
 			</view>
-			<text class="detail-title">【退改规则】</text>
-			<view class="cost-info">
-				<text class="tips-line">1、特价产品购买后可以转赠，但不得以任何理由要求退款，请谨慎购买。如果入住日期限定不可调，请购买前先咨询是否有房。</text>
-				<text class="tips-line">2、超过使用有效期则自动作废，请注意使用时间。</text>
+		</block>
+		
+		<block wx:if="{{productInfo.hcfActivityInfo.regressionRule.length > 0}}">
+			<view class='ticket-info-title-two'>【退改规则】</view>
+			<view class='ticket-info-text'>
+				<block wx:for="{{productInfo.hcfActivityInfo.regressionRule}}" wx:key="{{index}}">
+					<view>{{item}}</view>
+				</block>
 			</view>
-		</view>
+		</block>
+		
+		<block wx:if="{{productInfo.hcfActivityInfo.bookingNotice.length > 0}}">
+			<view class='ticket-info-title-two'>【预订须知】</view>
+			<view class='ticket-info-text'>
+				<block wx:for="{{productInfo.hcfActivityInfo.bookingNotice}}" wx:key="{{index}}">
+					<view>{{item}}</view>
+				</block>
+			</view>
+		</block>
+	
 	</view>
 	
 	<view class="options clearfix">
-		<button class="pay-now">立即支付</button>
-		<button class="re-book">再次购买</button>
-		<button class="cancel-order" bindtap="cancelOrder">取消订单</button>
+		<button class="pay-now blue-btn" bindtap="rePay"
+		        wx:if="{{orderInfo.status === 0 && (hour !== 0 || minutes !== 0 || seconds !== 0)}}">立即支付
+		</button>
+		<button class="share blue-btn" bindtap="share" wx:if="{{orderInfo.status !== 0}}">分享推广</button>
+		<button class="re-book golden-btn" wx:if="{{orderInfo.status !== 0}}" bindtap='gotoTicketDetail'>再次购买</button>
+		<button class="share golden-btn" bindtap="share" wx:if="{{orderInfo.status === 0}}">分享推广</button>
+		<button class="cancel-order" bindtap="cancelOrder"
+		        wx:if="{{orderInfo.status === 0 || (orderInfo.status === 1 && canCancel)}}">取消订单
+		</button>
 	</view>
 </view>
 
@@ -96,16 +121,29 @@
 <view class="red-packet" wx:if="{{showPacket}}">
 	<image class="red-packet-img" src="./red-packet.png"></image>
 	<view class="red-packet-content">
-		<text class="red-packet-title">恭喜您有机会获得</text>
+		<text class="red-packet-title">{{productInfo.commissionIsMyself ? '恭喜获得' : '恭喜您有机会获得'}}</text>
 		<view class="red-packet-num">
-			<text class="red-packet-money">45.0</text>元
+			<text class="red-packet-money">{{productInfo.commissionPrice}}</text>
+			元
 		</view>
-		<text class="share-txt">快分享给好友购买解锁更多现金吧</text>
-		<button class="share-now">立即分享</button>
-		<view class="follow-box">
-			<checkbox class="follow" checked></checkbox>
-			<text class="follow-txt">关注惠出发公众号了解更多</text>
+		<text class="share-txt">快分享好友购买解锁更多现金吧</text>
+		<view class="btn-box clearfix">
+			<button class="read-detail fl" bindtap="readOrder">订单详情</button>
+			<button class="share-now fl" bindtap="share">立即分享</button>
+			<!--<button class="share-now fl" open-type="share" wx:if="{{userData.hcfUser.type == 0}}">立即分享</button>-->
 		</view>
+		
 		<view class="close-red-packet iconfont icon-delete2" bindtap="closePacket"></view>
 	</view>
 </view>
+
+
+<!-- 分享、转发 -->
+<share-selector
+		showSelector="{{showShareSelector}}"
+		productInfo="{{productInfo}}"
+		bind:hideSelector="hideSelector"
+>
+</share-selector>
+
+<my-loading wx:if="{{loadingHidden}}"></my-loading>

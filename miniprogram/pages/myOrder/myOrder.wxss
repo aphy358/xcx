@@ -41,6 +41,9 @@
   background: white;
   padding: 0 40rpx;
   height: 96rpx;
+  color: #717171;
+  font-weight: bold;
+  z-index: 99;
 }
 
 .top-bar-outer text{
@@ -90,16 +93,23 @@
   height: 135rpx;
   margin-right: 10rpx;
   float: left;
+  border-radius: 4rpx;
 }
 
 .product-name{
+  height: 98rpx;
   line-height: 48rpx;
   width: 452rpx;
-  display: inline-block;
   float: left;
   font-size: 28rpx;
   color: #666666;
   font-weight: bold;
+  overflow: hidden;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .product-unit-price{

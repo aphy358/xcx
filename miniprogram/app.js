@@ -1,7 +1,7 @@
 //app.js
 import './plugins/dateFormat.js'
 import store from './plugins/store/index.js'
-import { addDays } from './plugins/util.js'
+import { addDays, wxLogin, getUserAndAccount, setRequestFunc2 } from './plugins/util.js'
 
 
 App(store.createApp({
@@ -13,44 +13,60 @@ App(store.createApp({
     var appId = wx.getAccountInfoSync().miniProgram.appId
 
     global.url = appId == 'wx6ac08ec94a8fb611'
-      ? 'https://test.huichufa.jlqnb.com'
+      ? 'https://test-huichufa.jlqnb.com'
       : 'https://huichufa.jlqnb.com'
 
+    // 获取设备宽度
     global.deviceWidth = wx.getSystemInfoSync().windowWidth
 
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        traceUser: true,
-      })
-    }
+    // 自定义 request 函数
+    setRequestFunc2()   
 
-    wx.login({
-      success(res){
-        if (res.code) {
-          //发起网络请求
-          // wx.request({
-          //   url: global.url + '/login/autoLoginWx',
-          //   data: {
-          //     code: res.code
-          //   },
-          //   success(res) {
-          //     console.log(res.data)
-          //   },
-          //   fail(res) {
-          //     console.log('failed')
-          //   }
-          // })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
+    // if (!wx.cloud) {
+    //   console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    // } else {
+    //   wx.cloud.init({
+    //     traceUser: true,
+    //   })
+    // }
+  },
+  onShow(options) {
+    var _this = this
+
+    // 先尝试着从 storage 里取 openid，如果有，则说明以前登录过
+    wx.getStorage({
+      key: 'openid',
+      success(res) {
+        // 尝试着获取用户信息，试一试现在是否还处于登录态，如丢失登录态，则登录
+        getUserAndAccount(res.data.openid, res.data.token)
+      },
+      fail: function (res) {
+        // 如果以前从未登录,则登录
+        wxLogin()
+      }
+    })
+
+    wx.getStorage({
+      key: 'usePerson',
+      success(res) {
+        _this.globalData.usePerson = res.data
       }
     })
   },
   globalData: {
     checkin: addDays(new Date),
     checkout: addDays(new Date, 1),
+
+    // 用户信息
+    userData: null,
+
+    // 当前是否处于登录态
+    isLogin: false,
+
+    // 当前商品详情页要显示的商品信息
+    curProductInfo: null,
+
+    usePerson: {}
   }
 
 }))

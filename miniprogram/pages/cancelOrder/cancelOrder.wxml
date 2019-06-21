@@ -14,13 +14,13 @@
 		<view class="module-box">
 			<text class="module-title">取消说明</text>
 			<view class="module-content">
-				<textarea class="reason-info" maxlength="200" value="{{reasonInfo}}" placeholder="请简要说明取消原因，字数不要超过200字" placeholder-style="color:#999999;" />
+				<textarea class="reason-info" maxlength="200" value="{{reasonInfo}}" bindinput="inputReason" placeholder="请简要说明取消原因，字数不要超过200字" placeholder-style="color:#999999;" />
 			</view>
 		</view>
 		<view class="module-box">
 			<text class="module-title">退款金额</text>
 			<view class="module-content">
-				<text class="refund-num">退款金额合计：<text class="red">￥7266.00</text></text>
+				<text class="refund-num">退款金额合计：<text class="red">￥{{price}}</text></text>
 			</view>
 		</view>
 		<view class="module-box">
@@ -28,11 +28,11 @@
 			<view class="module-content">
 				<view class="content-line clearfix">
 					<text class="line-title">联系人：</text>
-					<input type="text" class="link-name" value="{{linkName}}"/>
+					<input type="text" class="link-name" value="{{name}}" bindinput="inputName"/>
 				</view>
 				<view class="content-line clearfix">
 					<text class="line-title">联系电话：</text>
-					<input type="number" class="link-tel" value="{{linkTel}}"/>
+					<input type="number" class="link-tel" value="{{tel}}" bindinput="inputTel"/>
 				</view>
 			</view>
 		</view>

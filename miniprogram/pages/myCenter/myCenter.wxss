@@ -77,7 +77,7 @@
   display: block;
   font-size: 40rpx;
   margin: 16rpx 0 0 20rpx;
-  color: #676767;
+  color: #333333;
 }
 
 .contact-txt{
@@ -131,8 +131,22 @@
   font-weight: bold;
 }
 
+.un-account-num{
+  position: relative;
+  display: inline-block;
+}
+
+.money-num-icon{
+  position: absolute;
+  right: -30rpx;
+  top: 0;
+  color: #999999;
+  font-size: 22rpx;
+}
+
 .money-txt{
   font-weight: 24rpx;
+  position: relative;
 }
 
 .cash-out{
@@ -146,6 +160,9 @@
   border-radius: 4rpx;
   margin-left: 24rpx;
   display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .money-bot{
@@ -182,13 +199,29 @@
 
 .order-part{
   flex: 1;
+  text-align: center;
 }
 
 .order-part-icon{
-  display: block;
+  display: inline-block;
   text-align: center;
   font-size: 42rpx;
   color: #666666;
+  position: relative;
+  margin-top: 8rpx;
+}
+
+.icon-num{
+  position: absolute;
+  top: -15rpx;
+  right: -10rpx;
+  background-color: #ff3d00;
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 18rpx;
 }
 
 .order-icon-txt{

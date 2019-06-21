@@ -1,0 +1,7 @@
+
+<view class="pay-canceled-mask"></view>
+<view class='pay-canceled-selector-outer'>
+  <view class='pay-canceled-title'>支付失败，您可以进行以下操作</view>
+  <view class='pay-canceled-btn' bindtap='showOrderDetail'>查看订单</view>
+  <view class='pay-canceled-btn re-pay' bindtap='rePay'>继续支付</view>
+</view>

@@ -1,9 +1,19 @@
 
 <!-- canvas 绘制完成后显示的图片 -->
-<canvas class='share-img' canvas-id="share" hidden='{{true}}'></canvas>
+<canvas 
+  class='share-img' 
+  canvas-id="share" 
+  hidden='{{false}}' 
+  style="height:{{360 + heightOfImg1}}px;"
+></canvas>
+
 <view class="canvas-mask{{showCanvasImg ? '' : ' hidden'}}"></view>
-<view class="share-img{{showCanvasImg ? '' : ' hidden'}}" animation="{{animationData}}">
-  <image src='{{shareImgPath}}' mode="widthFix" bindlongtap='saveImageToPhotos'></image>
-  <text class='share-img-text'>长按进行分享和保存图片</text>
+<view 
+  class="share-img{{showCanvasImg ? '' : ' hidden'}}{{imgReady ? '' : ' default'}}" 
+  animation="{{animationData}}"
+  style="height:{{360 + heightOfImg1}}px;"
+>
+  <image class='image' src='{{shareImgPath}}' mode="widthFix" bindlongtap='saveImageToPhotos'></image>
+  <view class='share-img-text'>{{imgReady ? '长按进行分享和保存图片' : '生成海报过程比较漫长，请耐心等待'}}</view>
   <text class='iconfont icon-delete2 share-img-icon' bindtap='hideCanvasImg'></text>
 </view>

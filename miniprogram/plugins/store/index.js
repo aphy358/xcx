@@ -1,6 +1,9 @@
 import {
-    Observer
+    Observer,
+  setWatcher,
+  resetWatch
 } from './observer'
+
 
 const bindWatcher = Symbol('bindWatcher');
 const unbindWatcher = Symbol('unbindWatcher');
@@ -39,6 +42,7 @@ class Store extends Observer {
         const watcher = {};
         // 劫持onLoad
         options.onLoad = function (...params) {
+            setWatcher(this, resetWatch(watch, globalData))
             store[bindWatcher](globalData, watch, globalDataWatcher, watcher, this);
             if (typeof onLoad === 'function') {
                 onLoad.apply(this, params);
@@ -60,23 +64,24 @@ class Store extends Observer {
         const {
             globalData = [],
                 watch = {},
-                attached,
-                detached
         } = options;
+        const attached = options.attached || options.lifetimes.attached
+        const detached = options.detached || options.lifetimes.detached
         const store = this;
         // 保存globalData更新回调的引用
         const globalDataWatcher = {};
         // 保存watch监听回调的引用
         const watcher = {};
         // 劫持attached
-        options.attached = function (...params) {
+        options.attached = options.lifetimes.attached = function (...params) {
+            setWatcher(this, resetWatch(watch, globalData))
             store[bindWatcher](globalData, watch, globalDataWatcher, watcher, this);
             if (typeof attached === 'function') {
                 attached.apply(this, params);
             }
         }
         // 劫持detached
-        options.detached = function () {
+        options.detached = options.lifetimes.detached = function () {
             store[unbindWatcher](watcher, globalDataWatcher);
             if (typeof detached === 'function') {
                 detached.apply(this);
@@ -88,8 +93,12 @@ class Store extends Observer {
     }
     // 派发一个action更新状态
     dispatch(action, payload) {
+      if (JSON.stringify(this.app.globalData[action]) == JSON.stringify(payload) || this.app.globalData[action] == payload){
+        // 什么都不做
+      }else{
         this.app.globalData[action] = payload;
         this.emit(action, payload);
+      }
     }
     /**
      * 1. 初始化页面关联的globalData并且监听更新
