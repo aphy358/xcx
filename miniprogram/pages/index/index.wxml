@@ -21,8 +21,15 @@
   </swiper>
 
   <!-- banner 下方的 tab 栏 -->
-  <view class="" style='height:90rpx;'>
-    <view class="tab-outer{{tabFixClass}}">
+  <view class="" style='height:90rpx;position:relative;'>
+    <view class="tab-outer">
+      <block wx:for="{{tabItems}}" wx:key="{{index}}">
+        <view class="tab-item{{activeTab == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
+          {{item.categoryName}}
+        </view>
+      </block>
+    </view>
+    <view class="tab-outer{{tabFixClass}} top">
       <block wx:for="{{tabItems}}" wx:key="{{index}}">
         <view class="tab-item{{activeTab == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
           {{item.categoryName}}

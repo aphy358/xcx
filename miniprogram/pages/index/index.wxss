@@ -32,7 +32,14 @@
   justify-content: space-around;
 }
 
-.tab-outer.fixed{
+.tab-outer.top{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.tab-outer.top.fixed{
   position:fixed;
   top:64px;
   left:0;
