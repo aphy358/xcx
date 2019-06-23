@@ -24,14 +24,14 @@
   <view class="" style='height:90rpx;position:relative;'>
     <view class="tab-outer">
       <block wx:for="{{tabItems}}" wx:key="{{index}}">
-        <view class="tab-item{{activeTab == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
+        <view class="tab-item{{curTab.categoryId == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
           {{item.categoryName}}
         </view>
       </block>
     </view>
     <view class="tab-outer{{tabFixClass}} top">
       <block wx:for="{{tabItems}}" wx:key="{{index}}">
-        <view class="tab-item{{activeTab == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
+        <view class="tab-item{{curTab.categoryId == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
           {{item.categoryName}}
         </view>
       </block>
@@ -39,8 +39,9 @@
   </view>
 
   <!-- 广告列表 -->
+  <view class="ad-pholder" style="height:{{curTab.pholderHeight1}}px;"></view>
   <view class='"ad-outer"'>
-    <block wx:if="{{adItemsShow.length > 0}}" wx:for="{{adItemsShow}}" wx:key="{{index}}">
+    <block wx:if="{{curTab.adItemsShow.length > 0}}" wx:for="{{curTab.adItemsShow}}" wx:key="{{index}}">
       <view class="ad-item" bindtap='gotoTicketDetail' data-info="{{item}}">
         <view class='ad-item-img'>
           <image src="{{item.hcfGoodsInfo.goodsImgArr[0]}}" />
@@ -71,13 +72,14 @@
       </view>
     </block>
 
-    <no-product wx:if="{{adItemsShow.length < 1 && pageNum > pageTotal}}">活动商品正在上架，尽请期待~</no-product>
+    <no-product wx:if="{{curTab.adItemsShow.length < 1 && curTab.pageNum > curTab.pageTotal}}">活动商品正在上架，尽请期待~</no-product>
 
   </view>
+  <view class="ad-pholder" style="height:{{curTab.pholderHeight2}}px;"></view>
 
-  <load-more wx:if="{{pageNum <= pageTotal}}"></load-more>
+  <load-more wx:if="{{curTab.pageNum <= curTab.pageTotal}}"></load-more>
 
-  <no-more wx:if="{{adItemsShow.length > 0 && pageNum > pageTotal && !loading}}"></no-more>
+  <no-more wx:if="{{curTab.adItemsShow.length > 0 && curTab.pageNum > curTab.pageTotal && !loading}}"></no-more>
 
   <!-- 分享、转发 -->
   <share-selector 

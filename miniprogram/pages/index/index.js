@@ -7,31 +7,44 @@ const app = getApp()
 
 Page(store.createPage({
   data: {
-    bannerSwiper: [
-    ],
+    bannerSwiper: [],
 
     tabItems: [
       {
         categoryName: '全部',
-        categoryId: -1
+        categoryId: -1,
+        adItems: [],
+        adItemsShow: [],
+        pageNum: 1,
+        pageTotal: 1000,
+        adTotal: 0,
+        pholderHeight1: 0,
+        pholderHeight2: 0,
+        firstShowIndex: 0,
       },
     ],
+
+    curTab: {
+      categoryName: '全部',
+      categoryId: -1,
+      adItems: [],
+      adItemsShow: [],
+      pageNum: 1,
+      pageTotal: 1000,
+      adTotal: 0,
+      pholderHeight1: 0,
+      pholderHeight2: 0,
+      firstShowIndex: 0,
+    },
+
     activeTab: -1,
     tabFixClass: '',
-
-    // 所有的商品列表
-    adItems: [],
-
-    // 最终显示的商品列表
-    adItemsShow: [],
 
     showShareSelector: false,
 
     // 被点击的商品信息
     productInfo: null,
-
-    pageNum: 1,
-    pageTotal: 1000,
+    
     loading: true,
   },
 
@@ -52,6 +65,9 @@ Page(store.createPage({
   onLoad: function() {
     var _this = this
     this.data.scrollTop = 0
+    this.data.fixScrollTop = 210 * global.deviceWidth / 375
+    this.data.pholderPerHeight = 266 * global.deviceWidth / 375
+
    
     // 查 banner
     global.request2({
@@ -71,7 +87,21 @@ Page(store.createPage({
       success(res) {
         if (res.data.returnCode == 1) {
           var tmpList = _this.data.tabItems
+          
+          for (let i = 0; i < res.data.dataList.length; i++) {
+            const o = res.data.dataList[i]
+            o.adItems = []
+            o.adItemsShow = []
+            o.pageNum = 1
+            o.pageTotal = 1000
+            o.adTotal = 0
+            o.pholderHeight1 = 0
+            o.pholderHeight2 = 0
+            o.firstShowIndex = 0
+          }
+
           tmpList = tmpList.concat(res.data.dataList)
+
           _this.setData({
             tabItems: tmpList
           })
@@ -94,9 +124,7 @@ Page(store.createPage({
   },
 
   onPageScroll(e) {
-    var scrollTop = 210 * global.deviceWidth / 375
-
-    if (e.scrollTop >= scrollTop) {
+    if (e.scrollTop >= this.data.fixScrollTop) {
       this.setData({
         tabFixClass: ' fixed'
       })
@@ -113,6 +141,8 @@ Page(store.createPage({
     }
     this.data.scrollTop = e.scrollTop
 
+    this.setScrollPholder()
+
   },
 
   /**
@@ -128,8 +158,10 @@ Page(store.createPage({
 
   // 定时器更新商品抢购倒计时
   _setInterval(){
-    let adItems = this.data.adItems
-    let adItemsShow = this.data.adItemsShow
+    return
+
+    let adItems = this.data.curTab.adItems
+    let adItemsShow = this.data.curTab.adItemsShow
 
     for (let i = 0; i < adItems.length; i++) {
       processTimeLeft(adItems[i])
@@ -140,32 +172,27 @@ Page(store.createPage({
     }
 
     this.setData({
-      adItems: adItems,
-      adItemsShow: adItemsShow
+      curTab: this.data.curTab,
     })
   },
 
   // 查询商品列表
   getProductList(reset){
-    if (this.data.pageNum > this.data.pageTotal && !reset) return
+    // var curTab = this.data.tabItems.filter(n => n.categoryId == this.data.activeTab)
+    var curTab = this.data.curTab
+    if (curTab.pageNum > curTab.pageTotal && !reset) return
 
     let _this = this
     this.setData({
       loading: true
     })
 
-    if(reset){
-      this.setData({
-        pageNum: 1,
-        pageTotal: 1000
-      })
-    }
-
     global.request2({
       url: '/goods/goodsList',
       data: {
-        pageNum: reset ? 1 : _this.data.pageNum,
-        pageSize: 500
+        pageNum: reset ? 1 : curTab.pageNum,
+        pageSize: 500,
+        // categoryId: curTab.categoryId
       },
       success(res) {
         _this.setData({
@@ -177,42 +204,67 @@ Page(store.createPage({
             processProductInfo(res.data.dataList[i])
           }
 
-          var adItems = reset ? res.data.dataList : _this.data.adItems.concat(res.data.dataList)
-          var adItemsShow = _this.data.activeTab == -1 ? adItems : adItems.filter((n) => n.hcfGoodsInfo.categoryId == _this.data.activeTab)
+          var curTab = _this.data.tabItems.filter(n => n.categoryId == _this.data.curTab.categoryId)[0]
+          curTab.adItems = curTab.adItems.concat(res.data.dataList)
+          // curTab.adItemsShow = curTab.adItemsShow.concat(res.data.dataList)
+          curTab.pageNum = curTab.pageNum + 1
+          curTab.pageTotal = res.data.pageTotal
+          curTab.adTotal = res.data.pageRecordCount
 
           _this.setData({
-            adItems: adItems,
-            adItemsShow: adItemsShow,
-            pageNum: res.data.pageNum + 1,
-            pageTotal: res.data.pageTotal
+            tabItems: _this.data.tabItems,
+            curTab: curTab,
           })
 
-          if (adItemsShow.length < 2 && _this.data.pageNum <= _this.data.pageTotal) {
-            setTimeout(function(){
-              _this.getProductList()
-            }, 100)
-          }
+          _this.setScrollPholder()
         }
       }
+    })
+  },
+
+  setScrollPholder(){
+    var _this = this
+    var curTab = _this.data.tabItems.filter(n => n.categoryId == _this.data.curTab.categoryId)[0]
+    var scrollDiff = _this.data.scrollTop - _this.data.fixScrollTop
+    var scrollCount = (scrollDiff / _this.data.pholderPerHeight) | 0
+    var firstShowIndex = scrollCount - 4
+    if (firstShowIndex < 0) firstShowIndex = 0
+    var adItemsShow = []
+
+    if (firstShowIndex == curTab.firstShowIndex && firstShowIndex != 0)    return
+
+    for (let i = firstShowIndex, count = 0; i < curTab.adItems.length && count < 10; i++, count++) {
+      adItemsShow.push(curTab.adItems[i])
+    }
+
+    curTab.firstShowIndex = firstShowIndex
+    curTab.adItemsShow = adItemsShow
+    curTab.pholderHeight1 = firstShowIndex * _this.data.pholderPerHeight
+    var belowCount = curTab.adItems.length - firstShowIndex - 10
+    // if(belowCount < 0)  belowCount = 0
+    curTab.pholderHeight2 = belowCount * _this.data.pholderPerHeight
+
+    _this.setData({
+      tabItems: _this.data.tabItems,
+      curTab: curTab,
     })
   },
 
   switchTab(e){
     var _this = this
     let categoryId = e.target.dataset.item.categoryId
-    if (categoryId != this.data.activeTab){
-      var tmpArr = categoryId == -1
-        ? this.data.adItems
-        : this.data.adItems.filter((n) => n.hcfGoodsInfo.categoryId == categoryId)
+    if (categoryId != this.data.curTab.categoryId){
+      var curTab = this.data.tabItems.filter(n => n.categoryId == categoryId)[0]
 
       this.setData({
-        activeTab: categoryId,
-        adItemsShow: tmpArr
+        curTab: curTab,
       })
 
-      if (tmpArr.length < 2 && this.data.pageNum <= this.data.pageTotal){
+      if (curTab.pageTotal >= curTab.pageNum && curTab.adItems.length < 1){
         this.getProductList()
       }
+
+      // 切换 tab，如果当前 tab 下从未加载过，则加载 list...
     }
   },
 
