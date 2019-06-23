@@ -68,6 +68,8 @@
 
   </view>
 
+  <load-more wx:if="{{pageNum <= pageTotal}}"></load-more>
+
   <no-more wx:if="{{adItemsShow.length > 0 && pageNum > pageTotal && !loading}}"></no-more>
 
   <!-- 分享、转发 -->

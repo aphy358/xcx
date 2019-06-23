@@ -60,13 +60,9 @@ Page(store.createPage({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.pageNum >= this.data.pageTotal) {
+    if (this.data.pageNum > this.data.pageTotal) {
       // 什么都不干
     } else {
-      this.setData({
-        pageNum: ++this.data.pageNum
-      });
-
       this.queryADList()
     }
   },
@@ -101,10 +97,13 @@ Page(store.createPage({
 
   // 查询商品列表
   queryADList(){
+    if (this.data.pageNum > this.data.pageTotal) return
+
     var _this = this
     this.setData({
       loading: true
     })
+
     global.request2({
       url: '/ad/promotionList',
       data: {
@@ -123,6 +122,7 @@ Page(store.createPage({
 
           _this.setData({
             productList: _this.data.productList.concat(res.data.dataList),  // res.data.dataList
+            pageNum: res.data.pageNum + 1,
             pageTotal: res.data.pageTotal
           })
         }

@@ -56,6 +56,7 @@
     "pay-canceled-selector": "./components/payCanceledSelector/payCanceledSelector",
     "no-product": "./components/noProduct/noProduct",
     "my-loading": "./components/myLoading/myLoading",
+    "load-more": "./components/loadingMore/loadingMore",
     "no-more": "./components/noMore/noMore"
   }
 }
