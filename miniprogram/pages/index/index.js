@@ -51,6 +51,7 @@ Page(store.createPage({
 
   onLoad: function() {
     var _this = this
+    this.data.scrollTop = 0
    
     // 查 banner
     global.request2({
@@ -93,7 +94,7 @@ Page(store.createPage({
   },
 
   onPageScroll(e) {
-    var scrollTop = 211 * global.deviceWidth / 375
+    var scrollTop = 210 * global.deviceWidth / 375
 
     if (e.scrollTop >= scrollTop) {
       this.setData({
@@ -104,6 +105,14 @@ Page(store.createPage({
         tabFixClass: ''
       })
     }
+
+    if(e.scrollTop > this.data.scrollTop){
+      console.log('向下')
+    }else{
+      console.log('向上')
+    }
+    this.data.scrollTop = e.scrollTop
+
   },
 
   /**
