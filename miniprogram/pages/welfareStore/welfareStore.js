@@ -78,13 +78,8 @@ Page(store.createPage({
     if (!runAfterCondition(this, 'showShare', 'userData', e)) return
 
     var info = e.currentTarget.dataset.info
-    var goodsId = info.hcfGoodsInfo.goodsId
     this.setData({
       productInfo: info,
-    })
-
-
-    this.setData({
       showShareSelector: true
     })
   },
