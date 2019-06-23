@@ -1,5 +1,5 @@
 
-import { checkOuthorize, processProductInfo, runAfterCondition } from '../../plugins/util.js'
+import { checkOuthorize, processProductInfo, runAfterCondition, processTimeLeft } from '../../plugins/util.js'
 import store from '../../plugins/store/index.js'
 
 //index.js
@@ -80,15 +80,16 @@ Page(store.createPage({
 
     // 查商品列表
     this.getProductList()
+
+    setInterval(function () {
+      // 定时器更新商品抢购倒计时
+      _this._setInterval()
+    }, 1000)
   },
 
   onShow: function () {
     // 检查是否已经授权过
     checkOuthorize()
-
-    if (this.data.adItems.length > 0){
-      this.getProductList(true)
-    }
   },
 
   onPageScroll(e) {
@@ -116,6 +117,25 @@ Page(store.createPage({
     }
   },
 
+  // 定时器更新商品抢购倒计时
+  _setInterval(){
+    let adItems = this.data.adItems
+    let adItemsShow = this.data.adItemsShow
+
+    for (let i = 0; i < adItems.length; i++) {
+      processTimeLeft(adItems[i])
+    }
+
+    for (let i = 0; i < adItemsShow.length; i++) {
+      processTimeLeft(adItemsShow[i])
+    }
+
+    this.setData({
+      adItems: adItems,
+      adItemsShow: adItemsShow
+    })
+  },
+
   // 查询商品列表
   getProductList(reset){
     if (this.data.pageNum > this.data.pageTotal && !reset) return
@@ -136,7 +156,7 @@ Page(store.createPage({
       url: '/goods/goodsList',
       data: {
         pageNum: reset ? 1 : _this.data.pageNum,
-        pageSize: 5
+        pageSize: 500
       },
       success(res) {
         _this.setData({
@@ -192,6 +212,12 @@ Page(store.createPage({
     if (e.currentTarget.dataset.info.hcfGoodsInfo){
       wx.navigateTo({
         url: '/pages/ticketDetail/ticketDetail?goodsId=' + e.currentTarget.dataset.info.hcfGoodsInfo.goodsId,
+      })
+    }else{
+      wx.showToast({
+        title: '该商品已下线',
+        icon: 'none',
+        duration: 2000
       })
     }
   },

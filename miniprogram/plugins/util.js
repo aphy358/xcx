@@ -280,22 +280,7 @@ export const processProductInfo = (info) => {
     info.hcfActivityInfo.bookingNotice = info.hcfActivityInfo.bookingNotice.split(/[\n|\r]/).filter(n => n)
     info.hcfActivityInfo.costIncludes = info.hcfActivityInfo.costIncludes.split(/[\n|\r]/).filter(n => n)
     info.hcfActivityInfo.regressionRule = info.hcfActivityInfo.regressionRule.split(/[\n|\r]/).filter(n => n)
-
-    var gap = new Date(formatDateOne(info.hcfActivityInfo.activityEndDate)) - new Date()
-    var day = (gap / (1000 * 60 * 60 * 24)) | 0
-    gap = gap % (1000 * 60 * 60 * 24)
-
-    var hour = (gap / (1000 * 60 * 60)) | 0
-    gap = gap % (1000 * 60 * 60)
-
-    var min = (gap / (1000 * 60)) | 0
-    gap = gap % (1000 * 60)
-
-    var sec = (gap / 1000) | 0    // 秒
-
-    info.hcfActivityInfo.timeLeftText = day == 0
-      ? hour + '小时' + min + '分钟' + sec + '秒'
-      : day + '天' + hour + '小时' + min + '分钟'
+    processTimeLeft(info)
   }
 
   if (info.hcfGoodsInfo){
@@ -315,6 +300,25 @@ export const processProductInfo = (info) => {
 
   if (info.hcfActivityInfo && info.hcfActivityInfo.activityBeginDate) info.activityBeginDate = info.hcfActivityInfo.activityBeginDate.substr(0, 10)
   if (info.hcfActivityInfo && info.hcfActivityInfo.activityEndDate) info.activityEndDate = info.hcfActivityInfo.activityEndDate.substr(0, 10)
+}
+
+// 处理倒计时
+export const processTimeLeft = (info) => {
+  var gap = new Date(formatDateOne(info.hcfActivityInfo.activityEndDate)) - new Date()
+  var day = (gap / (1000 * 60 * 60 * 24)) | 0
+  gap = gap % (1000 * 60 * 60 * 24)
+
+  var hour = (gap / (1000 * 60 * 60)) | 0
+  gap = gap % (1000 * 60 * 60)
+
+  var min = (gap / (1000 * 60)) | 0
+  gap = gap % (1000 * 60)
+
+  var sec = (gap / 1000) | 0    // 秒
+
+  info.hcfActivityInfo.timeLeftText = day == 0
+    ? hour + '小时' + min + '分钟' + sec + '秒'
+    : day + '天' + hour + '小时' + min + '分钟'
 }
 
 export const processImgUrl = (url) => {
