@@ -1,4 +1,4 @@
-<view class="container" style="padding-top:{{bottom + 6}}px;">
+<view class="container" style="padding-top:{{navHeight}}px;">
   <view class='my-center'>
     <nav-bar hasGoBack="{{false}}">个人中心</nav-bar>
     <view class="user-info-top clearfix">

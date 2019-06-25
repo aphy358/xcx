@@ -1,4 +1,4 @@
-<view class="order-detail container" style="padding-top:{{bottom + 6}}px;">
+<view class="order-detail container" style="padding-top:{{navHeight}}px;">
 	<nav-bar hasGoBack="{{true}}">申请取消</nav-bar>
 	<view class="tips">温馨提示：申请后，我们将尽快处理您的申请，请耐心等待。</view>
 	<view class="reason">

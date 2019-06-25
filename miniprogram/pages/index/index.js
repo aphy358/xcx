@@ -7,7 +7,6 @@ const app = getApp()
 
 Page(store.createPage({
   data: {
-    bottom: 58,
     bannerSwiper: [],
 
     tabItems: [
@@ -54,7 +53,7 @@ Page(store.createPage({
     shareImageUrl: '',
   },
 
-  globalData: ['userData', 'isLogin'],
+  globalData: ['userData', 'isLogin', 'navHeight'],
 
   watch: {
     isLogin(newVal){
@@ -69,9 +68,6 @@ Page(store.createPage({
   },
 
   onLoad: function() {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
   },
 
   onShow: function () {

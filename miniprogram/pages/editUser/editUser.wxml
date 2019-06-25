@@ -1,4 +1,4 @@
-<view class="edit-user container" style="padding-top:{{bottom + 6}}px;">
+<view class="edit-user container" style="padding-top:{{navHeight}}px;">
 	<nav-bar hasGoBack="{{true}}">个人中心</nav-bar>
 	<view class="item-box" bindtap="editUserName">
 		<text class="box-title fl">姓名</text>

@@ -1,4 +1,4 @@
-<view class="order-detail container" style="padding-top:{{bottom + 6}}px;">
+<view class="order-detail container" style="padding-top:{{navHeight}}px;">
 	<nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">订单详情</nav-bar>
 	<view class="order-status-box">
 		<view class="status-left">

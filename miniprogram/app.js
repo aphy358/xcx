@@ -30,6 +30,7 @@ App(store.createApp({
     var statusBarHeight = sysInfo.statusBarHeight
 
     global.menuRect = wx.getMenuButtonBoundingClientRect()
+    this.globalData.navHeight = global.menuRect.bottom + 6
 
     // 自定义 request 函数
     setRequestFunc2()
@@ -71,6 +72,8 @@ App(store.createApp({
 
     // 用户信息
     userData: null,
+
+    navHeight: 64,
 
     // 当前是否处于登录态
     isLogin: false,

@@ -1,4 +1,4 @@
-<view class="re-pay container" style="padding-top:{{bottom + 6}}px;">
+<view class="re-pay container" style="padding-top:{{navHeight}}px;">
 	<nav-bar hasGoBack="{{true}}">提交订单</nav-bar>
 	<view class="re-pay-top">
 		<view class="need-pay">

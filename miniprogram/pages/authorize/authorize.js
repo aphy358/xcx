@@ -7,18 +7,15 @@ Page(store.createPage({
    * 页面的初始数据
    */
   data: {
-    bottom: 58,
   },
 
-  globalData: ['userData'],
+  globalData: ['userData', 'navHeight'],
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
+
   },
 
   /**

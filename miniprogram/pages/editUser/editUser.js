@@ -2,7 +2,6 @@ import store from '../../plugins/store/index.js'
 
 Page(store.createPage({
   data:{
-    bottom: 58,
     nameHidden: true,
     focus: false,
     nameHeight: '',
@@ -16,7 +15,7 @@ Page(store.createPage({
     phone: ''
   },
   
-  globalData: ['userData'],
+  globalData: ['userData', 'navHeight'],
   
   editUserName(){
     this.setData({
@@ -154,9 +153,6 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
     if (this.data.userData){
       this.setData({
         loadingHidden: false,

@@ -1,4 +1,4 @@
-<view class="container" style="padding-top:{{bottom + 6}}px;">
+<view class="container" style="padding-top:{{navHeight}}px;">
   <view class='authorize'>
     <nav-bar hasGoBack="{{false}}">授权登录</nav-bar>
 

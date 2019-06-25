@@ -3,7 +3,6 @@ import store from '../../plugins/store/index.js'
 
 Page(store.createPage({
   data: {
-    bottom: 58,
     orderId: '3',
     hour: '00',
     minutes: '00',
@@ -17,7 +16,7 @@ Page(store.createPage({
     // 正式支付前的数据（timeStamp、nonceStr、package、paySign）
     dataBeforePay: null
   },
-  globalData: ['isLogin'],
+  globalData: ['isLogin', 'navHeight'],
   
   getOrderDetail(id){
     let _this = this;
@@ -99,9 +98,6 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
     if (options.id){
       this.setData({
         orderId: +options.id

@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="padding-top:{{bottom + 6}}px;">
+<view class="container" style="padding-top:{{navHeight}}px;">
 
   <nav-bar hasGoBack="{{false}}">惠出发</nav-bar>
 
@@ -29,7 +29,7 @@
         </view>
       </block>
     </view>
-    <view class="tab-outer{{tabFixClass}} top">
+    <view class="tab-outer{{tabFixClass}} top" style="top:{{!tabFixClass ? '0' : navHeight + 'px'}};">
       <block wx:for="{{tabItems}}" wx:key="{{index}}">
         <view class="tab-item{{curTab.categoryId == item.categoryId ? ' active' : ''}}" bindtap="switchTab" data-item="{{ item }}">
           {{item.categoryName}}

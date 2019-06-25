@@ -3,7 +3,6 @@ import { processProductInfo } from '../../plugins/util.js'
 
 Page(store.createPage({
   data: {
-    bottom: 58,
     showPacket: false,
     orderInfo: {},
     financeInfo: {},
@@ -22,7 +21,7 @@ Page(store.createPage({
     payHasClosed: false
   },
   
-  globalData: ['userData'],
+  globalData: ['userData', 'navHeight'],
 
   watch: {
     userData(newVal) {
@@ -165,9 +164,6 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
     if (options.id){
       this.setData({
         orderId: +options.id

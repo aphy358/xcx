@@ -9,12 +9,11 @@ Page(store.createPage({
    * 页面的初始数据
    */
   data: {
-    bottom: 58,
     isVip: 0,
     loadingHidden: true
   },
 
-  globalData: ['userData'],
+  globalData: ['userData', 'navHeight'],
 
   watch: {
     userData(newVal){
@@ -31,9 +30,6 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
     wx.hideShareMenu()
   },
 

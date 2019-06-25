@@ -3,7 +3,6 @@ import { runAfterCondition } from '../../plugins/util.js'
 
 Page(store.createPage({
   data: {
-    bottom: 58,
     tabActive: 0,
     tabList: [
       {
@@ -23,7 +22,7 @@ Page(store.createPage({
     cashList: []
   },
   
-  globalData: ['isLogin', 'userData'],
+  globalData: ['isLogin', 'userData', 'navHeight'],
   
   changeTab: function (e) {
     if (!runAfterCondition(this, 'changeTab', 'isLogin', e))  return
@@ -133,9 +132,7 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    this.setData({
-      bottom: global.menuRect.bottom
-    })
+    
   },
   
   /**
