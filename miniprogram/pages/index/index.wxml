@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="padding-top:{{bottom + 6}}px;">
 
   <nav-bar hasGoBack="{{false}}">惠出发</nav-bar>
 
@@ -64,7 +64,7 @@
         <view class="ad-item-bottom-wrap">
           <view>
             <text class='icon'>{{item.hcfActivityInfo.promotionLabel}}</text>
-            <text class='name'>{{item.hcfGoodsInfo.goodsName}}</text>
+            <text class='name'>{{item.hcfGoodsInfo.goodsNameShow}}</text>
           </view>
           <text wx:if="{{userData.hcfUser.type == 1}}" class='share-btn' catchtap='showShare' data-info="{{item}}">分享</text>
         </view>

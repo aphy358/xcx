@@ -105,6 +105,7 @@
 .product-profit{
 	font-size: 20rpx;
 	color: #d4a95b;
+  font-weight: bold;
 }
 
 .share-product{

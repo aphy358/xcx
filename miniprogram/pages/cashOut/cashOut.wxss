@@ -40,8 +40,9 @@
 
 .cash-out-num{
 	color: #111111;
-	font-size: 32rpx;
+	font-size: 42rpx;
 	margin-left: 10rpx;
+	font-weight: bold;
 }
 
 .cash-out-now{

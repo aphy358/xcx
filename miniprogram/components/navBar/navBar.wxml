@@ -1,24 +1,59 @@
 <view>
-  <view class="nav-back" wx:if="{{!showNavBarTitle}}">
-    <view class="nav-back-mask" wx:if="{{hasGoBack}}"></view>
+  <view class="nav-back" wx:if="{{!showNavBarTitle}}"
+    style="top:{{top}}px;height:{{height}}px;width:{{width}}px;">
     <i class="iconfont icon-left navbar-icon" 
       style="color: white;text-shadow: 0 2rpx 4rpx gray;" 
       wx:if="{{hasGoBack}}" 
       bindtap="goBackPage">
     </i>
+    <text 
+      class="iconfont icon-home-page2 navbar-icon"
+      style="color: white;text-shadow: 0 2rpx 4rpx gray;"
+      wx:if="{{hasGoBack && hasGoHome}}"
+      bindtap="goHome"
+    >
+    </text>
   </view>
 
   <view class='navbar' 
     wx:if="{{showNavBarTitle}}" 
-    style="color:{{color}};background:{{background}};">
+    style="color:{{color}};background:{{background}};height:{{bottom + 6}}px;">
 
-    <i class="iconfont icon-left navbar-icon" 
-      wx:if="{{hasGoBack}}" 
-      bindtap="goBackPage" 
-      style="color:{{color}};background:{{background}};">
-    </i>
+    <view 
+      class="navbar-icon-outer" 
+      style="top:{{top}}px;height:{{height}}px;width:{{width}}px;border-radius:{{height}}px;opacity: {{opercity ? '0.15' : '1'}};background:{{opercity ? 'black' : 'transparent'}};border:{{opercity ? '1rpx solid white' : '1rpx solid rgb(231, 231, 231)'}};" 
+      wx:if="{{hasGoBack && hasGoHome}}">
+    </view>
 
-    <slot></slot>
+    <view 
+      class="navbar-icon-outer" 
+      style="top:{{top}}px;height:{{height}}px;width:{{width}}px;border-radius:{{height}}px;border:1rpx solid transparent;" 
+      wx:if="{{hasGoBack && hasGoHome}}">
+
+      <i class="iconfont icon-left navbar-icon" 
+        wx:if="{{hasGoBack}}" 
+        bindtap="goBackPage" 
+        style="color:{{color}};">
+      </i>
+
+      <view 
+        class='navbar-icon-gap'
+        wx:if="{{hasGoBack && hasGoHome}}"
+        style="background:{{opercity ? '#4F92EB' : '#ccc'}};left:{{width/2|0}}px;"></view>
+
+      <text 
+        class="iconfont icon-home-page2 navbar-icon"
+        style="color:{{color}};"
+        wx:if="{{hasGoBack && hasGoHome}}"
+        bindtap="goHome">
+      </text>
+    </view>
+
+    <view 
+      class='navbar-title'
+      style="height:{{height}}px;line-height:{{height}}px;padding-top:{{top}}px;">
+      <slot></slot>
+    </view>
     
   </view>
 </view>

@@ -63,7 +63,7 @@
 
   <view class='ticket-info-title-one'>购买须知</view>
   <block wx:if="{{curProductInfo.hcfActivityInfo.costIncludes.length > 0}}">
-    <view class='ticket-info-title-two'>【费用包含】</view>
+    <view class='ticket-info-title-two'>【套餐内容】</view>
     <view class='ticket-info-text'>
       <block wx:for="{{curProductInfo.hcfActivityInfo.costIncludes}}" wx:key="{{index}}">
         <view>{{item}}</view>

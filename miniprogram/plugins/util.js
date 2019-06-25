@@ -70,8 +70,21 @@ export const getUserAndAccount = (openid, token) => {
         setRequestFunc(openid, token)
 
         // global.userInfo 如果存在，说明是之前授权后返回的用户信息，包含头像、位置信息等
-        if (!res.data.data.hcfUser.avatarUrl && global.userInfo){
-          Object.assign(res.data.data.hcfUser, global.userInfo)
+        if (!res.data.data.hcfUser.avatarUrl){
+          if (global.userInfo){
+            Object.assign(res.data.data.hcfUser, global.userInfo)
+          }else{
+            wx.getStorage({
+              key: 'authorize',
+              success(res) {
+                wx.navigateTo({
+                  url: '/pages/authorize/authorize'
+                })
+              },
+              fail(res) {
+              }
+            })
+          }
         }
 
         store.dispatch('userData', res.data.data)
@@ -273,8 +286,10 @@ export const checkOuthorize = () => {
   })
 }
 
-// 处理商品详情，使之适应模板
-export const processProductInfo = (info) => {
+// 处理商品详情，使之适应模板，nameLen 表示商品名称最多显示多少字
+export const processProductInfo = (info, nameLen) => {
+  nameLen = nameLen || 36
+
   if (info.hcfActivityInfo){
     info.hcfActivityInfo.bookingDes = info.hcfActivityInfo.bookingDes.split(/[\n|\r]/).filter(n => n)
     info.hcfActivityInfo.bookingNotice = info.hcfActivityInfo.bookingNotice.split(/[\n|\r]/).filter(n => n)
@@ -289,6 +304,15 @@ export const processProductInfo = (info) => {
     info.hcfGoodsInfo.goodsImgArr = processImgUrl(info.hcfGoodsInfo.goodsImg || '').split(/[,|，]/).filter(n => n)
     info.hcfGoodsInfo.highlight = info.hcfGoodsInfo.highlight.split(/[\n|\r|#]/).filter(n => n)
     info.hcfGoodsInfo.goodsDetailImg = processImgUrl(info.hcfGoodsInfo.goodsDetailImg || '')
+
+    info.hcfGoodsInfo.goodsNameShow = info.hcfGoodsInfo.goodsName.length > nameLen
+      ? info.hcfGoodsInfo.goodsName.substr(0, nameLen) + '...'
+      : info.hcfGoodsInfo.goodsName
+
+    // 针对订单填写页的商品名长度进行属性设置
+    info.hcfGoodsInfo.goodsNameShow2 = info.hcfGoodsInfo.goodsName.length > 28
+      ? info.hcfGoodsInfo.goodsName.substr(0, 28) + '...'
+      : info.hcfGoodsInfo.goodsName
   }
 
   if (info.hcfGoodsStock){
@@ -322,7 +346,7 @@ export const processTimeLeft = (info) => {
 }
 
 export const processImgUrl = (url) => {
-  return url.replace(/^http:\/\/image.jladmin.cn/g, 'https://qnb.oss-cn-shenzhen.aliyuncs.com')
+  return url.replace(/http:\/\/image.jladmin.cn/g, 'https://qnb.oss-cn-shenzhen.aliyuncs.com')
 }
 
 
@@ -411,4 +435,49 @@ export function runAfterCondition(_this, func, daa) {
 
   wx.hideLoading()
   return true
+}
+
+
+
+export function throttle(func, wait) {
+  wait = wait || 300
+
+  return function () {
+    var context = this;
+    var args = arguments;
+
+    if (!func.tId) {
+      func.tId = setTimeout(() => {
+        func.tId = null;
+        func.apply(context, args)
+      }, wait);
+    }
+  }
+}
+
+
+export function compareVersion(v1, v2) {
+  v1 = v1.split('.')
+  v2 = v2.split('.')
+  const len = Math.max(v1.length, v2.length)
+
+  while (v1.length < len) {
+    v1.push('0')
+  }
+  while (v2.length < len) {
+    v2.push('0')
+  }
+
+  for (let i = 0; i < len; i++) {
+    const num1 = parseInt(v1[i])
+    const num2 = parseInt(v2[i])
+
+    if (num1 > num2) {
+      return 1
+    } else if (num1 < num2) {
+      return -1
+    }
+  }
+
+  return 0
 }

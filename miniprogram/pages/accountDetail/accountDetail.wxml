@@ -1,4 +1,4 @@
-<view class="account-detail container">
+<view class="account-detail container" style="padding-top:{{bottom + 6}}px;">
 	<nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">账户明细</nav-bar>
 	
 	<!-- 顶部导航栏 -->
@@ -13,7 +13,7 @@
 			<view wx:for="{{commissionList}}" class="per-trade{{item.commissionStatus === 3 ? ' has-canceled' : ''}}" wx:key="{{index}}">
 				<view class="per-trade-head clearfix">
 					<image class="trade-user-img fl" src="{{item.commissionUser.avatarUrl || '../myCenter/user-unlogin.png'}}"></image>
-					<text class="trade-user-name fl">来自用户编号为{{item.commissionUser.userCode}}的购买</text>
+					<text class="trade-user-name fl">{{userData.hcfUser.userId === item.userId ? '自购' : '来自微信昵称为' + item.commissionUser.nickName + '的购买'}}</text>
 				</view>
 				<view class="trade-head-border"></view>
 				<view class="trade-line clearfix">
@@ -54,5 +54,5 @@
 		
 	</view>
 	
-	<no-more wx:if="{{(pageNum >= pageTotal) && (commissionList.length > 0 || cashList.length > 0)}}"></no-more>
+	<no-more wx:if="{{(pageNum >= pageTotal) && ((!commissionHidden && (commissionList.length > 0)) || (!cashHidden && (cashList.length > 0)))}}"></no-more>
 </view>

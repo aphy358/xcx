@@ -2,6 +2,7 @@ import store from '../../plugins/store/index.js'
 
 Page(store.createPage({
   data:{
+    bottom: 58,
     nameHidden: true,
     focus: false,
     nameHeight: '',
@@ -141,8 +142,8 @@ Page(store.createPage({
       if (newVal){
         this.setData({
           loadingHidden: false,
-          name: newVal.hcfUser.contactName,
-          phone: newVal.hcfUser.mobilePhone
+          name: newVal.hcfUser.contactName || '',
+          phone: newVal.hcfUser.mobilePhone || ''
         })
       }
     }
@@ -153,11 +154,14 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
     if (this.data.userData){
       this.setData({
         loadingHidden: false,
-        name: this.data.userData.hcfUser.contactName,
-        phone: this.data.userData.hcfUser.mobilePhone
+        name: this.data.userData.hcfUser.contactName || '',
+        phone: this.data.userData.hcfUser.mobilePhone || ''
       })
     }
   },

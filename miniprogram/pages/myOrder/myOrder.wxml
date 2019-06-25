@@ -1,8 +1,8 @@
-<view class="my-order container">
+<view class="my-order container" style="padding-top:{{bottom + 6}}px;">
   <nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">全部订单</nav-bar>
   
   <!-- 顶部导航栏 -->
-  <view class='top-bar-outer'>
+  <view class='top-bar-outer' style="top:{{bottom + 6}}px;">
     <text wx:for="{{tabList}}" wx:key="{{index}}" class="{{item.id === tabActive ? 'active' : ''}}" bindtap="changeTab" data-id="{{item.id}}">{{item.text}}</text>
   </view>
   
@@ -25,7 +25,7 @@
           {{['应付金额','实付金额','实付金额','实付金额','订单金额'][item.status]}}：
           <text class="order-total">￥{{item.totalPrice}}</text>
         </view>
-        <view class="info-bot-line clearfix" wx:if="{{item.status === '待付款'}}">
+        <view class="info-bot-line clearfix" wx:if="{{item.status === 0}}">
           <button class="pay-now fr" catchtap="payNow" data-id="{{item.orderId}}">立即支付</button>
         </view>
       </view>

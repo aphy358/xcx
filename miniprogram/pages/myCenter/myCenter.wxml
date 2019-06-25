@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" style="padding-top:{{bottom + 6}}px;">
   <view class='my-center'>
     <nav-bar hasGoBack="{{false}}">个人中心</nav-bar>
     <view class="user-info-top clearfix">
@@ -20,19 +20,17 @@
       <view class="money-top">
         <view class="un-account account-box">
           <view class="money-num">
-            <view class="un-account-num">
-              {{userData.hcfAccount.moneyOnMyWay || 0}}
-              <text class="iconfont icon-ziyuan8 money-num-icon" bindtap="moneyNumTips"></text>
-            </view>
+            <view class="un-account-num">{{userData.hcfAccount.moneyOnMyWay || 0}}</view>
           </view>
-          <text class="money-txt">待入账金额</text>
+          <view class="money-txt">
+            待入账金额
+            <text class="iconfont icon-ziyuan8 money-num-icon" bindtap="moneyNumTips"></text>
+          </view>
         </view>
         <view class="account account-box">
           <text class="money-num">{{userData.hcfAccount.moneyCanCash || 0}}</text>
-          <view class="money-txt">
-            已入账金额
-            <button class="cash-out" bindtap="cashOut" wx:if="{{userData.hcfAccount.moneyCanCash > 0}}">提现</button>
-          </view>
+          <view class="money-txt" wx:if="{{userData.hcfAccount.moneyCanCash <= 0}}">已入账金额</view>
+          <view class="cash-out" bindtap="cashOut" wx:if="{{userData.hcfAccount.moneyCanCash > 0}}">立即提现<text class="iconfont icon-right-thin cash-out-icon"></text></view>
         </view>
       </view>
       <view class="money-bot clearfix">

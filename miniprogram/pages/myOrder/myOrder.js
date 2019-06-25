@@ -7,6 +7,7 @@ Page(store.createPage({
    * 页面的初始数据
    */
   data: {
+    bottom: 58,
     tabActive: '',
     tabList: [
       {
@@ -114,22 +115,16 @@ Page(store.createPage({
                 name: item.hcfGoodsInfo.goodsName,
                 price: item.hcfOrderInfo.salePrice,
                 amount: item.hcfOrderInfo.amount,
-                beginDate: item.hcfOrderInfo.useBeginDate.split(' ')[0],
-                endDate: item.hcfOrderInfo.useEndDate.split(' ')[0],
                 totalPrice: item.hcfOrderInfo.salePriceAll,
                 orderId: item.hcfOrderInfo.orderId
               };
               
               if ('0,1,4'.indexOf(item.hcfOrderInfo.status) !== -1){
-                _this.setData({
-                  beginDate: item.hcfOrderInfo.useBeginDate.split(' ')[0],
-                  endDate: item.hcfOrderInfo.useEndDate.split(' ')[0]
-                })
+                resList[i].beginDate = item.hcfOrderInfo.useBeginDate.split(' ')[0];
+                resList[i].endDate = item.hcfOrderInfo.useEndDate.split(' ')[0];
               }else{
-                _this.setData({
-                  beginDate: item.hcfOrderInfo.jlCheckInDate.split(' ')[0],
-                  endDate: item.hcfOrderInfo.jlCheckOutDate.split(' ')[0]
-                })
+                resList[i].beginDate = item.hcfOrderInfo.jlCheckInDate.split(' ')[0];
+                resList[i].endDate = item.hcfOrderInfo.jlCheckOutDate.split(' ')[0];
               }
             }
           }
@@ -148,6 +143,7 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
     if (options.id) {
       this.setData({
         tabActive: +options.id,
@@ -160,7 +156,9 @@ Page(store.createPage({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
   },
   
   /**

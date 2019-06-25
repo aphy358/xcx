@@ -3,6 +3,7 @@ import { runAfterCondition } from '../../plugins/util.js'
 
 Page(store.createPage({
   data: {
+    bottom: 58,
     tabActive: 0,
     tabList: [
       {
@@ -22,7 +23,7 @@ Page(store.createPage({
     cashList: []
   },
   
-  globalData: ['isLogin'],
+  globalData: ['isLogin', 'userData'],
   
   changeTab: function (e) {
     if (!runAfterCondition(this, 'changeTab', 'isLogin', e))  return
@@ -118,7 +119,11 @@ Page(store.createPage({
   watch: {
     isLogin(newVal){
       if (newVal){
-        this.getCommissionList();
+        if (this.data.tabActive === 0){
+          this.getCommissionList();
+        }else{
+          this.getCashList();
+        }
       }
     }
   },
@@ -128,9 +133,9 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    if (this.data.isLogin){
-      this.getCommissionList();
-    }
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
   },
   
   /**
@@ -138,13 +143,18 @@ Page(store.createPage({
    */
   onShow: function () {
     this.setData({
-      tabActive: 0,
       pageNum: 1,
       pageTotal: 1,
-      commissionHidden: false,
-      cashHidden: true,
-      commissionList: []
+      commissionList: [],
+      cashList: []
     });
+    if (this.data.isLogin){
+      if (this.data.tabActive === 0){
+        this.getCommissionList();
+      }else{
+        this.getCashList();
+      }
+    }
   },
   
   /**

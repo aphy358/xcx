@@ -1,4 +1,4 @@
-<view class="order-detail container">
+<view class="order-detail container" style="padding-top:{{bottom + 6}}px;">
 	<nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">订单详情</nav-bar>
 	<view class="order-status-box">
 		<view class="status-left">
@@ -67,7 +67,7 @@
 	<view class="buy-tips">
 		<view class='ticket-info-title-one'>购买须知</view>
 		<block wx:if="{{productInfo.hcfActivityInfo.costIncludes.length > 0}}">
-			<view class='ticket-info-title-two'>【费用包含】</view>
+			<view class='ticket-info-title-two'>【套餐内容】</view>
 			<view class='ticket-info-text'>
 				<block wx:for="{{productInfo.hcfActivityInfo.costIncludes}}" wx:key="{{index}}">
 					<view>{{item}}</view>
@@ -124,7 +124,7 @@
 		<text class="red-packet-title">{{productInfo.commissionIsMyself ? '恭喜获得' : '恭喜您有机会获得'}}</text>
 		<view class="red-packet-num">
 			<text class="red-packet-money">{{productInfo.commissionPrice}}</text>
-			元
+			{{productInfo.commissionIsMyself ? '元' : '元/份'}}
 		</view>
 		<text class="share-txt">快分享好友购买解锁更多现金吧</text>
 		<view class="btn-box clearfix">

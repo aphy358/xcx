@@ -1,4 +1,4 @@
-<view class="re-pay container">
+<view class="re-pay container" style="padding-top:{{bottom + 6}}px;">
 	<nav-bar hasGoBack="{{true}}">提交订单</nav-bar>
 	<view class="re-pay-top">
 		<view class="need-pay">
@@ -9,10 +9,10 @@
 	</view>
 	<view class="pay-info">
 		<text class="pay-info-title">订单详情</text>
-		<text class="pay-info-txt"><text class="grey">商品名称：</text>{{goodsInfo.goodsName}}</text>
-		<text class="pay-info-txt"><text class="grey">订单号：</text>{{orderInfo.orderCode}}</text>
-		<text class="pay-info-txt"><text class="grey">有效时间：</text>{{beginDate}}至{{endDate}}</text>
-		<text class="pay-info-txt"><text class="grey">预订数量：</text>￥{{orderInfo.salePrice}}*{{orderInfo.amount}}份</text>
+		<view class="pay-info-txt clearfix"><text class="grey">产品名称：</text><text class="info-txt">{{goodsInfo.goodsName}}</text></view>
+		<view class="pay-info-txt clearfix"><text class="grey">订单号：</text><text class="info-txt">{{orderInfo.orderCode}}</text></view>
+		<view class="pay-info-txt clearfix"><text class="grey">有效时间：</text><text class="info-txt">{{beginDate}}至{{endDate}}</text></view>
+		<view class="pay-info-txt clearfix"><text class="grey">预订数量：</text><text class="info-txt">￥{{orderInfo.salePrice}}*{{orderInfo.amount}}份</text></view>
 	</view>
 	<view class="btn-box clearfix">
 		<button class="re-book fr" bindtap='reBook'>重新下单</button>

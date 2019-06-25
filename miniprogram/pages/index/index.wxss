@@ -14,8 +14,12 @@
 
 .ad-pholder{
   margin: 0 20rpx;
-  background: url('https://qnb.oss-cn-shenzhen.aliyuncs.com/real_1560738400987.jpg') repeat-y;
+  background: url('https://qnb.oss-cn-shenzhen.aliyuncs.com/real_1561366555412.jpg') repeat-y;
   background-size: 100% auto;
+}
+
+.ad-pholder.first{
+  background-position: bottom left;
 }
 
 /* banner 下方的 tab 栏 */
@@ -67,6 +71,7 @@
 
 .ad-item-img{
   position: relative;
+  background: white;
   height: 400rpx;
   overflow: hidden;
 }
@@ -138,6 +143,7 @@
 .ad-item-price-wrap .content-wrap .profit{
   font-size: 24rpx;
   color: #FEA816;
+  font-weight: bold;
 }
 
 .ad-item-price-wrap .content-wrap .end-time{
@@ -174,6 +180,7 @@
 
 .ad-item-bottom-wrap .share-btn{
   float: right;
+  margin-top: 8rpx;
   background: #2577E3;
   color: white;
   width: 80rpx;

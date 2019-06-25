@@ -64,8 +64,9 @@ Page(store.createPage({
 
   onShareAppMessage: function (res) {
     return {
-      title: "",
-      path: 'pages/ticketDetail/ticketDetail?goodsId=' + this.data.curProductInfo.hcfGoodsInfo.goodsId + '&commissionUserId=' + this.data.userData.hcfUser.userId
+      title: this.data.curProductInfo.hcfGoodsInfo.goodsName,
+      path: 'pages/ticketDetail/ticketDetail?goodsId=' + this.data.curProductInfo.hcfGoodsInfo.goodsId + '&commissionUserId=' + this.data.userData.hcfUser.userId,
+      imageUrl: this.data.curProductInfo.hcfGoodsInfo.goodsPoster || this.data.curProductInfo.hcfGoodsInfo.goodsImgArr[0]
     }
   },
 

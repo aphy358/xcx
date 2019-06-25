@@ -150,6 +150,7 @@ Component(store.createComponent({
             _this.setData({
               img1: res.tempFilePath
             })
+          }else{
           }
         }
       })
@@ -183,17 +184,23 @@ Component(store.createComponent({
       })
 
       // 下载头像临时图片
-      wx.downloadFile({
-        url: store.app.globalData.userData.hcfUser.avatarUrl,
-        success(res) {
-          // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
-          if (res.statusCode === 200) {
-            _this.setData({
-              img2: res.tempFilePath
-            })
+      if (store.app.globalData.userData.hcfUser.avatarUrl){
+        wx.downloadFile({
+          url: store.app.globalData.userData.hcfUser.avatarUrl,
+          success(res) {
+            // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+            if (res.statusCode === 200) {
+              _this.setData({
+                img2: res.tempFilePath
+              })
+            }
           }
-        }
-      })
+        })
+      }else{
+        _this.setData({
+          img2: '/assets/img/headshot.jpg'
+        })
+      }
     },
 
     // 绘制 canvas
@@ -426,6 +433,19 @@ Component(store.createComponent({
     resetCanvas(){
       var _this = this
       setTimeout(function () {
+        var ctx = wx.createCanvasContext('share', _this)
+        var hDiff = _this.data.heightOfImg1
+        ctx.save()
+        _this.drawRoundedRect({
+          x: 0,
+          y: 0,
+          width: 300,
+          height: 360 + hDiff
+        }, 4, ctx)
+        ctx.setFillStyle('#fff')
+        ctx.fill()
+        ctx.draw()
+
         _this.setData({
           imgReady: false,
           img1: '',

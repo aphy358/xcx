@@ -1,5 +1,6 @@
 Page({
   data: {
+    bottom: 58,
     reason: '行程改变',
     reasonType: 0,
     reasonArray: [
@@ -134,6 +135,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
     if (options){
       this.setData({
         orderId: +options.id,

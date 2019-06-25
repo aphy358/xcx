@@ -75,10 +75,22 @@
 }
 
 .pay-info-txt{
-	display: block;
+	display: flex;
 	color: #373737;
 	font-size: 24rpx;
 	line-height: 54rpx;
+}
+
+.pay-info-txt .grey{
+	width: 122rpx;
+	display: block;
+	float: left;
+}
+
+.pay-info-txt .info-txt{
+	flex: 1;
+	display: block;
+	float: left;
 }
 
 .pay-info-title{

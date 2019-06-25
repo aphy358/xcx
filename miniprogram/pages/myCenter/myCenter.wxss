@@ -132,37 +132,32 @@
 }
 
 .un-account-num{
-  position: relative;
   display: inline-block;
 }
 
 .money-num-icon{
   position: absolute;
-  right: -30rpx;
-  top: 0;
+  right: 64rpx;
+  top: 6rpx;
   color: #999999;
   font-size: 22rpx;
 }
 
 .money-txt{
-  font-weight: 24rpx;
+  font-size: 24rpx;
   position: relative;
 }
 
 .cash-out{
-  width: 64rpx;
-  height: 36rpx;
-  line-height: 36rpx;
-  background-color: #2577E3;
-  color: #ffffff;
-  font-size: 20rpx;
-  padding: 0;
-  border-radius: 4rpx;
-  margin-left: 24rpx;
+  font-weight: bold;
+  color: #D4A95B;
+  font-size: 26rpx;
+}
+
+.cash-out-icon{
+  transform: scale(0.6);
   display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-left: -8rpx;
 }
 
 .money-bot{

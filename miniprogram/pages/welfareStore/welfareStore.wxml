@@ -22,7 +22,7 @@
     <view class="product-list-box clearfix" wx:if="productList.length > 0">
       <view class="every-product" wx:for="{{productList}}" wx:key="{{index}}" bindtap='gotoTicketDetail' data-info="{{item}}">
         <image class="product-img" src="{{item.hcfGoodsInfo.goodsImgArr[0]}}"></image>
-        <text class="product-name">{{item.hcfGoodsInfo.goodsName}}</text>
+        <text class="product-name">{{item.hcfGoodsInfo.goodsNameShow}}</text>
         <view class="product-money">
           <text class="product-price">￥{{item.goodsPrice}}</text>
           <text class="product-profit" wx:if="{{item.commissionPrice && userData.hcfUser.type == 1}}">赚{{item.commissionPrice}}</text>

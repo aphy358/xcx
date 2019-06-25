@@ -16,6 +16,12 @@ Component({
       value: true
     },
 
+    // true 表示有回到首页按钮，false 表示没有回到首页按钮
+    hasGoHome: {
+      type: Boolean,
+      value: true
+    },
+
     // 字体颜色
     color: {
       type: String,
@@ -27,16 +33,34 @@ Component({
       type: String,
       value: 'white'
     },
+
+    // 胶囊背景是否透明
+    opercity: {
+      type: Boolean,
+      value: false
+    },
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    top: 26,
+    height: 32,
+    width: 87,
+    bottom: 58
   },
 
   lifetimes: {
     attached: function () {
+      this.setData({
+        top: global.menuRect.top,
+        height: global.menuRect.height,
+        width: global.menuRect.width,
+        bottom: global.menuRect.bottom,
+      })
+
+      console.log(global.menuRect)
     },
     detached: function () {
     },
@@ -57,6 +81,12 @@ Component({
           url: '/pages/index/index',
         })
       }
+    },
+
+    goHome() {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
     }
   }
 })

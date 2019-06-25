@@ -3,8 +3,7 @@
 
 <view class='container'>
 
-  <nav-bar background="#2577E3" color="white">提交订单</nav-bar>
-
+  <nav-bar background="#2577E3" color="white" opercity="{{true}}">提交订单</nav-bar>
 
   <view class='ticket-order-top-bg'>
     <view class='inner'></view>
@@ -16,7 +15,7 @@
         <image src="{{curProductInfo.hcfGoodsInfo.goodsImgArr[0]}}"></image>
       </view>
       <view>
-        <view class='ticket-order-name'>{{curProductInfo.hcfGoodsInfo.goodsName}}</view>
+        <view class='ticket-order-name'>{{curProductInfo.hcfGoodsInfo.goodsNameShow2}}</view>
         <view class='ticket-order-price-outer'>
           <text class='ticket-order-price'>￥{{curProductInfo.goodsPrice}}</text>
           <text class='ticket-order-profit' wx:if="{{curProductInfo.commissionPrice && userData.hcfUser.type == 1 && !commissionUserId}}">赚￥{{curProductInfo.commissionPrice}}</text>

@@ -3,6 +3,7 @@ import { processProductInfo } from '../../plugins/util.js'
 
 Page(store.createPage({
   data: {
+    bottom: 58,
     showPacket: false,
     orderInfo: {},
     financeInfo: {},
@@ -17,7 +18,8 @@ Page(store.createPage({
     // 商品信息
     productInfo: null,
     loadingHidden: true,
-    oncePay: false
+    oncePay: false,
+    payHasClosed: false
   },
   
   globalData: ['userData'],
@@ -49,7 +51,9 @@ Page(store.createPage({
   },
   closePacket: function () {
     this.setData({
-      showPacket: false
+      showPacket: false,
+      payHasClosed: true,
+      oncePay: false
     })
   },
   call(){
@@ -161,12 +165,15 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
     if (options.id){
       this.setData({
         orderId: +options.id
       });
     }
-    if (options && options.showPacket){
+    if (options && options.showPacket && !this.data.payHasClosed){
       this.setData({
         oncePay: true
       });
@@ -176,7 +183,7 @@ Page(store.createPage({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function (options) {
+  onShow: function () {
     // 检查是否已经授权过
     if (this.data.userData){
       this.setData({
@@ -187,8 +194,9 @@ Page(store.createPage({
   },
   onShareAppMessage: function (res) {
     return {
-      title: "",
-      path: 'pages/ticketDetail/ticketDetail?goodsId=' + this.data.productInfo.hcfGoodsInfo.goodsId + '&commissionUserId=' + this.data.userData.hcfUser.userId
+      title: this.data.productInfo.hcfGoodsInfo.goodsName,
+      path: 'pages/ticketDetail/ticketDetail?goodsId=' + this.data.productInfo.hcfGoodsInfo.goodsId + '&commissionUserId=' + this.data.userData.hcfUser.userId,
+      imageUrl: this.data.productInfo.hcfGoodsInfo.goodsPoster || this.data.productInfo.hcfGoodsInfo.goodsImgArr[0]
     }
   },
 

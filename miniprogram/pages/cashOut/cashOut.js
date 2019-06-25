@@ -2,6 +2,7 @@ import store from '../../plugins/store/index.js'
 
 Page(store.createPage({
   data: {
+    bottom: 58,
     popupHidden: true,
     canCash: 0,
     name: '',
@@ -103,7 +104,6 @@ Page(store.createPage({
               })
             }
           });
-          
         }
       }
     })
@@ -113,6 +113,9 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
     if (this.data.userData){
       this.setData({
         canCash: this.data.userData.hcfAccount.moneyCanCash,

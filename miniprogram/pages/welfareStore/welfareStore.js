@@ -16,6 +16,11 @@ Page(store.createPage({
 
     // 被点击的商品信息
     productInfo: null,
+
+
+    shareTitle: '福利社',
+    sharePath: 'pages/welfareStore/welfareStore',
+    shareImageUrl: '',
   },
 
   globalData: ['userData', 'isLogin'],
@@ -30,6 +35,24 @@ Page(store.createPage({
 
   onLoad: function (options) {
     this.queryADList()
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+
+  onShareAppMessage: function (res) {
+    if (this.data.shareTitle == '福利社') {
+      return {
+        title: this.data.shareTitle,
+        path: this.data.sharePath,
+      }
+    } else {
+      return {
+        title: this.data.shareTitle,
+        path: this.data.sharePath,
+        imageUrl: this.data.shareImageUrl
+      }
+    }
   },
   
   onPageScroll(e){
@@ -82,12 +105,19 @@ Page(store.createPage({
       productInfo: info,
       showShareSelector: true
     })
+
+    this.data.shareTitle = info.hcfGoodsInfo.goodsName
+    this.data.sharePath = 'pages/ticketDetail/ticketDetail?goodsId=' + info.hcfGoodsInfo.goodsId + '&commissionUserId=' + this.data.userData.hcfUser.userId
+    this.data.shareImageUrl = info.hcfGoodsInfo.goodsPoster || info.hcfGoodsInfo.goodsImgArr[0]
   },
   // 隐藏分享方式的选择底部弹窗
   hideSelector() {
     this.setData({
       showShareSelector: false
     })
+
+    this.data.shareTitle = '福利社'
+    this.data.sharePath = 'pages/welfareStore/welfareStore'
   },
 
   // 查询商品列表
@@ -112,7 +142,7 @@ Page(store.createPage({
         
         if (res.data.returnCode == 1) {
           for (var i = 0; i < res.data.dataList.length; i++) {
-            processProductInfo(res.data.dataList[i])
+            processProductInfo(res.data.dataList[i], 22)
           }
 
           _this.setData({

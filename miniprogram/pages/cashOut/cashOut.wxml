@@ -1,4 +1,4 @@
-<view class="cash-out container">
+<view class="cash-out container" style="padding-top:{{bottom + 6}}px;">
 	<nav-bar hasGoBack="{{true}}">个人中心</nav-bar>
 	<view class="cash-out-top">
 		<view class="can-cash-out">

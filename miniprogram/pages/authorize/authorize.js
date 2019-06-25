@@ -7,7 +7,7 @@ Page(store.createPage({
    * 页面的初始数据
    */
   data: {
-
+    bottom: 58,
   },
 
   globalData: ['userData'],
@@ -16,7 +16,9 @@ Page(store.createPage({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      bottom: global.menuRect.bottom
+    })
   },
 
   /**
@@ -68,12 +70,21 @@ Page(store.createPage({
 
   },
 
+  filterEmoji: function(emoji){
+    var ranges = /[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/ig;
+    var emojireg = emoji;
+    return emojireg.replace(ranges, '');
+  },
+
   onGotUserInfo(e){
     if (e.detail.userInfo){
       wx.setStorage({
         key: "authorize",
         data: {}
       })
+
+      // 处理用户信息的 nickname，以防带有表情而无法保存
+      e.detail.userInfo.nickName = this.filterEmoji(e.detail.userInfo.nickName)
 
       global.userInfo = e.detail.userInfo
       if (this.data.userData) { // 此时将最新的 userInfo 合并到之前返回的 userData 里面
