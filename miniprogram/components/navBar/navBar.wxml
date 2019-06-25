@@ -6,13 +6,12 @@
       wx:if="{{hasGoBack}}" 
       bindtap="goBackPage">
     </i>
-    <text 
+    <!-- <text 
       class="iconfont icon-home-page2 navbar-icon"
       style="color: white;text-shadow: 0 2rpx 4rpx gray;"
       wx:if="{{hasGoBack && hasGoHome}}"
-      bindtap="goHome"
-    >
-    </text>
+      bindtap="goHome">
+    </text> -->
   </view>
 
   <view class='navbar' 
