@@ -34,7 +34,7 @@ Page(store.createPage({
       name: e.detail.value,
       showNameIcon: true
     });
-    if (/^[\u4e00-\u9fa5]{1,20}$/.test(e.detail.value)){
+    if (/^[\u4e00-\u9fa5]{1,30}$/.test(e.detail.value)){
       this.setData({
         isNameCorrect: true
       })
@@ -49,7 +49,7 @@ Page(store.createPage({
       phone: e.detail.value,
       showPhoneIcon: true
     });
-    if (/^[0-9]{11}$/.test(e.detail.value)){
+    if (/^[1][3,4,5,7,8][0-9]{9}$/.test(e.detail.value)){
       this.setData({
         isPhoneCorrect: true
       })

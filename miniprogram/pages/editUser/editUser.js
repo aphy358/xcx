@@ -37,7 +37,7 @@ Page(store.createPage({
     });
   },
   saveName(){
-    if (this.data.nameVal && /^[\u4e00-\u9fa5]{1,20}$/.test(this.data.nameVal.replace(/^\s+|\s+$/g, ''))){
+    if (this.data.nameVal && /^[\u4e00-\u9fa5]{1,30}$/.test(this.data.nameVal.replace(/^\s+|\s+$/g, ''))){
       let _this = this;
       wx.showLoading({
         title: '保存中',
@@ -67,7 +67,7 @@ Page(store.createPage({
       })
     }else{
       wx.showToast({
-        title: '姓名必须为20个以内的汉字',
+        title: '姓名必须为30个以内的汉字',
         icon: 'none'
       })
     }
@@ -92,7 +92,7 @@ Page(store.createPage({
     });
   },
   savePhone(){
-    if (this.data.phoneVal && /^[0-9]{11}$/.test(this.data.phoneVal.replace(/^\s+|\s+$/g, ''))){
+    if (this.data.phoneVal && /^[1][3,4,5,7,8][0-9]{9}$/.test(this.data.phoneVal.replace(/^\s+|\s+$/g, ''))){
       let _this = this;
       wx.showLoading({
         title: '保存中',

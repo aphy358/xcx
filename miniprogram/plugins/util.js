@@ -329,20 +329,24 @@ export const processProductInfo = (info, nameLen) => {
 // 处理倒计时
 export const processTimeLeft = (info) => {
   var gap = new Date(formatDateOne(info.hcfActivityInfo.activityEndDate)) - new Date()
-  var day = (gap / (1000 * 60 * 60 * 24)) | 0
-  gap = gap % (1000 * 60 * 60 * 24)
+  if(gap >= 7 * 24 * 60 * 60 * 1000){
+    info.hcfActivityInfo.timeLeftText = '抢购截止时间：' + info.hcfActivityInfo.activityEndDate.substr(0, 10)
+  }else{
+    var day = (gap / (1000 * 60 * 60 * 24)) | 0
+    gap = gap % (1000 * 60 * 60 * 24)
 
-  var hour = (gap / (1000 * 60 * 60)) | 0
-  gap = gap % (1000 * 60 * 60)
+    var hour = (gap / (1000 * 60 * 60)) | 0
+    gap = gap % (1000 * 60 * 60)
 
-  var min = (gap / (1000 * 60)) | 0
-  gap = gap % (1000 * 60)
+    var min = (gap / (1000 * 60)) | 0
+    gap = gap % (1000 * 60)
 
-  var sec = (gap / 1000) | 0    // 秒
+    var sec = (gap / 1000) | 0    // 秒
 
-  info.hcfActivityInfo.timeLeftText = day == 0
-    ? hour + '小时' + min + '分钟' + sec + '秒'
-    : day + '天' + hour + '小时' + min + '分钟'
+    info.hcfActivityInfo.timeLeftText = day == 0
+      ? '抢购时间剩余：' + hour + '小时' + min + '分钟' + sec + '秒'
+      : '抢购时间剩余：' + day + '天' + hour + '小时' + min + '分钟'
+  }
 }
 
 export const processImgUrl = (url) => {

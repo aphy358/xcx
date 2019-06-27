@@ -42,7 +42,7 @@
 
 .top-bar-outer{
 	position: fixed;
-	top: 64px;
+	
 	display: flex;
 	justify-content: space-between;
 	width: 100%;

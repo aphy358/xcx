@@ -5,6 +5,7 @@
   canvas-id="share" 
   hidden='{{false}}' 
   style="height:{{360 + heightOfImg1}}px;"
+  wx:if="{{showCanvasImg}}"
 ></canvas>
 
 <view class="canvas-mask{{showCanvasImg ? '' : ' hidden'}}"></view>

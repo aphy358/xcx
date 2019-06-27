@@ -2,7 +2,7 @@
 	<nav-bar hasGoBack="{{true}}" showNavBarTitle="{{true}}">账户明细</nav-bar>
 	
 	<!-- 顶部导航栏 -->
-	<view class='top-bar-outer'>
+	<view class='top-bar-outer' style="top:{{navHeight}}px;">
 		<view wx:for="{{tabList}}" class="item-box{{item.id === tabActive ? ' active' : ''}}" wx:key="{{index}}" bindtap="changeTab" data-id="{{item.id}}">
 			<text>{{item.text}}</text>
 		</view>

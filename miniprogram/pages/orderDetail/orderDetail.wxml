@@ -108,9 +108,9 @@
 		<button class="pay-now blue-btn" bindtap="rePay"
 		        wx:if="{{orderInfo.status === 0 && (hour !== 0 || minutes !== 0 || seconds !== 0)}}">立即支付
 		</button>
-		<button class="share blue-btn" bindtap="share" wx:if="{{orderInfo.status !== 0}}">分享推广</button>
+		<button class="share blue-btn" bindtap="share" wx:if="{{orderInfo.status !== 0}}">赚取佣金</button>
 		<button class="re-book golden-btn" wx:if="{{orderInfo.status !== 0}}" bindtap='gotoTicketDetail'>再次购买</button>
-		<button class="share golden-btn" bindtap="share" wx:if="{{orderInfo.status === 0}}">分享推广</button>
+		<button class="share golden-btn" bindtap="share" wx:if="{{orderInfo.status === 0}}">赚取佣金</button>
 		<button class="cancel-order" bindtap="cancelOrder"
 		        wx:if="{{orderInfo.status === 0 || (orderInfo.status === 1 && canCancel)}}">取消订单
 		</button>
@@ -128,7 +128,7 @@
 		</view>
 		<text class="share-txt">快分享好友购买解锁更多现金吧</text>
 		<view class="btn-box clearfix">
-			<button class="read-detail fl" bindtap="readOrder">订单详情</button>
+			<!--<button class="read-detail fl" bindtap="readOrder">订单详情</button>-->
 			<button class="share-now fl" bindtap="share">立即分享</button>
 			<!--<button class="share-now fl" open-type="share" wx:if="{{userData.hcfUser.type == 0}}">立即分享</button>-->
 		</view>

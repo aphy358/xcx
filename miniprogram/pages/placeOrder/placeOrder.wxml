@@ -1,7 +1,7 @@
 
   <view class='ticket-order-top-bgc'></view>
 
-<view class='container'>
+<view class='container' style="padding-top:{{navHeight}}px;">
 
   <nav-bar background="#2577E3" color="white" opercity="{{true}}">提交订单</nav-bar>
 

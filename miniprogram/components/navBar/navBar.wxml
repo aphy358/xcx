@@ -42,7 +42,7 @@
 
       <text 
         class="iconfont icon-home-page2 navbar-icon"
-        style="color:{{color}};"
+        style="color:{{color}};left:{{(width/2|0) + (((width/2|0) - 26)/2|0)}}px;"
         wx:if="{{hasGoBack && hasGoHome}}"
         bindtap="goHome">
       </text>

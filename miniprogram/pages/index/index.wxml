@@ -39,10 +39,10 @@
   </view>
 
   <!-- 广告列表 -->
-  <view class="ad-pholder" style="height:{{curTab.pholderHeight1}}px;"></view>
+  <view class="ad-pholder first" style="height:{{curTab.pholderHeight1}}px;"></view>
   <view class='"ad-outer"'>
-    <block wx:if="{{curTab.adItemsShow.length > 0}}" wx:for="{{curTab.adItemsShow}}" wx:key="{{index}}">
-      <view class="ad-item" bindtap='gotoTicketDetail' data-info="{{item}}">
+    <block wx:if="{{curTab.adItems.length > 0}}" wx:for="{{curTab.adItems}}" wx:key="{{index}}">
+      <view class="ad-item" bindtap='gotoTicketDetail' data-info="{{item}}" wx:if="{{item.isShow > 0}}">
         <view class='ad-item-img'>
           <image src="{{item.hcfGoodsInfo.goodsImgArr[0]}}" />
 
@@ -51,7 +51,7 @@
             <view class="content-wrap">
               <text class="price">￥{{item.goodsPrice}}</text>
               <text class="profit" wx:if="{{item.commissionPrice && userData.hcfUser.type == 1}}">赚{{item.commissionPrice}}</text>
-              <text class="end-time">抢购时间剩余：{{item.hcfActivityInfo.timeLeftText}}</text>
+              <text class="end-time">{{item.hcfActivityInfo.timeLeftText}}</text>
             </view>
           </view>
 
@@ -72,14 +72,14 @@
       </view>
     </block>
 
-    <no-product wx:if="{{curTab.adItemsShow.length < 1 && curTab.pageNum > curTab.pageTotal}}">活动商品正在上架，尽请期待~</no-product>
+    <no-product wx:if="{{curTab.adItems.length < 1 && curTab.pageNum > curTab.pageTotal}}">活动商品正在上架，尽请期待~</no-product>
 
   </view>
   <view class="ad-pholder" style="height:{{curTab.pholderHeight2}}px;"></view>
 
   <load-more wx:if="{{curTab.pageNum <= curTab.pageTotal}}"></load-more>
 
-  <no-more wx:if="{{curTab.adItemsShow.length > 0 && curTab.pageNum > curTab.pageTotal && !loading}}"></no-more>
+  <no-more wx:if="{{curTab.adItems.length > 0 && curTab.pageNum > curTab.pageTotal && !loading}}"></no-more>
 
   <!-- 分享、转发 -->
   <share-selector 

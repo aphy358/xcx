@@ -5,6 +5,7 @@ page {
   background: #F0EFF5;
   font-size: 28rpx;
   color: #333;
+  -webkit-overflow-scrolling: touch;
 }
 
 .container{

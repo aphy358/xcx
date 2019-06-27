@@ -433,19 +433,6 @@ Component(store.createComponent({
     resetCanvas(){
       var _this = this
       setTimeout(function () {
-        var ctx = wx.createCanvasContext('share', _this)
-        var hDiff = _this.data.heightOfImg1
-        ctx.save()
-        _this.drawRoundedRect({
-          x: 0,
-          y: 0,
-          width: 300,
-          height: 360 + hDiff
-        }, 4, ctx)
-        ctx.setFillStyle('#fff')
-        ctx.fill()
-        ctx.draw()
-
         _this.setData({
           imgReady: false,
           img1: '',

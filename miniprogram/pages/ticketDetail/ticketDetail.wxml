@@ -58,7 +58,7 @@
     </view>
   </block>
   <view class='ticket-info-img' wx:if="{{curProductInfo.hcfGoodsInfo.goodsDetailImg}}">
-    <image src="{{curProductInfo.hcfGoodsInfo.goodsDetailImg}}" mode="widthFix" />
+    <image src="{{curProductInfo.hcfGoodsInfo.goodsDetailImg}}" bindtap="discern" mode="widthFix" data-src="{{curProductInfo.hcfGoodsInfo.goodsDetailImg}}" />
   </view>
 
   <view class='ticket-info-title-one'>购买须知</view>

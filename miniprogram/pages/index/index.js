@@ -14,7 +14,6 @@ Page(store.createPage({
         categoryName: '全部',
         categoryId: -1,
         adItems: [],
-        adItemsShow: [],
         pageNum: 1,
         pageTotal: 1000,
         adTotal: 0,
@@ -28,7 +27,6 @@ Page(store.createPage({
       categoryName: '全部',
       categoryId: -1,
       adItems: [],
-      adItemsShow: [],
       pageNum: 1,
       pageTotal: 1000,
       adTotal: 0,
@@ -74,13 +72,19 @@ Page(store.createPage({
     // 检查是否已经授权过
     checkOuthorize()
 
+    if (this.data.tabFixClass) {
+      this.setData({
+        tabFixClass: ''
+      })
+    }
+
     if (true){
       this.resetParams()
 
       var _this = this
       this.data.scrollTop = 0
       this.data.fixScrollTop = 210 * global.deviceWidth / 375
-      this.data.pholderPerHeight = 289 * global.deviceWidth / 375
+      this.data.pholderPerHeight = 267 * global.deviceWidth / 375
       this.data.marginTop = 10 * global.deviceWidth / 375
 
       // 查 banner
@@ -105,7 +109,6 @@ Page(store.createPage({
             for (let i = 0; i < res.data.dataList.length; i++) {
               const o = res.data.dataList[i]
               o.adItems = []
-              o.adItemsShow = []
               o.pageNum = 1
               o.pageTotal = 1000
               o.adTotal = 0
@@ -141,7 +144,6 @@ Page(store.createPage({
         categoryName: '全部',
         categoryId: -1,
         adItems: [],
-        adItemsShow: [],
         pageNum: 1,
         pageTotal: 1000,
         adTotal: 0,
@@ -155,7 +157,6 @@ Page(store.createPage({
       categoryName: '全部',
       categoryId: -1,
       adItems: [],
-      adItemsShow: [],
       pageNum: 1,
       pageTotal: 1000,
       adTotal: 0,
@@ -187,26 +188,25 @@ Page(store.createPage({
   },
 
   onPageScroll(e) {
-    console.log('onPageScroll')
     if (e.scrollTop >= this.data.fixScrollTop) {
-      this.setData({
-        tabFixClass: ' fixed'
-      })
+      if (!this.data.tabFixClass){
+        this.setData({
+          tabFixClass: ' fixed'
+        })
+      }
     } else {
-      this.setData({
-        tabFixClass: ''
-      })
+      if (this.data.tabFixClass) {
+        this.setData({
+          tabFixClass: ''
+        })
+      }
     }
-
-    // if(e.scrollTop > this.data.scrollTop){
-    //   console.log('向下')
-    // }else{
-    //   console.log('向上')
-    // }
 
     this.data.scrollTop = e.scrollTop
 
-    // throttle(this.setScrollPholder, 100)()
+    if (!this.data.switchTab){
+      throttle(this.setScrollPholder, 200)()
+    }
 
   },
 
@@ -223,17 +223,10 @@ Page(store.createPage({
 
   // 定时器更新商品抢购倒计时
   _setInterval(){
-    return
-
     let adItems = this.data.curTab.adItems
-    let adItemsShow = this.data.curTab.adItemsShow
 
     for (let i = 0; i < adItems.length; i++) {
       processTimeLeft(adItems[i])
-    }
-
-    for (let i = 0; i < adItemsShow.length; i++) {
-      processTimeLeft(adItemsShow[i])
     }
 
     this.setData({
@@ -254,7 +247,7 @@ Page(store.createPage({
 
     var params = {
       pageNum: reset ? 1 : curTab.pageNum,
-      pageSize: 500,
+      pageSize: 20,
     }
 
     if (curTab.categoryId != -1) params.categoryId = curTab.categoryId
@@ -274,69 +267,62 @@ Page(store.createPage({
 
           var curTab = _this.data.tabItems.filter(n => n.categoryId == _this.data.curTab.categoryId)[0]
           curTab.adItems = curTab.adItems.concat(res.data.dataList)
-
-          for (let i = 0; i < 10; i++) {
-            curTab.adItems = curTab.adItems.concat(res.data.dataList)
-            curTab.adItemsShow = curTab.adItemsShow.concat(res.data.dataList)
-          }
-
           curTab.pageNum = curTab.pageNum + 1
           curTab.pageTotal = res.data.pageTotal
           curTab.adTotal = res.data.pageRecordCount
 
-          _this.setData({
-            tabItems: _this.data.tabItems,
-            curTab: curTab,
-          }, function(){
-            const query = wx.createSelectorQuery()
-            query.selectAll('.ad-item').boundingClientRect()
-            query.exec(function (res) {
-              res = res[0]
-              var curTab = _this.data.tabItems.filter(n => n.categoryId == _this.data.curTab.categoryId)[0]
-              for (var i = 0; i < res.length; i++) {
-                curTab.adItems[curTab.firstShowIndex + i].domHeight = res[i].height
-              }
-              _this.data.curTab.firstShowIndex
-
-              _this.setData({
-                tabItems: _this.data.tabItems,
-                curTab: curTab,
-              })
-            })
-          })
-
-          // _this.setScrollPholder()
+          _this.setScrollPholder(curTab, true)
         }
       }
     })
   },
 
-  setScrollPholder(){
+  setScrollPholder(curTab, setNow){
     var _this = this
-    var curTab = _this.data.tabItems.filter(n => n.categoryId == _this.data.curTab.categoryId)[0]
+    var curTab = curTab || _this.data.tabItems.filter(n => n.categoryId == _this.data.curTab.categoryId)[0]
     var scrollDiff = _this.data.scrollTop - _this.data.fixScrollTop
-    var scrollCount = (scrollDiff / _this.data.pholderPerHeight) | 0
-    var firstShowIndex = scrollCount - 4
-    if (firstShowIndex < 0) firstShowIndex = 0
 
-    if (firstShowIndex == curTab.firstShowIndex && firstShowIndex != 0)    return
-
-    var adItemsShow = []
-    for (let i = firstShowIndex, count = 0; i < curTab.adItems.length && count < 10; i++, count++) {
-      adItemsShow.push(curTab.adItems[i])
+    var index = 0
+    while (scrollDiff > _this.data.pholderPerHeight * 5){
+      scrollDiff -= curTab.adItems[index++].domHeight || _this.data.pholderPerHeight
     }
 
-    curTab.firstShowIndex = firstShowIndex
-    curTab.adItemsShow = adItemsShow
-    curTab.pholderHeight1 = firstShowIndex * _this.data.pholderPerHeight
+    if (index == curTab.firstShowIndex && !setNow)    return
 
-    var belowCount = curTab.adItems.length - firstShowIndex - 10
-    if(belowCount < 0)  belowCount = 0
-    // curTab.pholderHeight2 = belowCount * _this.data.pholderPerHeight
+    for (let i = 0; i < curTab.adItems.length; i++) {
+      curTab.adItems[i].isShow = false
+    }
+
+    for (let i = index, count = 0; i < curTab.adItems.length && count < 10; i++, count++) {
+      curTab.adItems[i].isShow = true
+    }
+
+    curTab.firstShowIndex = index
+
+    var pholderHeight1 = 0
+    for (let i = 0; i < index; i++) {
+      pholderHeight1 += curTab.adItems[i].domHeight || 0
+    }
+    curTab.pholderHeight1 = pholderHeight1
+
+    var pholderHeight2 = 0
+    for (var j = index + 10; j < curTab.adItems.length; j++) {
+      pholderHeight2 += curTab.adItems[j].domHeight || _this.data.pholderPerHeight
+    }
+    curTab.pholderHeight2 = pholderHeight2
 
     _this.setData({
-      tabItems: _this.data.tabItems,
       curTab: curTab,
+    }, function(){
+      // 将页面中展示的每个商品所占高度存起来，后续设置占位元素高度用得上
+      const query = wx.createSelectorQuery()
+      query.selectAll('.ad-item').boundingClientRect()
+      query.exec(function (res) {
+        res = res[0]
+        for (var i = 0; i < res.length; i++) {
+          curTab.adItems[curTab.firstShowIndex + i].domHeight = res[i].height + _this.data.marginTop
+        }
+      })
     })
   },
 
@@ -344,17 +330,23 @@ Page(store.createPage({
     var _this = this
     let categoryId = e.target.dataset.item.categoryId
     if (categoryId != this.data.curTab.categoryId){
+      _this.data.switchTab = true
+      setTimeout(function(){
+        _this.data.switchTab = false
+      }, 500)
+
       var curTab = this.data.tabItems.filter(n => n.categoryId == categoryId)[0]
 
       this.setData({
         curTab: curTab,
       })
 
+      // 切换 tab，如果当前 tab 下从未加载过，则加载 list...
       if (curTab.pageTotal >= curTab.pageNum && curTab.adItems.length < 1){
         this.getProductList()
       }
 
-      // 切换 tab，如果当前 tab 下从未加载过，则加载 list...
+      _this.setScrollPholder(curTab)
     }
   },
 

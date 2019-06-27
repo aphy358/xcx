@@ -42,41 +42,36 @@ Page({
   },
   inputReason(e){
     this.setData({
-      reasonInfo: e.detail.value
+      reasonInfo: e.detail.value.replace(/^\s+|\s+$/g, '')
     })
   },
   inputName(e){
     this.setData({
-      name: e.detail.value
+      name: e.detail.value.replace(/^\s+|\s+$/g, '')
     })
   },
   inputTel(e){
     this.setData({
-      tel: e.detail.value
+      tel: e.detail.value.replace(/^\s+|\s+$/g, '')
     })
   },
   call: function () {
     wx.showModal({
       title: '客服电话',
-      content: '请拨打客服电话：0755-33397777',
+      content: '请拨打客服电话：0755-32981006',
       confirmText: '拨打电话',
       confirmColor: '#2577e3',
       success (res) {
         if (res.confirm) {
           wx.makePhoneCall({
-            phoneNumber: '0755-33397777'
+            phoneNumber: '0755-32981006'
           })
         }
       }
     })
   },
   submit: function () {
-    if (!this.data.reasonInfo){
-      wx.showModal({
-        content: '请输入取消说明',
-        confirmColor: '#2577e3'
-      })
-    }else if (!this.data.name){
+    if (!this.data.name){
       wx.showModal({
         content: '请输入联系人姓名',
         confirmColor: '#2577e3'
@@ -84,6 +79,16 @@ Page({
     }else if (!this.data.tel){
       wx.showModal({
         content: '请输入联系人电话',
+        confirmColor: '#2577e3'
+      })
+    }else if (this.data.name && !/^[\u4e00-\u9fa5]{1,30}$/.test(this.data.name)){
+      wx.showModal({
+        content: '联系人限制为30个以内的汉字',
+        confirmColor: '#2577e3'
+      })
+    }else if (this.data.tel && !/^[1][3,4,5,7,8][0-9]{9}$/.test(this.data.tel)){
+      wx.showModal({
+        content: '联系方式必须为11位的数字',
         confirmColor: '#2577e3'
       })
     }else{

@@ -59,8 +59,6 @@ Component({
         width: global.menuRect.width,
         bottom: global.menuRect.bottom,
       })
-
-      console.log(global.menuRect)
     },
     detached: function () {
     },

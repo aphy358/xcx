@@ -31,7 +31,7 @@ Page(store.createPage({
     commissionUserId: ''
   },
 
-  globalData: ['isLogin', 'curProductInfo', 'userData', 'usePerson'],
+  globalData: ['isLogin', 'curProductInfo', 'userData', 'usePerson', 'navHeight'],
 
   watch: {
     isLogin(newVal) {
@@ -177,6 +177,14 @@ Page(store.createPage({
       })
     }
 
+    if (userName.length > 30){
+      return wx.showToast({
+        title: '姓名不能超过30个字符',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+
     if (!mobile){
       return wx.showToast({
         title: '手机号必填',
@@ -188,6 +196,14 @@ Page(store.createPage({
     if (!new RegExp(/^[1][3,4,5,7,8][0-9]{9}$/).test(mobile)) {
       return wx.showToast({
         title: '请输入正确的手机号',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+
+    if (customRemark.length > 200) {
+      return wx.showToast({
+        title: '备注不能超过200个字符',
         icon: 'none',
         duration: 2000
       })

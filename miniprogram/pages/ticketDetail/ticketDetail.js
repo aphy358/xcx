@@ -128,6 +128,13 @@ Page(store.createPage({
     wx.navigateTo({
       url: '/pages/placeOrder/placeOrder?commissionUserId=' + this.data.commissionUserId,
     })
+  },
+  
+  discern(e){
+    wx.previewImage({
+      current: e.currentTarget.dataset.src, // 当前显示图片的http链接
+      urls: [e.currentTarget.dataset.src] // 需要预览的图片http链接列表
+    })
   }
 
 }))
