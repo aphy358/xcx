@@ -303,7 +303,7 @@ export const processProductInfo = (info, nameLen) => {
     info.hcfGoodsInfo.goodsDetail = info.hcfGoodsInfo.goodsDetail.split(/[\n|\r]/).filter(n => n)
     info.hcfGoodsInfo.goodsImgArr = processImgUrl(info.hcfGoodsInfo.goodsImg || '').split(/[,|，]/).filter(n => n)
     info.hcfGoodsInfo.highlight = info.hcfGoodsInfo.highlight.split(/[\n|\r|#]/).filter(n => n)
-    info.hcfGoodsInfo.goodsDetailImg = processImgUrl(info.hcfGoodsInfo.goodsDetailImg || '')
+    info.hcfGoodsInfo.goodsDetailImgArr = processImgUrl(info.hcfGoodsInfo.goodsDetailImg || '').split(/[,|，]/).filter(n => n)
 
     info.hcfGoodsInfo.goodsNameShow = info.hcfGoodsInfo.goodsName.length > nameLen
       ? info.hcfGoodsInfo.goodsName.substr(0, nameLen) + '...'

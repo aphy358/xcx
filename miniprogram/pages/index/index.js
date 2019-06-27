@@ -128,12 +128,16 @@ Page(store.createPage({
 
       // 查商品列表
       this.getProductList()
-
-      setInterval(function () {
+      
+      this.myinterval = setInterval(function () {
         // 定时器更新商品抢购倒计时
         _this._setInterval()
       }, 1000)
     }
+  },
+
+  onHide: function () {
+    clearInterval(this.myinterval)
   },
 
   resetParams(){

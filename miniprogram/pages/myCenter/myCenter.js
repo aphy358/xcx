@@ -80,7 +80,7 @@ Page(store.createPage({
   moneyNumTips(){
     wx.showModal({
       title: '待入账金额',
-      content: '在订单入住/确定后可解冻提现，约 3个工作日到账',
+      content: '订单预约成功确认后可解冻提现，约3个工作日到账',
       confirmColor: '#2577e3',
       showCancel: false
     })

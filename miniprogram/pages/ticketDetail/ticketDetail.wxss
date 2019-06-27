@@ -116,8 +116,13 @@
   padding-bottom: 120rpx;
 }
 
+.ticket-info-img{
+  overflow: hidden;
+}
+
 .ticket-info-img image{
   width: 100%;
+  float: left;
 }
 
 .ticket-info-title-one{
