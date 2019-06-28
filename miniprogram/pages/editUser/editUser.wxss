@@ -55,6 +55,13 @@
 .box-info{
 	font-size: 24rpx;
 	color: #999999;
+	max-width: 570rpx;
+	overflow: hidden;
+	word-break: break-all;
+	-webkit-line-clamp: 1;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
 }
 
 .box-icon{

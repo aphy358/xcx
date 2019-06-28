@@ -86,6 +86,7 @@ Page(store.createPage({
 
   // 查询商品详情
   queryProductInfo(goodsId){
+    store.dispatch('curProductInfo', {})
     global.request2({
       url: '/goods/goodsDetail',
       data: {

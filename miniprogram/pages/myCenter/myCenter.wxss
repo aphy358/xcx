@@ -48,6 +48,13 @@
   font-size: 30rpx;
   margin: 24rpx 25rpx 10rpx 0;
   float: left;
+  max-width: 320rpx;
+  overflow: hidden;
+  word-break: break-all;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .edit-user-name{
@@ -152,12 +159,15 @@
   font-weight: bold;
   color: #D4A95B;
   font-size: 26rpx;
+  position: relative;
 }
 
 .cash-out-icon{
-  transform: scale(0.6);
+  font-size: 22rpx;
   display: inline-block;
-  margin-left: -8rpx;
+  position: absolute;
+  top: 8rpx;
+  right: 80rpx;
 }
 
 .money-bot{

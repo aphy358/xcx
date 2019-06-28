@@ -2,26 +2,28 @@
 <nav-bar showNavBarTitle="{{showNavBarTitle}}">商品详情</nav-bar>
 
 <!-- banner 区域 -->
-<swiper
-  autoplay="{{false}}"
-  interval="3000"
-  duration="300"
-  indicator-dots="{{true}}"
-  indicator-color="rgb(189, 179, 136)"
-  indicator-active-color="rgb(161, 123, 123)"
-  class='swiper-outer'
->
-  <block wx:for="{{curProductInfo.hcfGoodsInfo.goodsImgArr}}" wx:key="{{index}}">
-    <swiper-item class="swiper-item">
-      <image src="{{item}}" />
-    </swiper-item>
-  </block>
-
+<view class='swiper-outer-wrap'>
+  <swiper
+    autoplay="{{false}}"
+    interval="3000"
+    duration="300"
+    indicator-dots="{{true}}"
+    indicator-color="rgb(189, 179, 136)"
+    indicator-active-color="rgb(161, 123, 123)"
+    class='swiper-outer'
+  >
+    <block wx:for="{{curProductInfo.hcfGoodsInfo.goodsImgArr}}" wx:key="{{index}}">
+      <swiper-item class="swiper-item">
+        <image src="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  
   <view class='sold-out-outer' wx:if="{{curProductInfo.hcfGoodsStock.stock <= curProductInfo.hcfGoodsStock.sellStock}}">
     <view class='sold-out-mask'></view>
     <view class='sold-out-text'>已售罄</view>
   </view>
-</swiper>
+</view>
 
 <view class="ticket-brief-outer">
   <view>

@@ -128,9 +128,7 @@
 		</view>
 		<text class="share-txt">快分享好友购买解锁更多现金吧</text>
 		<view class="btn-box clearfix">
-			<!--<button class="read-detail fl" bindtap="readOrder">订单详情</button>-->
 			<button class="share-now fl" bindtap="share">立即分享</button>
-			<!--<button class="share-now fl" open-type="share" wx:if="{{userData.hcfUser.type == 0}}">立即分享</button>-->
 		</view>
 		
 		<view class="close-red-packet iconfont icon-delete2" bindtap="closePacket"></view>
