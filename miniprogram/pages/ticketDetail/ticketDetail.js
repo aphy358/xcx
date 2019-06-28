@@ -9,6 +9,8 @@ Page(store.createPage({
     showShareSelector: false,
 
     commissionUserId: '',
+
+    loading: true,
   },
 
   globalData: ['userData', 'isLogin', 'curProductInfo'],
@@ -86,6 +88,7 @@ Page(store.createPage({
 
   // 查询商品详情
   queryProductInfo(goodsId){
+    var _this = this
     store.dispatch('curProductInfo', {})
     global.request2({
       url: '/goods/goodsDetail',
@@ -96,6 +99,9 @@ Page(store.createPage({
         if (res.data.returnCode == 1){
           processProductInfo(res.data.data)
           store.dispatch('curProductInfo', res.data.data)
+          _this.setData({
+            loading: false
+          })
         }
       }
     })
@@ -119,16 +125,24 @@ Page(store.createPage({
   // 进入到订单填写页
   gotoPlaceOrder(){
     var hcfGoodsStock = this.data.curProductInfo.hcfGoodsStock
-    if (hcfGoodsStock.stock <= hcfGoodsStock.sellStock){
-      return wx.showToast({
-        title: '库存不够',
+    if (!hcfGoodsStock){
+      wx.showToast({
+        title: '商品已下线',
         icon: 'none',
         duration: 2000
       })
+    }else{
+      if (hcfGoodsStock.stock <= hcfGoodsStock.sellStock){
+        return wx.showToast({
+          title: '库存不够',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+      wx.navigateTo({
+        url: '/pages/placeOrder/placeOrder?commissionUserId=' + this.data.commissionUserId,
+      })
     }
-    wx.navigateTo({
-      url: '/pages/placeOrder/placeOrder?commissionUserId=' + this.data.commissionUserId,
-    })
   },
   
   discern(e){

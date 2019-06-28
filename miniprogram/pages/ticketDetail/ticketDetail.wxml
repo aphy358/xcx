@@ -19,7 +19,7 @@
     </block>
   </swiper>
   
-  <view class='sold-out-outer' wx:if="{{curProductInfo.hcfGoodsStock.stock <= curProductInfo.hcfGoodsStock.sellStock}}">
+  <view class='sold-out-outer' wx:if="{{(!loading && !curProductInfo.hcfGoodsStock) || curProductInfo.hcfGoodsStock.stock <= curProductInfo.hcfGoodsStock.sellStock}}">
     <view class='sold-out-mask'></view>
     <view class='sold-out-text'>已售罄</view>
   </view>
