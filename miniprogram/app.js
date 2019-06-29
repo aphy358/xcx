@@ -1,7 +1,7 @@
 //app.js
 import './plugins/dateFormat.js'
 import store from './plugins/store/index.js'
-import { addDays, wxLogin, getUserAndAccount, setRequestFunc2, compareVersion } from './plugins/util.js'
+import { addDays, getUserAndAccount, setRequestFunc2, compareVersion } from './plugins/util.js'
 
 
 App(store.createApp({
@@ -46,18 +46,8 @@ App(store.createApp({
   onShow(options) {
     var _this = this
 
-    // 先尝试着从 storage 里取 openid，如果有，则说明以前登录过
-    wx.getStorage({
-      key: 'openid',
-      success(res) {
-        // 尝试着获取用户信息，试一试现在是否还处于登录态，如丢失登录态，则登录
-        getUserAndAccount(res.data.openid, res.data.token)
-      },
-      fail: function (res) {
-        // 如果以前从未登录,则登录
-        wxLogin()
-      }
-    })
+    // 尝试着获取用户信息，试一试现在是否还处于登录态，如丢失登录态，则登录
+    getUserAndAccount()
 
     wx.getStorage({
       key: 'usePerson',

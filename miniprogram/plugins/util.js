@@ -49,9 +49,28 @@ export const getStarText = (n) => {
     n.star <= 45 ? '高档型' : '豪华型'
 }
 
+// 获取用户信息和账户信息
+export const getUserAndAccount = () => {
+  // 先尝试着从 storage 里取 openid，如果有，则说明以前登录过
+  wx.getStorage({
+    key: 'openid',
+    success(res) {
+      // 尝试着获取用户信息，试一试现在是否还处于登录态，如丢失登录态，则登录
+      _getUserAndAccount(res.data.openid, res.data.token)
+    },
+    fail: function (res) {
+      // 如果以前从未登录,则登录
+      wxLogin()
+    }
+  })
+}
+
 
 // 获取用户信息和账户信息
-export const getUserAndAccount = (openid, token) => {
+export const _getUserAndAccount = (openid, token) => {
+  if(global.queryUser)  return
+  global.queryUser = true
+
   openid = openid || global.openid
   token = token || global.token
 
@@ -62,6 +81,8 @@ export const getUserAndAccount = (openid, token) => {
       openid: openid
     },
     success(res) {
+      global.queryUser = false
+
       if (res.data.returnCode == -400001) {
         // 登录态丢失，重新登录
         wxLogin()
