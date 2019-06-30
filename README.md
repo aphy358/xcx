@@ -12,3 +12,11 @@
 
 AppID: wx8760d3300ed27e7d （私人小程序）
 AppID: wx6ac08ec94a8fb611 （测试小程序）
+
+wx7bb8c8d0da81e92f
+
+https://huichufa.jlqnb.com
+https://qnb.oss-cn-shenzhen.aliyuncs.com
+https://test-huichufa.jlqnb.com
+https://test.huichufa.jlqnb.com
+https://wx.qlogo.cn

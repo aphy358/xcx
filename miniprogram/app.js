@@ -13,9 +13,9 @@ App(store.createApp({
     try {
       var appId = wx.getAccountInfoSync().miniProgram.appId
   
-      global.url = appId == 'wx6ac08ec94a8fb611'
-        ? 'https://test-huichufa.jlqnb.com'
-        : 'https://huichufa.jlqnb.com'
+      global.url = appId == 'wx7bb8c8d0da81e92f'
+        ? 'https://huichufa.jlqnb.com'
+        : 'https://test-huichufa.jlqnb.com'
     } catch (error) {
       wx.showModal({
         title: '提示',
