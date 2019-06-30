@@ -98,7 +98,7 @@ Component(store.createComponent({
   lifetimes: {
     attached: function () {
       this.animation = wx.createAnimation({
-        duration: 300,
+        duration: 400,
         timingFunction: 'ease',
       })
     },

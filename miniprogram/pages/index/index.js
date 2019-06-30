@@ -35,7 +35,6 @@ Page(store.createPage({
       firstShowIndex: 0,
     },
 
-    activeTab: -1,
     tabFixClass: '',
 
     showShareSelector: false,
@@ -159,7 +158,7 @@ Page(store.createPage({
 
     this.data.curTab = {
       categoryName: '全部',
-      categoryId: -1,
+      categoryId: this.data.curTab.categoryId,
       adItems: [],
       pageNum: 1,
       pageTotal: 1000,
@@ -169,7 +168,6 @@ Page(store.createPage({
       firstShowIndex: 0,
     }
 
-    this.data.activeTab = -1
     this.data.tabFixClass = ''
     this.data.showShareSelector = false
     this.data.productInfo = null
@@ -240,7 +238,6 @@ Page(store.createPage({
 
   // 查询商品列表
   getProductList(reset){
-    // var curTab = this.data.tabItems.filter(n => n.categoryId == this.data.activeTab)
     var curTab = this.data.curTab
     if (curTab.pageNum > curTab.pageTotal && !reset) return
 
